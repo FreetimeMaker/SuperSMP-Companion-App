@@ -1,10 +1,10 @@
 package com.freetime.supersmpcompanionapp;
 
 import android.os.Bundle;
-import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.fragment.app.Fragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,78 +13,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize Floating Action Button (FAB)
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> 
-            Toast.makeText(MainActivity.this, "FAB Clicked", Toast.LENGTH_SHORT).show()
-        );
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        // Initialize BottomAppBar
-        BottomAppBar bottomAppBar = findViewById(R.id.bottom_app_bar);
-        bottomAppBar.setOnMenuItemClickListener(item -> {
+        Fragment homeFragment = new HomeFragment();
+        Fragment scmdFragment = new SCMDFragment();
+        Fragment ulFragment = new ULFragment();
+
+        setCurrentFragment(homeFragment);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.search:
-                    Toast.makeText(MainActivity.this, "Search Clicked", Toast.LENGTH_SHORT).show();
-                    return true;
-
-                case R.id.option_1:
-                    Toast.makeText(MainActivity.this, "Option 1 Clicked", Toast.LENGTH_SHORT).show();
-                    return true;
-
-                case R.id.option_2:
-                    Toast.makeText(MainActivity.this, "Option 2 Clicked", Toast.LENGTH_SHORT).show();
-                    return true;
-
-                default:
-                    return false;
+                case R.id.home:
+                    setCurrentFragment(homeFragment);
+                    break;
+                case R.id.scmd:
+                    setCurrentFragment(scmdFragment);
+                    break;
+                case R.id.ul:
+                    setCurrentFragment(ulFragment);
+                    break;
             }
+            return true;
         });
     }
 
-    private BottomNavigationView bottomNav;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Initialize BottomNavigationView
-        bottomNav = findViewById(R.id.bottomNav);
-        if (bottomNav == null) {
-            // Handle missing BottomNavigationView (e.g., log error or show fallback UI)
-            return;
-        }
-
-        // Set listener for navigation items
-        bottomNav.setOnItemSelectedListener(item -> {
-            Fragment selectedFragment = null;
-            int itemId = item.getItemId();
-
-            if (itemId == R.id.nav_home) {
-                selectedFragment = new HomeFragment(); // Replace with your HomeFragment
-            } else if (itemId == R.id.nav_cmd) {
-                selectedFragment = new CommandFragment(); // Replace with your CommandFragment
-            } else if (itemId == R.id.nav_vl) {
-                selectedFragment = new VoLiFragment(); // Replace with your VoiceFragment
-            }
-
-            // Replace fragment if a valid one is selected
-            if (selectedFragment != null) {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, selectedFragment) // Ensure fragment_container exists in activity_main.xml
-                        .commit();
-                return true;
-            }
-            return false;
-        });
-
-        // Load default fragment on startup (e.g., HomeFragment)
-        if (savedInstanceState == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, new HomeFragment())
-                    .commit();
-        }
+    private void setCurrentFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.flFragment, fragment)
+                .commit();
     }
 }
