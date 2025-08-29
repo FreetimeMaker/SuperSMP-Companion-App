@@ -1,14 +1,45 @@
 package com.freetime.supersmpcompanionapp;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import com.freetime.supersmpcompanionapp.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Initialize Floating Action Button (FAB)
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> 
+            Toast.makeText(MainActivity.this, "FAB Clicked", Toast.LENGTH_SHORT).show()
+        );
+
+        // Initialize BottomAppBar
+        BottomAppBar bottomAppBar = findViewById(R.id.bottom_app_bar);
+        bottomAppBar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.search:
+                    Toast.makeText(MainActivity.this, "Search Clicked", Toast.LENGTH_SHORT).show();
+                    return true;
+
+                case R.id.option_1:
+                    Toast.makeText(MainActivity.this, "Option 1 Clicked", Toast.LENGTH_SHORT).show();
+                    return true;
+
+                case R.id.option_2:
+                    Toast.makeText(MainActivity.this, "Option 2 Clicked", Toast.LENGTH_SHORT).show();
+                    return true;
+
+                default:
+                    return false;
+            }
+        });
+    }
 
     private BottomNavigationView bottomNav;
 

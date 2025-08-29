@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.coordinatorlayout.widget.CoordinatorLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
 
-    <item
-        android:id="@+id/home"
-        android:icon="@drawable/home"
-        android:title="Home"
-        app:showAsAction="ifRoom" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:src="@android:drawable/ic_input_add"
+        app:tint="@color/white"
+        app:fabSize="auto"
+        app:layout_anchor="@id/bottom_app_bar" />
 
-    <item
-        android:id="@+id/cmd"
-        android:icon="@drawable/cmd"
-        android:title="Server Commands"
-        app:showAsAction="never" />
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabCradleMargin="0dp"
+        app:fabCradleRoundedCornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_app_bar_menu"
+        app:navigationIcon="@drawable/ic_menu" />
 
-    <item
-        android:id="@+id/ul"
-        android:icon="@drawable/ul"
-        android:title="Usefull Links"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/ul"
-        android:icon="@drawable/ul"
-        android:title="Usefull Links"
-        app:showAsAction="never" />
-
-</menu>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
