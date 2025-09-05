@@ -1,9 +1,10 @@
 package com.freetime.supersmpcompanionapp;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.freetime.ssmpc.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,18 +23,20 @@ public class MainActivity extends AppCompatActivity {
         setCurrentFragment(homeFragment);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (bottomNavigationView.getSelectedItemId() == item.getItemId()) {
+                return false; // No action if the same item is selected
+            }
             switch (item.getItemId()) {
                 case R.id.home:
                     setCurrentFragment(homeFragment);
-                    break;
+                    return true;
                 case R.id.scmd:
                     setCurrentFragment(scmdFragment);
-                    break;
+                    return true;
                 case R.id.ul:
                     setCurrentFragment(ulFragment);
-                    break;
+                    return true;
             }
-            return true;
         });
     }
 
