@@ -13,7 +13,8 @@
         android:theme="@style/Theme.SuperSMPCompanionApp">
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_main" />
     </application>
 
 </manifest>
