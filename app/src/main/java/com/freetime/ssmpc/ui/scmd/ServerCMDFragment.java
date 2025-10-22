@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.freetime.ssmpc.databinding.FragmentDashboardBinding;
+import com.freetime.ssmpc.databinding.FragmentServercmdBinding;
 
 public class ServerCMDFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentServercmdBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ServerCMDViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(ServerCMDViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentServercmdBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
