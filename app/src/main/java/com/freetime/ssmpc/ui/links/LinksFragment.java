@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -29,10 +30,19 @@ public class LinksFragment extends Fragment {
 
         Button discordBTN = binding.discordBTN;
         discordBTN.setOnClickListener(v -> {
-            String discordUrl = "https://discord.com/invite/supersmp"; // Replace with your actual invite
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(discordUrl));
+            String discordUrl = "https://discord.com/invite/supersmp"; // your invite link
+            Uri uri = Uri.parse(discordUrl);
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+            // Optional: explicitly tell Android you want to use a browser, not an in-app handler
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+
+            // Safety check
             if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
                 startActivity(intent);
+            } else {
+                Toast.makeText(requireContext(), "No browser found to open link", Toast.LENGTH_SHORT).show();
             }
         });
 
