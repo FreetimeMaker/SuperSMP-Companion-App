@@ -28,9 +28,6 @@ public class MapFragment extends Fragment {
             binding = FragmentMapBinding.inflate(inflater, container, false);
             View root = binding.getRoot();
 
-            final TextView textView = binding.textNotifications;
-            mapViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
             WebView webView = binding.mapWebView;
             webView.setWebViewClient(new WebViewClient()); // Ensures links open inside the WebView
             WebSettings webSettings = webView.getSettings();

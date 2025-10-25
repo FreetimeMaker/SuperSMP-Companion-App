@@ -28,9 +28,6 @@ public class ShopFragment extends Fragment {
             binding = FragmentShopBinding.inflate(inflater, container, false);
             View root = binding.getRoot();
 
-            final TextView textView = binding.textNotifications;
-            shopViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
             WebView webView = binding.shopWebView;
             webView.setWebViewClient(new WebViewClient()); // Ensures links open inside the WebView
             WebSettings webSettings = webView.getSettings();
