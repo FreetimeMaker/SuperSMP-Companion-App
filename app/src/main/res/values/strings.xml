@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">SuperSMP Companion (Java)</string>
     <string name="title_home">Home</string>
-    <string name="title_scmd">Server Commands</string>
-    <string name="title_links">Usefull Links</string>
-    <string name="title_shop">Official Shop</string>
-    <string name="title_map">Official Map</string>
+    <string name="title_scmd">Commands</string>
+    <string name="title_links">Links</string>
+    <string name="title_shop">Shop</string>
+    <string name="title_map">Map</string>
 </resources>
