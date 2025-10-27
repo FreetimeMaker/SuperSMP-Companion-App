@@ -19,7 +19,7 @@
         android:textColor="@color/black"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Welcome to the Usefull Links Section!"
+        android:text="Welcome to the Useful Links Section!"
         android:textSize="20sp" />
 
     <com.google.android.material.button.MaterialButton
