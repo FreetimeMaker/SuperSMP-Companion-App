@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ui.links.LinksFragment">
 
     <LinearLayout
@@ -29,5 +30,32 @@
         android:layout_height="wrap_content"
         android:text="Join the Official SuperSMP Discord Server" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/vote1BTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Click here to vote on the 1st Website" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/vote2BTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Click here to vote on the 2nd Website"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/vote3BTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Click here to vote on the 3rd Website" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/vote4BTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Click here to vote on the 4th Website"/>
     </LinearLayout>
 </ScrollView>

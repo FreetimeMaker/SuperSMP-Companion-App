@@ -30,20 +30,33 @@ public class LinksFragment extends Fragment {
 
         Button discordBTN = binding.discordBTN;
         discordBTN.setOnClickListener(v -> {
-            String discordUrl = "https://discord.com/invite/supersmp"; // your invite link
-            Uri uri = Uri.parse(discordUrl);
+            String url = "https://discord.com/invite/supersmp"; // URL of the Discord invite to SuperSMP
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+        });
 
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        Button vote1BTN = binding.vote1BTN;
+        vote1BTN.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Vote1Activity.class);
+            startActivity(intent);
+        });
 
-            // Optional: explicitly tell Android you want to use a browser, not an in-app handler
-            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        Button vote2BTN = binding.vote2BTN;
+        vote2BTN.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Vote2Activity.class);
+            startActivity(intent);
+        });
 
-            // Safety check
-            if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
-                startActivity(intent);
-            } else {
-                Toast.makeText(requireContext(), "No browser found to open link", Toast.LENGTH_SHORT).show();
-            }
+        Button vote3BTN = binding.vote3BTN;
+        vote3BTN.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Vote3Activity.class);
+            startActivity(intent);
+        });
+
+        Button vote4BTN = binding.vote4BTN;
+        vote4BTN.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Vote4Activity.class);
+            startActivity(intent);
         });
 
         return root;

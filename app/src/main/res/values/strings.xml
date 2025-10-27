@@ -5,4 +5,7 @@
     <string name="title_links">Links</string>
     <string name="title_shop">Shop</string>
     <string name="title_map">Map</string>
+    <string name="title_activity_vote1">Vote1Activity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
