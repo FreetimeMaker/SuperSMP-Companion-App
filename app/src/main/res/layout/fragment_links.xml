@@ -57,5 +57,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Click here to vote on the 4th Website"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/vote5BTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Click here to vote on the 5th Website"/>
     </LinearLayout>
 </ScrollView>

@@ -12,11 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.freetime.ssmpc.MainActivity;
 import com.freetime.ssmpc.R;
 
-public class Vote2Activity extends AppCompatActivity {
+public class Vote5Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vote2);
+        setContentView(R.layout.activity_vote4);
 
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -27,14 +27,14 @@ public class Vote2Activity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         );
 
-        WebView webView = findViewById(R.id.vote2WebView);
+        WebView webView = findViewById(R.id.vote5WebView);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://topminecraftservers.org/vote/34919");
+        webView.loadUrl("https://minecraftbestservers.com/server-supersmp.4269/vote");
 
         Button backToMA = findViewById(R.id.backToMA);
         backToMA.setOnClickListener(v -> {
-            Intent intent = new Intent(Vote2Activity.this, MainActivity.class);
+            Intent intent = new Intent(Vote5Activity.this, MainActivity.class);
             startActivity(intent);
         });
     }

@@ -49,6 +49,10 @@
             android:name=".ui.links.Vote4Activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.SuperSMPCompanionApp.Fullscreen" />
+        <activity
+            android:name=".ui.links.Vote5Activity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.SuperSMPCompanionApp.Fullscreen" />
     </application>
 
 </manifest>

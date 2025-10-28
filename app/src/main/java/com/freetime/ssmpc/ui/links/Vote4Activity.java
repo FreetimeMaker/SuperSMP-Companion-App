@@ -32,8 +32,8 @@ public class Vote4Activity extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://minecraft-mp.com/server/338350/vote/");
 
-        Button backToLinks = findViewById(R.id.backToLinks);
-        backToLinks.setOnClickListener(v -> {
+        Button backToMA = findViewById(R.id.backToMA);
+        backToMA.setOnClickListener(v -> {
             Intent intent = new Intent(Vote4Activity.this, MainActivity.class);
             startActivity(intent);
         });
