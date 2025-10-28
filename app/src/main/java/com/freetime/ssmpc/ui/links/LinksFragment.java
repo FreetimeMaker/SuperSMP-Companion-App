@@ -59,6 +59,12 @@ public class LinksFragment extends Fragment {
             startActivity(intent);
         });
 
+        Button vote5BTN = binding.vote5BTN;
+        vote5BTN.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Vote5Activity.class);
+            startActivity(intent);
+        });
+
         return root;
     }
 

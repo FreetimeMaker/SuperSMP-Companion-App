@@ -32,8 +32,8 @@ public class Vote1Activity extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://servers-minecraft.net/server-supersmp.25578");
 
-        Button backToLinks = findViewById(R.id.backToLinks);
-        backToLinks.setOnClickListener(v -> {
+        Button backToMA = findViewById(R.id.backToMA);
+        backToMA.setOnClickListener(v -> {
             Intent intent = new Intent(Vote1Activity.this, MainActivity.class);
             startActivity(intent);
         });
