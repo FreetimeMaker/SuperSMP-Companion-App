@@ -27,10 +27,10 @@
                 android:layout_height="600dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/backToLinks"
+                android:id="@+id/backToMA"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:text="Go Back to the Links Section"
+                android:text="Go Back to the Main Activity"
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
     </FrameLayout>
