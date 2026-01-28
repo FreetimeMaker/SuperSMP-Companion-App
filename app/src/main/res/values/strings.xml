@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SuperSMP Companion (Java)</string>
+    <string name="app_name">SuperSMP Companion</string>
     <string name="title_home">Home</string>
     <string name="title_scmd">Commands</string>
     <string name="title_links">Links</string>

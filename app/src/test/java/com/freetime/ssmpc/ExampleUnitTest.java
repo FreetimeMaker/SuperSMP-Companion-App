@@ -1,4 +1,4 @@
-package com.freetime.supersmpcompanionapp;
+package com.freetime.ssmpc;
 
 import org.junit.Test;
 
