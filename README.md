@@ -9,6 +9,7 @@ An Android Companion app for the SuperSMP Minecraft server.
 # SuperSMP Companion App Features Planned
 Planned Features are:
 
+> Migrating to Kotlin, Jetpack Compose and Kotlin DSL
 > Adding Screenshots and Videos to YouTube or other Providers for showing how the App Works.
 
 # Latest Release Download

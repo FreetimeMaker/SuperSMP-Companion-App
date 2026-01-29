@@ -3,8 +3,8 @@ set -e
 
 ### CONFIG ###
 APP_ID="com.freetime.ssmpc"
-TAG="v1.0.0"   # <-- HIER deine Version eintragen
-KEYSTORE="$HOME/AndroidStudioProjects/SuperSMP-Companion/SuperSMP-Companion-KeyStore.jks"
+TAG="v1.0.5"   # <-- HIER deine Version eintragen
+KEYSTORE="$HOME/AndroidStudioProjects/SuperSMP-Companion-App/SuperSMP-Companion-KeyStore.jks"
 KEY_ALIAS="alle"
 KEY_PASS="KKKKKK"
 OUT_APK="SuperSMP-Companion-$TAG.apk"
