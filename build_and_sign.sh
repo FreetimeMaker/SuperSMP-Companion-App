@@ -7,8 +7,14 @@ TAG="v1.0.5"   # <-- HIER deine Version eintragen
 KEYSTORE="$HOME/AndroidStudioProjects/SuperSMP-Companion-App/SuperSMP-Companion-KeyStore.jks"
 KEY_ALIAS="alle"
 KEY_PASS="KKKKKK"
-OUT_APK="SuperSMP-Companion-$TAG.apk"
+OUT_APK="SSMPC-$TAG.apk"
 ################
+
+echo "==> Erstelle Tag"
+git tag "$TAG"
+
+echo "==> Pushe Tag auf GitHub"
+git push origin "$TAG"
 
 echo "==> Hole Tags von GitHub"
 git fetch --tags
