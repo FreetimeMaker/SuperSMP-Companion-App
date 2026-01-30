@@ -3,6 +3,7 @@
 An Android Companion app for the SuperSMP Minecraft server.
 
 # SuperSMP Companion App Features
+Current Features are:
 
 > In-App-Voting, In-App-Shop (With the Official SuperSMP Shop), In-App-Map (With the Official SuperSMP Map)
 
