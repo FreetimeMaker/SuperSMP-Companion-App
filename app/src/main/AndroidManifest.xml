@@ -24,6 +24,7 @@
         </provider>
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
             <intent-filter>
@@ -34,22 +35,27 @@
         </activity>
         <activity
             android:name=".ui.links.Vote1Activity"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.SuperSMPCompanionApp.Fullscreen" />
         <activity
             android:name=".ui.links.Vote2Activity"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.SuperSMPCompanionApp.Fullscreen" />
         <activity
             android:name=".ui.links.Vote3Activity"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.SuperSMPCompanionApp.Fullscreen" />
         <activity
             android:name=".ui.links.Vote4Activity"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.SuperSMPCompanionApp.Fullscreen" />
         <activity
             android:name=".ui.links.Vote5Activity"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.SuperSMPCompanionApp.Fullscreen" />
     </application>
