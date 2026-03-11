@@ -1,6 +1,8 @@
 # SuperSMP Companion App
 
-An Android Companion app for the SuperSMP Minecraft server.
+An Android Companion app for the SuperSMP Minecraft Server.
+
+This Companion App is not affiliated by or with the SuperSMP Minecraft Server.
 
 # SuperSMP Companion App Features
 Current Features are:

@@ -3,18 +3,15 @@ set -e
 
 ### CONFIG ###
 APP_ID="com.freetime.ssmpc"
-TAG="v1.0.5"   # <-- HIER deine Version eintragen
+TAG="v1.0.6"   # <-- HIER deine Version eintragen
 KEYSTORE="$HOME/AndroidStudioProjects/SuperSMP-Companion-App/SuperSMP-Companion-KeyStore.jks"
 KEY_ALIAS="alle"
 KEY_PASS="KKKKKK"
 OUT_APK="SSMPC-$TAG.apk"
 ################
 
-echo "==> Erstelle Tag"
+echo "==> Erstelle Tag $TAG"
 git tag "$TAG"
-
-echo "==> Pushe Tag auf GitHub"
-git push origin "$TAG"
 
 echo "==> Hole Tags von GitHub"
 git fetch --tags
@@ -46,3 +43,9 @@ apksigner verify --verbose "$OUT_APK"
 
 echo "==> Fertig!"
 echo "Signierte APK: $OUT_APK"
+
+echo "==> Zurück zum Hauptbranch wechseln"
+git checkout master
+
+echo "==> Pushe Tag $TAG auf GitHub"
+git push origin "$TAG"
