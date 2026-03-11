@@ -53,7 +53,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.22")
     
     // Jetpack Compose BOM
-    implementation(platform("androidx.compose:compose-bom:2024.02.02"))
+    implementation(platform("androidx.compose:compose-bom:2026.02.01"))
     
     // Core Compose dependencies
     implementation("androidx.compose.ui:ui")
@@ -74,6 +74,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     
     // Compose Testing
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.02"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2026.02.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 }
