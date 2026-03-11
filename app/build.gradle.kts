@@ -67,6 +67,7 @@ dependencies {
     // Compose Material Design
     implementation("androidx.compose.material:material-icons-extended")
     implementation(libs.foundation)
+    implementation(libs.ui)
 
     // Debug
     debugImplementation("androidx.compose.ui:ui-tooling")
