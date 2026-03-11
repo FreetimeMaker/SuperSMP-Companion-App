@@ -8,7 +8,7 @@
 
 [![Latest release](https://img.shields.io/github/v/release/FreetimeMaker/SuperSMP-Companion-App?style=for-the-badge)](https://github.com/FreetimeMaker/SuperSMP-Companion-App/releases)
 [![GitHub license](https://img.shields.io/github/license/FreetimeMaker/SuperSMP-Companion-App?style=for-the-badge)](https://github.com/FreetimeMaker/SuperSMP-Companion-App/blob/main/LICENSE)
-[![Downloads](https://img.shields.io/github/downloads/FreetimeMaker/GeoWeather/total?style=for-the-badge)](https://github.com/FreetimeMaker/SuperSMP-Companion-App/releases)
+[![Downloads](https://img.shields.io/github/downloads/FreetimeMaker/SuperSMP-Companion-App/total?style=for-the-badge)](https://github.com/FreetimeMaker/SuperSMP-Companion-App/releases)
 
 **The ultimate unofficial companion app for the SuperSMP Minecraft Server**
 
@@ -66,9 +66,9 @@ You can download the latest version of GeoWeather from the following platforms:
 [<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="82">](https://github.com/FreetimeMaker/GeoWeather/releases/latest")
 
 
-[<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/com.freetime.geoweather)
+[<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/com.freetime.ssmpc)
 
-[<img src="https://www.openapk.net/images/openapk-badge.png" alt="Get it on OpenAPK" height="80">](https://www.openapk.net/geoweather/com.freetime.geoweather/)
+[<img src="https://www.openapk.net/images/openapk-badge.png" alt="Get it on OpenAPK" height="80">](https://www.openapk.net/geoweather/com.freetime.ssmpc/)
 
 [<img src="https://raw.githubusercontent.com/ImranR98/Obtainium/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" width="194">](https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%22com.freetime.geoweather%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FFreetimeMaker%2FGeoWeather%22%2C%22author%22%3A%22Freetime%20Maker%22%2C%22name%22%3A%22GeoWeather%22%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%7D%22%7D)
 </div>
