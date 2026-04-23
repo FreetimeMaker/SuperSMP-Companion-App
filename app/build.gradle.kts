@@ -50,7 +50,7 @@ dependencies {
     implementation(libs.navigation.ui)
     
     // Kotlin
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.3.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.3.21")
     
     // Jetpack Compose BOM
     implementation(platform("androidx.compose:compose-bom:2026.03.01"))
