@@ -50,10 +50,10 @@ dependencies {
     implementation(libs.navigation.ui)
     
     // Kotlin
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.3.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.3.21")
     
     // Jetpack Compose BOM
-    implementation(platform("androidx.compose:compose-bom:2026.03.01"))
+    implementation(platform("androidx.compose:compose-bom:2026.04.01"))
     
     // Core Compose dependencies
     implementation("androidx.compose.ui:ui")
@@ -62,7 +62,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.activity:activity-compose:1.13.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
-    implementation("androidx.navigation:navigation-compose:2.9.7")
+    implementation("androidx.navigation:navigation-compose:2.9.8")
     
     // Compose Material Design
     implementation("androidx.compose.material:material-icons-extended")
@@ -74,6 +74,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     
     // Compose Testing
-    androidTestImplementation(platform("androidx.compose:compose-bom:2026.03.01"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2026.04.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 }
