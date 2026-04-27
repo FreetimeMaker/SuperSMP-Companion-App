@@ -1,15 +1,15 @@
 [versions]
 agp = "9.0.1"
-kotlin = "2.3.20"
+kotlin = "2.3.21"
 appcompat = "1.7.1"
 activity = "1.13.0"
 constraintlayout = "2.2.1"
-navigationFragment = "2.9.7"
+navigationFragment = "2.9.8"
 lifecycleLivedataKtx = "2.10.0"
 lifecycleViewmodelKtx = "2.10.0"
 navigationUi = "2.9.7"
-foundation = "1.10.6"
-ui = "1.10.6"
+foundation = "1.11.0"
+ui = "1.11.0"
 
 [libraries]
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
