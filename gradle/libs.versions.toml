@@ -7,7 +7,7 @@ constraintlayout = "2.2.1"
 navigationFragment = "2.9.8"
 lifecycleLivedataKtx = "2.10.0"
 lifecycleViewmodelKtx = "2.10.0"
-navigationUi = "2.9.7"
+navigationUi = "2.9.8"
 foundation = "1.11.0"
 ui = "1.11.0"
 
