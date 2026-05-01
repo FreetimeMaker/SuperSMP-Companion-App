@@ -1,2 +1,0 @@
-- Fixed for F-Droid Pipeline
-- Updated the Dependencies
