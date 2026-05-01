@@ -112,7 +112,7 @@ jobs:
         id: sign_apk
         run: |
           UNSIGNED_APK="app/build/outputs/apk/release/app-release-unsigned.apk"
-          SIGNED_APK="SuperSMP-Companion-${{ needs.prepare_android_app.outputs.version }}.apk"
+          SIGNED_APK="SSMPC-${{ needs.prepare_android_app.outputs.version }}.apk"
 
           echo "==> Signiere APK: $SIGNED_APK"
           "${{ steps.find_apksigner.outputs.apksigner }}" sign \
@@ -134,8 +134,8 @@ jobs:
       - name: Upload APK as build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: SuperSMP-Companion-${{ needs.prepare_android_app.outputs.version }}.apk
-          path: SuperSMP-Companion-${{ needs.prepare_android_app.outputs.version }}.apk
+          name: SSMPC-${{ needs.prepare_android_app.outputs.version }}.apk
+          path: SSMPC-${{ needs.prepare_android_app.outputs.version }}.apk
           if-no-files-found: error
           retention-days: 90
 
@@ -145,6 +145,6 @@ jobs:
         with:
           tag_name: v${{ needs.prepare_android_app.outputs.version }}
           files: |
-            SuperSMP-Companion-${{ needs.prepare_android_app.outputs.version }}.apk
+            SSMPC-${{ needs.prepare_android_app.outputs.version }}.apk
           draft: true
           generate_release_notes: true
