@@ -3,6 +3,7 @@
 • Enhanced app stability and performance
 • Improved user interface with Material Design 3
 • Better support for newer Android versions
+• Added better Security in WebViews
 
 🔧 **Technical Improvements:**
 • Migrated to Kotlin for better performance

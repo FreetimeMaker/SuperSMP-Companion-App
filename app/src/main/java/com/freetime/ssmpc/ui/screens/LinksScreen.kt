@@ -1,11 +1,9 @@
 package com.freetime.ssmpc.ui.screens
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -22,6 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
+import androidx.core.net.toUri
+import com.freetime.ssmpc.PrivacyWebView
 
 @Composable
 fun LinksScreen() {
@@ -102,7 +102,7 @@ fun LinksScreen() {
 private fun openDiscordInvite(context: android.content.Context) {
     val webIntent = Intent(
         Intent.ACTION_VIEW,
-        Uri.parse("https://discord.com/invite/supersmp")
+        "https://discord.com/invite/supersmp".toUri()
     )
     context.startActivity(webIntent)
 }
@@ -274,14 +274,14 @@ class Vote5Activity : ComponentActivity() {
 
 @Composable
 fun WebViewScreen(
-        url: String,
-        onBack: () -> Unit
-    ) {
+    url: String,
+    onBack: () -> Unit
+) {
     Box(modifier = Modifier.fillMaxSize()) {
+
         AndroidView(
             factory = { ctx ->
-                WebView(ctx).apply {
-                    webViewClient = WebViewClient()
+                PrivacyWebView(ctx).apply {
                     settings.javaScriptEnabled = true
                     loadUrl(url)
                 }

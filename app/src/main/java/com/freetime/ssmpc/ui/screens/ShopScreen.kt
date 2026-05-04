@@ -12,16 +12,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import com.freetime.ssmpc.PrivacyWebView
 
 @Composable
 fun ShopScreen() {
     Box(modifier = Modifier.fillMaxSize()) {
         AndroidView(
             factory = { ctx ->
-                WebView(ctx).apply {
-                    webViewClient = WebViewClient()
+                PrivacyWebView(ctx).apply {
                     settings.javaScriptEnabled = true
-                    loadUrl("https://store.supersmp.fun/")
+                    loadUrl("https://store.supersmp.fun")
                 }
             },
             modifier = Modifier.fillMaxSize()

@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "com.freetime.ssmpc"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.freetime.ssmpc"
         minSdk = 24
         targetSdk = 37
         versionCode = 9
-        versionName = "1.0.8"
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -56,7 +56,7 @@ dependencies {
     implementation(platform("androidx.compose:compose-bom:2026.04.01"))
     
     // Core Compose dependencies
-    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui:1.11.0")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
