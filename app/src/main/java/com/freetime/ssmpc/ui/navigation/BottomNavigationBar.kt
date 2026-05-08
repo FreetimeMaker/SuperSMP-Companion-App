@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Terminal
 import androidx.compose.material.icons.filled.Link
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBarItem

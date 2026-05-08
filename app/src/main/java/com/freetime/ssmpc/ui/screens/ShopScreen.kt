@@ -2,8 +2,6 @@ package com.freetime.ssmpc.ui.screens
 
 import android.content.Context
 import android.os.Bundle
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -11,19 +9,16 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.PrivacyWebView
+import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class ShopActivity : ComponentActivity() {
@@ -68,8 +63,11 @@ class ShopActivity : ComponentActivity() {
 }
 
 @Composable
-fun ShopScreen() {
-    Box(modifier = Modifier.fillMaxSize()) {
+fun ShopScreen(
+    modifier: Modifier = Modifier,
+    onBack: (() -> Unit)? = null
+) {
+    Box(modifier = modifier.fillMaxSize()) {
         AndroidView(
             factory = { ctx ->
                 PrivacyWebView(ctx).apply {
@@ -79,5 +77,17 @@ fun ShopScreen() {
             },
             modifier = Modifier.fillMaxSize()
         )
+
+        if (onBack != null) {
+            Button(
+                onClick = onBack,
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(16.dp)
+                    .fillMaxWidth()
+            ) {
+                Text("Go Back")
+            }
+        }
     }
 }

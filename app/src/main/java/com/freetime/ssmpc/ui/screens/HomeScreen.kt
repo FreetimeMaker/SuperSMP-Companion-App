@@ -11,17 +11,15 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class HomeActivity : ComponentActivity() {
@@ -66,9 +64,12 @@ class HomeActivity : ComponentActivity() {
 }
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    onBack: (() -> Unit)? = null
+) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(16.dp)
             .verticalScroll(rememberScrollState()),
@@ -134,6 +135,15 @@ fun HomeScreen() {
                 Text("• Limited Time Crates")
                 Text("• Economy System")
                 Text("• Land Claim")
+            }
+        }
+
+        if (onBack != null) {
+            Button(
+                onClick = onBack,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Go Back")
             }
         }
     }

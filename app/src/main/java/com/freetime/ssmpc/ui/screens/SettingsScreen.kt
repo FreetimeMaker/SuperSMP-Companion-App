@@ -11,7 +11,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.freetime.ssmpc.R
+import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class SettingsActivity : ComponentActivity() {
@@ -68,10 +69,13 @@ class SettingsActivity : ComponentActivity() {
 }
 
 @Composable
-fun SettingsScreen() {
+fun SettingsScreen(
+    modifier: Modifier = Modifier,
+    onBack: (() -> Unit)? = null
+) {
     val context = LocalContext.current
     val sharedPreferences = remember {
-        context.getSharedPreferences("geo_weather_prefs", Context.MODE_PRIVATE)
+        context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE)
     }
 
     var darkModeEnabled by remember {
@@ -132,6 +136,15 @@ fun SettingsScreen() {
                         sharedPreferences.edit().putBoolean("dark_mode_enabled", it).apply()
                     }
                 )
+            }
+        }
+
+        if (onBack != null) {
+            Button(
+                onClick = onBack,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Go Back")
             }
         }
     }

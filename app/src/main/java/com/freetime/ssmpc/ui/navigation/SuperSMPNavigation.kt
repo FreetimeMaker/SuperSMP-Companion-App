@@ -20,6 +20,7 @@ import com.freetime.ssmpc.ui.screens.ServerCommandScreen
 import com.freetime.ssmpc.ui.screens.LinksScreen
 import com.freetime.ssmpc.ui.screens.ShopScreen
 import com.freetime.ssmpc.ui.screens.MapScreen
+import com.freetime.ssmpc.ui.screens.SettingsScreen
 
 @Composable
 fun SuperSMPNavigation(

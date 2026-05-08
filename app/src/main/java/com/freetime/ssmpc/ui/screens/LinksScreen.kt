@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -14,7 +13,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,14 +22,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 import androidx.core.net.toUri
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.PrivacyWebView
+import com.freetime.ssmpc.collectAsState
+import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
-class LinksActivity : ComponentActivity() {{
+class LinksActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -47,7 +46,7 @@ class LinksActivity : ComponentActivity() {{
 
             SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SettingsScreen(
+                    LinksScreen(
                         modifier = Modifier.padding(innerPadding),
                         onBack = { finish() }
                     )
@@ -73,11 +72,14 @@ class LinksActivity : ComponentActivity() {{
 }
 
 @Composable
-fun LinksScreen() {
+fun LinksScreen(
+    modifier: Modifier = Modifier,
+    onBack: (() -> Unit)? = null
+) {
     val context = LocalContext.current
     
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(16.dp)
             .verticalScroll(rememberScrollState()),
@@ -144,6 +146,15 @@ fun LinksScreen() {
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Click here to vote on the 5th Website")
+        }
+
+        if (onBack != null) {
+            Button(
+                onClick = onBack,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Go Back")
+            }
         }
     }
 }
