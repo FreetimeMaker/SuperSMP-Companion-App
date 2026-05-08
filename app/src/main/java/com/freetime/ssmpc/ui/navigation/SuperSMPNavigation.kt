@@ -46,5 +46,8 @@ fun SuperSMPNavigation(
         composable("map") {
             MapScreen()
         }
+        composable("settings") {
+            SettingsScreen()
+        }
     }
 }

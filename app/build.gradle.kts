@@ -48,7 +48,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
-    
+
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.3.21")
     
@@ -71,7 +71,7 @@ dependencies {
 
     // Debug
     debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.11.1")
     
     // Compose Testing
     androidTestImplementation(platform("androidx.compose:compose-bom:2026.05.00"))

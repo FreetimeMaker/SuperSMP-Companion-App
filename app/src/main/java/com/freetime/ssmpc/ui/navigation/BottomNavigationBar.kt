@@ -27,7 +27,8 @@ fun BottomNavigationBar(navController: NavController) {
             BottomNavItem("servercmd", "Command", Icons.Default.Terminal),
             BottomNavItem("links", "Links", Icons.Default.Link),
             BottomNavItem("shop", "Shop", Icons.Default.ShoppingCart),
-            BottomNavItem("map", "Map", Icons.Default.Map)
+            BottomNavItem("map", "Map", Icons.Default.Map),
+            BottomNavItem("settings", "Settings", Icons.Default.Settings)
         )
         
         items.forEach { item ->

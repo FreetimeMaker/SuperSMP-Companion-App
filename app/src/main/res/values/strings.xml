@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SuperSMP Companion</string>
+    <string name="theme_settings_title">Theme Settings</string>
+    <string name="follow_system_theme">Follow System Theme</string>
+    <string name="force_dark_mode">Force Dark Mode</string>
+    <string name="override_system_setting">Override system setting</string>
+    <string name="dynamic_color_title">Dynamic Colors (Material You)</string>
+    <string name="dynamic_color_subtitle">Colors based on your wallpaper (Android 12+)</string>
 </resources>
