@@ -13,7 +13,7 @@
 </div>
 
 <div align="center">
-<h1>Repository, Build and App Informations</h1>
+<h1>Repository, Build and App Information</h1>
 </div>
 
 <div align="center">
