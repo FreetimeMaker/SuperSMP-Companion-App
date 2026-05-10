@@ -1,6 +1,7 @@
 package com.freetime.ssmpc.ui.screens
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -97,6 +98,33 @@ fun SettingsScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            FilledTonalButton(onClick = {
+                context.startActivity(
+                    Intent(
+                        context,
+                        DonateActivity::class.java
+                    )
+                )
+            }) {
+                Text(stringResource(R.string.open_donation_screen))
+            }
+            FilledTonalButton(onClick = {
+                context.startActivity(
+                    Intent(
+                        context,
+                        ChangeLogActivity::class.java
+                    )
+                )
+            }) {
+                Text(stringResource(R.string.open_change_log))
+            }
+        }
+
+        Text(text = stringResource(R.string.theme_settings_title), style = MaterialTheme.typography.headlineSmall)
         Card(
             modifier = Modifier.fillMaxWidth(),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
@@ -136,15 +164,6 @@ fun SettingsScreen(
                         sharedPreferences.edit().putBoolean("dark_mode_enabled", it).apply()
                     }
                 )
-            }
-        }
-
-        if (onBack != null) {
-            Button(
-                onClick = onBack,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("Go Back")
             }
         }
     }

@@ -31,15 +31,50 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.screens.Vote1Activity"
+        <activity
+            android:name=".ui.screens.LinksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.screens.Vote1Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.screens.Vote2Activity"
+        <activity
+            android:name=".ui.screens.Vote2Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.screens.Vote3Activity"
+        <activity
+            android:name=".ui.screens.Vote3Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.screens.Vote4Activity"
+        <activity
+            android:name=".ui.screens.Vote4Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.screens.Vote5Activity"
+        <activity
+            android:name=".ui.screens.Vote5Activity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.DonateActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.DonateWebViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.DonatorActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.ChangeLogActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.MapActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.ShopActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.screens.ServerCommandActivity"
             android:screenOrientation="portrait"/>
     </application>
 

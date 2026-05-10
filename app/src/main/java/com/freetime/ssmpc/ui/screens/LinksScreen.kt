@@ -96,7 +96,7 @@ fun LinksScreen(
         
         Button(
             onClick = { 
-                openDiscordInvite(context)
+                openSuperSMPDiscord(context)
             },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -159,7 +159,7 @@ fun LinksScreen(
     }
 }
 
-private fun openDiscordInvite(context: android.content.Context) {
+private fun openSuperSMPDiscord(context: android.content.Context) {
     val webIntent = Intent(
         Intent.ACTION_VIEW,
         "https://discord.com/invite/supersmp".toUri()

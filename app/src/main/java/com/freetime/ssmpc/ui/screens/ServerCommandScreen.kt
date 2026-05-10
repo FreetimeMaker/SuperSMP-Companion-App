@@ -1,6 +1,5 @@
 package com.freetime.ssmpc.ui.screens
 
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -29,7 +28,7 @@ class ServerCommandActivity : ComponentActivity() {
         hideSystemBars()
 
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
+            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", MODE_PRIVATE) }
             val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
             val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
             val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
@@ -96,13 +95,23 @@ fun ServerCommandScreen(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text("/spawn - Teleport to spawn")
-                Text("/tpask <player> - Send teleport request")
-                Text("/tpaccept - Accept teleport request")
-                Text("/tpadeny - Deny teleport request")
-                Text("/home - Teleport to your home")
+                Text("/rtp - Telport to a random location")
+                Text("/home - Teleport to your home if you have one")
                 Text("/sethome - Set your home location")
                 Text("/warp <name> - Teleport to warp")
                 Text("/pwarp <name> - Teleport to a players warp")
+                Text("/pvp - Activate/Deactivate PVP")
+                Text("/tpask <player> - Send teleport request")
+                Text("/tpaccept - Accept teleport request")
+                Text("/tpadeny - Deny teleport request")
+                Text("/msg <player> <message> - Talk to a Player Privately")
+                Text("/warp center - Go to Welcome Center")
+                Text("/kiss <player> - Kiss a player")
+                Text("/warp arena - Teleport to Arena for fighting agains other Players")
+                Text("/fly - Activate/Deactivate flying")
+                Text("/trash - Dispose of useless items")
+                Text("/wb - Welcome a Player back")
+                Text("/warp crates - Open crates when you get keys")
             }
         }
 
@@ -122,7 +131,8 @@ fun ServerCommandScreen(
                 Text("/bal - Check your balance")
                 Text("/pay <player> <amount> - Pay someone")
                 Text("/baltop - Top balances")
-                Text("/shop - Open shop GUI")
+                Text("/shop - Buy or Sell Items")
+                Text("/sellg - Quickly sell items within a GUI")
             }
         }
 
@@ -145,6 +155,8 @@ fun ServerCommandScreen(
                 Text("/trust <player> - Trust player")
                 Text("/untrust <player> - Untrust player")
                 Text("/trustlist - List trusted players")
+                Text("/land ban <player> - Ban a Player from your land")
+                Text("/land delete - Delete your land")
             }
         }
 
