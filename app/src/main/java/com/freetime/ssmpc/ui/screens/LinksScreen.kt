@@ -159,7 +159,7 @@ fun LinksScreen(
     }
 }
 
-private fun openSuperSMPDiscord(context: android.content.Context) {
+private fun openSuperSMPDiscord(context: Context) {
     val webIntent = Intent(
         Intent.ACTION_VIEW,
         "https://discord.com/invite/supersmp".toUri()
@@ -394,6 +394,7 @@ fun WebViewScreen(
             factory = { ctx ->
                 PrivacyWebView(ctx).apply {
                     settings.javaScriptEnabled = true
+                    settings.domStorageEnabled = true
                     loadUrl(url)
                 }
             },

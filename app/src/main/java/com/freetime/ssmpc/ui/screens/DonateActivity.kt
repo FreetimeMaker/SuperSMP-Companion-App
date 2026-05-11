@@ -173,6 +173,7 @@ fun WebViewScreen(
             factory = { ctx ->
                 PrivacyWebView(ctx).apply {
                     settings.javaScriptEnabled = true
+                    settings.domStorageEnabled = true
                     loadUrl(url)
                 }
             },

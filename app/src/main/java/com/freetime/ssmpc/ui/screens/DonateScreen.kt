@@ -1,7 +1,7 @@
 package com.freetime.ssmpc.ui.screens
 
+import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -68,8 +68,7 @@ fun DonateScreen(onBack: () -> Unit) {
             )
 
             DonateButton(text = stringResource(R.string.DonViaGHSponsors)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/sponsors/FreetimeMaker"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://github.com/sponsors/FreetimeMaker", context.getString(R.string.DonViaGHSponsors))
             }
 
             Text(
@@ -79,88 +78,71 @@ fun DonateScreen(onBack: () -> Unit) {
             )
 
             DonateButton(text = stringResource(R.string.DonViaOxaPay)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://pay.oxapay.com/13038067"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://pay.oxapay.com/13038067", context.getString(R.string.DonViaOxaPay))
             }
 
             DonateButton(text = stringResource(R.string.DonViaBTC)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/60misly"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/60misly", context.getString(R.string.DonViaBTC))
             }
 
             DonateButton(text = stringResource(R.string.DonViaETH)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/86fremd"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/86fremd", context.getString(R.string.DonViaETH))
             }
 
             DonateButton(text = stringResource(R.string.DonViaUSDT)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/19tacit"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/19tacit", context.getString(R.string.DonViaUSDT))
             }
 
             DonateButton(text = stringResource(R.string.DonViaUSDC)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/15snog"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/15snog", context.getString(R.string.DonViaUSDC))
             }
 
             DonateButton(text = stringResource(R.string.DonViaSHIB)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/18spile"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/18spile", context.getString(R.string.DonViaSHIB))
             }
 
             DonateButton(text = stringResource(R.string.DonViaDOGE)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/30allie"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/30allie", context.getString(R.string.DonViaDOGE))
             }
 
             DonateButton(text = stringResource(R.string.DonateViaTRON)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/15gown"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/15gown", context.getString(R.string.DonateViaTRON))
             }
 
             DonateButton(text = stringResource(R.string.DonViaLTC)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/77pudgy"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/77pudgy", context.getString(R.string.DonViaLTC))
             }
 
             DonateButton(text = stringResource(R.string.DonViaBNB)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/02hanch"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/02hanch", context.getString(R.string.DonViaBNB))
             }
 
             DonateButton(text = stringResource(R.string.DonViaPEPE)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/73enow"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/73enow", context.getString(R.string.DonViaPEPE))
             }
 
             DonateButton(text = stringResource(R.string.DonViaSOL)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/54fled"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/54fled", context.getString(R.string.DonViaSOL))
             }
 
             DonateButton(text = stringResource(R.string.DonViaDAI)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/27thio"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/27thio", context.getString(R.string.DonViaDAI))
             }
 
             DonateButton(text = stringResource(R.string.DonViaTON)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/22frisk"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/22frisk", context.getString(R.string.DonViaTON))
             }
 
             DonateButton(text = stringResource(R.string.DonViaPOL)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/23patas"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/23patas", context.getString(R.string.DonViaPOL))
             }
 
             DonateButton(text = stringResource(R.string.DonViaOptimism)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/77salvy"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/77salvy", context.getString(R.string.DonViaOptimism))
             }
 
             DonateButton(text = stringResource(R.string.DonViaARB)) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ncwallet.net/pay/80arui"))
-                context.startActivity(intent)
+                openDonateUrl(context, "https://ncwallet.net/pay/80arui", context.getString(R.string.DonViaARB))
             }
 
             Spacer(Modifier.height(16.dp))
@@ -173,6 +155,14 @@ fun DonateScreen(onBack: () -> Unit) {
             }
         }
     }
+}
+
+private fun openDonateUrl(context: Context, url: String, title: String) {
+    val intent = Intent(context, DonateWebViewActivity::class.java).apply {
+        putExtra("url", url)
+        putExtra("title", title)
+    }
+    context.startActivity(intent)
 }
 
 @Composable

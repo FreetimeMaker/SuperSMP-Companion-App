@@ -1,3 +1,2 @@
-• Added ChangeLog
-• Added Donate Screen
-• Added more Commands
+• Added Monochrome Icon
+• Fixed Donations not Opening via WebView
