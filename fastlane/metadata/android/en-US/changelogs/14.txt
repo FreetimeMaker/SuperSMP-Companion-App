@@ -1,0 +1,2 @@
+• Added Monochrome Icon
+• Fixed Donations not Opening via WebView
