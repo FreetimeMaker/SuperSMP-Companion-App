@@ -1,7 +1,11 @@
-# SuperSMP Companion App
-
 <div align="center">
-<h1>Release numbers</h1>
+<h1>SuperSMP Companion App</h1>
+</div>
+
+# Translations
+<div align="center">
+
+[![Translation Status](https://translate.codeberg.org/widget/supersmp-companion/supersmp-companion/287x66-grey.png)](https://translate.codeberg.org/engage/supersmp-companion/)
 </div>
 
 <div align="center">
