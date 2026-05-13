@@ -80,18 +80,15 @@ The SuperSMP Companion App is a free, open-source Android application designed t
 
 You can download the latest version of SuperSMP Companion App from the following platforms:
 
-- **GitHub Releases**: [Direct Download](https://github.com/FreetimeMaker/GeoWeather/releases/latest)
-- **F-Droid**: [com.freetime.ssmpc](https://f-droid.org/packages/com.freetime.geoweather)
-- **Obtainium**: [Automatic Updates](https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%22com.freetime.geoweather%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FFreetimeMaker%2FGeoWeather%22%2C%22author%22%3A%22Freetime%20Maker%22%2C%22name%22%3A%22GeoWeather%22%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%7D%22%7D)
+- **GitHub Releases**: [Direct Download](https://github.com/FreetimeMaker/SuperSMP-Companion-App/releases/latest)
+- **F-Droid**: [com.freetime.ssmpc](https://f-droid.org/packages/com.freetime.ssmpc)
 - **GitHub Store**: [Open in GitHub Store](https://github-store.org/app?repo=FreetimeMaker/SuperSMP-Companion-App)
 
 <div align="center">
 
-[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="82">](https://github.com/FreetimeMaker/GeoWeather/releases/latest")
+[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="82">](https://github.com/FreetimeMaker/SuperSMP-Companion-App/releases/latest")
 
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/com.freetime.ssmpc)
-
-[<img src="https://raw.githubusercontent.com/ImranR98/Obtainium/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" width="194">](https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%22com.freetime.geoweather%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FFreetimeMaker%2FGeoWeather%22%2C%22author%22%3A%22Freetime%20Maker%22%2C%22name%22%3A%22GeoWeather%22%2C%22additionalSettings%22%3A%22%7B%5C%22includePrereleases%5C%22%3Afalse%7D%22%7D)
 
 [<img src="media-resources/badge_github_store.png" alt="Get it on GitHub Store" height="70">](https://github-store.org/app?repo=FreetimeMaker/SuperSMP-Companion-App)
 </div>
@@ -100,7 +97,6 @@ You can download the latest version of SuperSMP Companion App from the following
 
 Planned:
 - [ ] **Screenshot & Video Gallery** - Showcase app functionality
-- [ ] **Multi-language Support** - Internationalization
 
 ## 📄 License
 
@@ -108,11 +104,11 @@ This project is licensed under the [Apache-2.0 License](LICENSE).
 
 ## ❤️ Support This Project
 
-SuperSMP Companion App is 100% free. No ads. No tracking.
+SuperSMP Companion is 100% free. No ads. No tracking.
 
-- ⭐ **[Star](https://github.com/FreetimeMaker/GeoWeather/star)** this repository
-- 🐛 **[Report](https://github.com/FreetimeMaker/GeoWeather/issues)** bugs and issues
-- 💡 **[Suggest](https://github.com/FreetimeMaker/GeoWeather/discussions)** new features
+- ⭐ **[Star](https://github.com/FreetimeMaker/SuperSMP-Companion-App/star)** this repository
+- 🐛 **[Report](https://github.com/FreetimeMaker/SuperSMP-Companion-App/issues)** bugs and issues
+- 💡 **[Suggest](https://github.com/FreetimeMaker/SuperSMP-Companion-App/discussions)** new features
 - 💳 **[Sponsor](#-donations)** the developer
 
 ---
@@ -145,7 +141,7 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## 🤝 Donations
 
-If you like SuperSMP Companion App, I'd appreciate a small donation — thank you! Below are some common cryptocurrency options.
+If you like SuperSMP Companion, I'd appreciate a small donation — thank you! Below are some common cryptocurrency options.
 
 <div align="center">
 
