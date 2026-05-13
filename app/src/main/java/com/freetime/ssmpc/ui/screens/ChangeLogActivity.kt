@@ -97,8 +97,11 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v1.4.1" to listOf(
+            "Fixed the Monochrome Icon not rendering"
+        ),
         "v1.4.0" to listOf(
-            "   Added Monochrome Icon",
+            "Added Monochrome Icon",
             "Fixed Donations not Opening via WebView"
         ),
         "v1.3.0" to listOf(
