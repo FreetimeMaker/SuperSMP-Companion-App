@@ -97,6 +97,9 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v1.4.3" to listOf(
+            "Fixed Hopefully the App Icon"
+        ),
         "v1.4.2" to listOf(
             "Fixed Icon pixeling"
         ),
