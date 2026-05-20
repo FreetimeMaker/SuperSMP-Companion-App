@@ -13,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
@@ -67,6 +69,10 @@ fun ServerCommandScreen(
     modifier: Modifier = Modifier,
     onBack: (() -> Unit)? = null
 ) {
+    val basicCommands = stringArrayResource(R.array.server_basic_command_list)
+    val economyCommands = stringArrayResource(R.array.server_economy_command_list)
+    val landClaimCommands = stringArrayResource(R.array.server_land_claim_command_list)
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -75,7 +81,7 @@ fun ServerCommandScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
-            text = "Server Commands",
+            text = stringResource(R.string.server_commands_title),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -89,29 +95,14 @@ fun ServerCommandScreen(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Basic Commands",
+                    text = stringResource(R.string.server_basic_commands_title),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text("/spawn - Teleport to spawn")
-                Text("/rtp - Telport to a random location")
-                Text("/home - Teleport to your home if you have one")
-                Text("/sethome - Set your home location")
-                Text("/warp <name> - Teleport to warp")
-                Text("/pwarp <name> - Teleport to a players warp")
-                Text("/pvp - Activate/Deactivate PVP")
-                Text("/tpask <player> - Send teleport request")
-                Text("/tpaccept - Accept teleport request")
-                Text("/tpadeny - Deny teleport request")
-                Text("/msg <player> <message> - Talk to a Player Privately")
-                Text("/warp center - Go to Welcome Center")
-                Text("/kiss <player> - Kiss a player")
-                Text("/warp arena - Teleport to Arena for fighting agains other Players")
-                Text("/fly - Activate/Deactivate flying")
-                Text("/trash - Dispose of useless items")
-                Text("/wb - Welcome a Player back")
-                Text("/warp crates - Open crates when you get keys")
+                basicCommands.forEach { command ->
+                    Text(command)
+                }
             }
         }
 
@@ -123,16 +114,14 @@ fun ServerCommandScreen(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Economy Commands",
+                    text = stringResource(R.string.server_economy_commands_title),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text("/bal - Check your balance")
-                Text("/pay <player> <amount> - Pay someone")
-                Text("/baltop - Top balances")
-                Text("/shop - Buy or Sell Items")
-                Text("/sellg - Quickly sell items within a GUI")
+                economyCommands.forEach { command ->
+                    Text(command)
+                }
             }
         }
 
@@ -144,19 +133,14 @@ fun ServerCommandScreen(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Land Claim Commands",
+                    text = stringResource(R.string.server_land_claim_commands_title),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text("/claim - Claim current chunk")
-                Text("/unclaim - Unclaim current chunk")
-                Text("/claims - List your claims")
-                Text("/trust <player> - Trust player")
-                Text("/untrust <player> - Untrust player")
-                Text("/trustlist - List trusted players")
-                Text("/land ban <player> - Ban a Player from your land")
-                Text("/land delete - Delete your land")
+                landClaimCommands.forEach { command ->
+                    Text(command)
+                }
             }
         }
 
@@ -165,7 +149,7 @@ fun ServerCommandScreen(
                 onClick = onBack,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Go Back")
+                Text(stringResource(R.string.go_back))
             }
         }
     }

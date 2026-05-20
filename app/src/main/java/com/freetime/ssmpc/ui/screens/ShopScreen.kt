@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
@@ -86,7 +87,7 @@ fun ShopScreen(
                     .padding(16.dp)
                     .fillMaxWidth()
             ) {
-                Text("Go Back")
+                Text(stringResource(R.string.go_back))
             }
         }
     }

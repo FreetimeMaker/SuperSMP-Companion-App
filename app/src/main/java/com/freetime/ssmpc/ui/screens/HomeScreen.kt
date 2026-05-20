@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
@@ -76,7 +77,7 @@ fun HomeScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
-            text = "SuperSMP Companion",
+            text = stringResource(R.string.home_title),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -89,13 +90,13 @@ fun HomeScreen(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Welcome to SuperSMP!",
+                    text = stringResource(R.string.home_welcome_title),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "Your unofficial companion app for the SuperSMP Minecraft server. Vote for rewards, browse the shop, view the map, and more!",
+                    text = stringResource(R.string.home_description),
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
@@ -108,15 +109,15 @@ fun HomeScreen(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Server Information",
+                    text = stringResource(R.string.home_server_info_title),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text("IP: supersmp.fun")
-                Text("Port: 19132 (Bedrock)")
-                Text("Version: 1.21.1")
-                Text("Type: Cross-Play SMP")
+                Text(stringResource(R.string.home_ip))
+                Text(stringResource(R.string.home_port))
+                Text(stringResource(R.string.home_version))
+                Text(stringResource(R.string.home_type))
             }
         }
 
@@ -127,14 +128,14 @@ fun HomeScreen(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Features",
+                    text = stringResource(R.string.home_features_title),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text("• Limited Time Crates")
-                Text("• Economy System")
-                Text("• Land Claim")
+                Text(stringResource(R.string.home_feature_crates))
+                Text(stringResource(R.string.home_feature_economy))
+                Text(stringResource(R.string.home_feature_land_claim))
             }
         }
 
@@ -143,7 +144,7 @@ fun HomeScreen(
                 onClick = onBack,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Go Back")
+                Text(stringResource(R.string.go_back))
             }
         }
     }

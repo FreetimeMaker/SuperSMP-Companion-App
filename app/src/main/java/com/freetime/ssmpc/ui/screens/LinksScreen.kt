@@ -17,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -87,7 +88,7 @@ fun LinksScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
-            text = "Welcome to the Useful Links Section!",
+            text = stringResource(R.string.links_section_title),
             fontSize = 20.sp,
             fontWeight = FontWeight.Medium,
             textAlign = TextAlign.Center,
@@ -100,7 +101,7 @@ fun LinksScreen(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Join the Official SuperSMP Discord Server")
+            Text(stringResource(R.string.links_discord))
         }
         
         Button(
@@ -109,7 +110,7 @@ fun LinksScreen(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Click here to vote on the 1st Website")
+            Text(stringResource(R.string.links_vote_1))
         }
         
         Button(
@@ -118,7 +119,7 @@ fun LinksScreen(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Click here to vote on the 2nd Website")
+            Text(stringResource(R.string.links_vote_2))
         }
         
         Button(
@@ -127,7 +128,7 @@ fun LinksScreen(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Click here to vote on the 3rd Website")
+            Text(stringResource(R.string.links_vote_3))
         }
         
         Button(
@@ -136,7 +137,7 @@ fun LinksScreen(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Click here to vote on the 4th Website")
+            Text(stringResource(R.string.links_vote_4))
         }
         
         Button(
@@ -145,7 +146,7 @@ fun LinksScreen(
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Click here to vote on the 5th Website")
+            Text(stringResource(R.string.links_vote_5))
         }
 
         if (onBack != null) {
@@ -153,7 +154,7 @@ fun LinksScreen(
                 onClick = onBack,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Go Back")
+                Text(stringResource(R.string.go_back))
             }
         }
     }
@@ -408,7 +409,7 @@ fun WebViewScreen(
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            Text("Go Back to the Links Page")
+            Text(stringResource(R.string.links_back_to_links_page))
         }
     }
 }

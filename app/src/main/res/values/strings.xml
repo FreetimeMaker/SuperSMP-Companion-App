@@ -46,4 +46,66 @@
     <string name="cash_label">Cash &amp; Others</string>
     <string name="supporters_title">Supporters</string>
     <string name="back_nav_desc">Back</string>
+    <string name="go_back">Go Back</string>
+    <string name="links_section_title">Welcome to the Useful Links Section!</string>
+    <string name="links_discord">Join the Official SuperSMP Discord Server</string>
+    <string name="links_vote_1">Click here to vote on the 1st Website</string>
+    <string name="links_vote_2">Click here to vote on the 2nd Website</string>
+    <string name="links_vote_3">Click here to vote on the 3rd Website</string>
+    <string name="links_vote_4">Click here to vote on the 4th Website</string>
+    <string name="links_vote_5">Click here to vote on the 5th Website</string>
+    <string name="links_back_to_links_page">Go Back to the Links Page</string>
+    <string name="home_title">SuperSMP Companion</string>
+    <string name="home_welcome_title">Welcome to SuperSMP!</string>
+    <string name="home_description">Your unofficial companion app for the SuperSMP Minecraft server. Vote for rewards, browse the shop, view the map, and more!</string>
+    <string name="home_server_info_title">Server Information</string>
+    <string name="home_ip">IP: supersmp.fun</string>
+    <string name="home_port">Port: 19132 (Bedrock)</string>
+    <string name="home_version">Version: 1.21.1</string>
+    <string name="home_type">Type: Cross-Play SMP</string>
+    <string name="home_features_title">Features</string>
+    <string name="home_feature_crates">• Limited Time Crates</string>
+    <string name="home_feature_economy">• Economy System</string>
+    <string name="home_feature_land_claim">• Land Claim</string>
+    <string name="server_commands_title">Server Commands</string>
+    <string name="server_basic_commands_title">Basic Commands</string>
+    <string name="server_economy_commands_title">Economy Commands</string>
+    <string name="server_land_claim_commands_title">Land Claim Commands</string>
+    <string-array name="server_basic_command_list">
+        <item>/spawn - Teleport to spawn</item>
+        <item>/rtp - Telport to a random location</item>
+        <item>/home - Teleport to your home if you have one</item>
+        <item>/sethome - Set your home location</item>
+        <item>/warp &lt;name&gt; - Teleport to warp</item>
+        <item>/pwarp &lt;name&gt; - Teleport to a players warp</item>
+        <item>/pvp - Activate/Deactivate PVP</item>
+        <item>/tpask &lt;player&gt; - Send teleport request</item>
+        <item>/tpaccept - Accept teleport request</item>
+        <item>/tpadeny - Deny teleport request</item>
+        <item>/msg &lt;player&gt; &lt;message&gt; - Talk to a Player Privately</item>
+        <item>/warp center - Go to Welcome Center</item>
+        <item>/kiss &lt;player&gt; - Kiss a player</item>
+        <item>/warp arena - Teleport to Arena for fighting agains other Players</item>
+        <item>/fly - Activate/Deactivate flying</item>
+        <item>/trash - Dispose of useless items</item>
+        <item>/wb - Welcome a Player back</item>
+        <item>/warp crates - Open crates when you get keys</item>
+    </string-array>
+    <string-array name="server_economy_command_list">
+        <item>/bal - Check your balance</item>
+        <item>/pay &lt;player&gt; &lt;amount&gt; - Pay someone</item>
+        <item>/baltop - Top balances</item>
+        <item>/shop - Buy or Sell Items</item>
+        <item>/sellg - Quickly sell items within a GUI</item>
+    </string-array>
+    <string-array name="server_land_claim_command_list">
+        <item>/claim - Claim current chunk</item>
+        <item>/unclaim - Unclaim current chunk</item>
+        <item>/claims - List your claims</item>
+        <item>/trust &lt;player&gt; - Trust player</item>
+        <item>/untrust &lt;player&gt; - Untrust player</item>
+        <item>/trustlist - List trusted players</item>
+        <item>/land ban &lt;player&gt; - Ban a Player from your land</item>
+        <item>/land delete - Delete your land</item>
+    </string-array>
 </resources>
