@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -70,9 +69,45 @@ fun ServerCommandScreen(
     modifier: Modifier = Modifier,
     onBack: (() -> Unit)? = null
 ) {
-    val basicCommands = stringArrayResource(R.array.server_basic_command_list)
-    val economyCommands = stringArrayResource(R.array.server_economy_command_list)
-    val landClaimCommands = stringArrayResource(R.array.server_land_claim_command_list)
+    val basicCommands = listOf(
+        stringResource(R.string.server_basic_cmd_1),
+        stringResource(R.string.server_basic_cmd_2),
+        stringResource(R.string.server_basic_cmd_3),
+        stringResource(R.string.server_basic_cmd_4),
+        stringResource(R.string.server_basic_cmd_5),
+        stringResource(R.string.server_basic_cmd_6),
+        stringResource(R.string.server_basic_cmd_7),
+        stringResource(R.string.server_basic_cmd_8),
+        stringResource(R.string.server_basic_cmd_9),
+        stringResource(R.string.server_basic_cmd_10),
+        stringResource(R.string.server_basic_cmd_11),
+        stringResource(R.string.server_basic_cmd_12),
+        stringResource(R.string.server_basic_cmd_13),
+        stringResource(R.string.server_basic_cmd_14),
+        stringResource(R.string.server_basic_cmd_15),
+        stringResource(R.string.server_basic_cmd_16),
+        stringResource(R.string.server_basic_cmd_17),
+        stringResource(R.string.server_basic_cmd_18)
+    )
+
+    val economyCommands = listOf(
+        stringResource(R.string.server_econ_cmd_1),
+        stringResource(R.string.server_econ_cmd_2),
+        stringResource(R.string.server_econ_cmd_3),
+        stringResource(R.string.server_econ_cmd_4),
+        stringResource(R.string.server_econ_cmd_5)
+    )
+
+    val landClaimCommands = listOf(
+        stringResource(R.string.server_land_cmd_1),
+        stringResource(R.string.server_land_cmd_2),
+        stringResource(R.string.server_land_cmd_3),
+        stringResource(R.string.server_land_cmd_4),
+        stringResource(R.string.server_land_cmd_5),
+        stringResource(R.string.server_land_cmd_6),
+        stringResource(R.string.server_land_cmd_7),
+        stringResource(R.string.server_land_cmd_8)
+    )
 
     Column(
         modifier = modifier

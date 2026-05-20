@@ -24,12 +24,12 @@ fun BottomNavigationBar(navController: NavController) {
         val currentRoute = navBackStackEntry?.destination?.route
         
         val items = listOf(
-            BottomNavItem("home", "Home", Icons.Default.Home),
-            BottomNavItem("servercmd", "Cmds", Icons.Default.Terminal),
-            BottomNavItem("links", "Links", Icons.Default.Link),
-            BottomNavItem("shop", "Shop", Icons.Default.ShoppingCart),
-            BottomNavItem("map", "Map", Icons.Default.Map),
-            BottomNavItem("settings", "Settings", Icons.Default.Settings)
+            BottomNavItem("home", stringResource(R.string.nav_home), Icons.Default.Home),
+            BottomNavItem("servercmd", stringResource(R.string.nav_cmds), Icons.Default.Terminal),
+            BottomNavItem("links", stringResource(R.string.nav_links), Icons.Default.Link),
+            BottomNavItem("shop", stringResource(R.string.nav_shop), Icons.Default.ShoppingCart),
+            BottomNavItem("map", stringResource(R.string.nav_map), Icons.Default.Map),
+            BottomNavItem("settings", stringResource(R.string.nav_settings), Icons.Default.Settings)
         )
         
         items.forEach { item ->

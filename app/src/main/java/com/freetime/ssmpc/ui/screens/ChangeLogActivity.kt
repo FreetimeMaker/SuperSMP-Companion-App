@@ -35,7 +35,7 @@ class ChangeLogActivity : ComponentActivity() {
             val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
             val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
             val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-            
+
             val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
 
             SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
@@ -98,25 +98,25 @@ fun ReleaseCard(
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
         "v1.4.4" to listOf(
-            "Fixed the Monochrome Icon (Hopefully)"
+            stringResource(R.string.changelog_v1_4_4_1)
         ),
         "v1.4.3" to listOf(
-            "Fixed Hopefully the App Icon"
+            stringResource(R.string.changelog_v1_4_3_1)
         ),
         "v1.4.2" to listOf(
-            "Fixed Icon pixeling"
+            stringResource(R.string.changelog_v1_4_2_1)
         ),
         "v1.4.1" to listOf(
-            "Fixed the Monochrome Icon not rendering"
+            stringResource(R.string.changelog_v1_4_1_1)
         ),
         "v1.4.0" to listOf(
-            "Added Monochrome Icon",
-            "Fixed Donations not Opening via WebView"
+            stringResource(R.string.changelog_v1_4_0_1),
+            stringResource(R.string.changelog_v1_4_0_2)
         ),
         "v1.3.0" to listOf(
-            "Added ChangeLog",
-            "Added Donate Screen",
-            "Added more Commands"
+            stringResource(R.string.changelog_v1_3_0_1),
+            stringResource(R.string.changelog_v1_3_0_2),
+            stringResource(R.string.changelog_v1_3_0_3)
         )
     )
 
@@ -146,3 +146,4 @@ fun ChangeLogScreen(onBack: () -> Unit) {
         }
     }
 }
+
