@@ -42,7 +42,7 @@ fun SuperSMPTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = GeoTypography,
         content = content
     )
 }
