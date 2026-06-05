@@ -1,6 +1,8 @@
 package com.freetime.ssmpc
 
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
 import android.util.AttributeSet
 import android.webkit.CookieManager
 import android.webkit.WebResourceRequest
@@ -53,6 +55,29 @@ class PrivacyWebView(context: Context, attrs: AttributeSet? = null) :
             "ads.yahoo.com",
             "bing.com/track"
         )
+
+        override fun shouldOverrideUrlLoading(
+            view: WebView?,
+            request: WebResourceRequest?
+        ): Boolean {
+            val url = request?.url ?: return false
+            val scheme = url.scheme?.lowercase()
+
+            // Keep regular web pages inside the in-app view.
+            if (scheme == "http" || scheme == "https") {
+                return false
+            }
+
+            // Other schemes (mailto, tel, geo, ...) cannot be shown in the WebView,
+            // so hand them to the system instead of failing on a blank page.
+            val context = view?.context ?: return false
+            return try {
+                context.startActivity(Intent(Intent.ACTION_VIEW, url))
+                true
+            } catch (e: ActivityNotFoundException) {
+                false
+            }
+        }
 
         override fun shouldInterceptRequest(
             view: WebView?,
