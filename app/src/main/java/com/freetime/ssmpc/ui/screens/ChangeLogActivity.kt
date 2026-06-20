@@ -97,6 +97,12 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v1.5.0" to listOf(
+            stringResource(R.string.changelog_v1_5_0_1),
+            stringResource(R.string.changelog_v1_5_0_2),
+            stringResource(R.string.changelog_v1_5_0_3),
+            stringResource(R.string.changelog_v1_5_0_4)
+        ),
         "v1.4.4" to listOf(
             stringResource(R.string.changelog_v1_4_4_1)
         ),

@@ -11,8 +11,8 @@ android {
         applicationId = "com.freetime.ssmpc"
         minSdk = 24
         targetSdk = 37
-        versionCode = 18
-        versionName = "1.4.4"
+        versionCode = 19
+        versionName = "1.5.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

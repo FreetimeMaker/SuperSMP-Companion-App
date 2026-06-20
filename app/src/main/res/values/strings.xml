@@ -114,6 +114,12 @@
     <string name="nav_map">Map</string>
     <string name="nav_settings">Settings</string>
 
+    <string name="changelog_v1_5_0_title">v1.5.0</string>
+    <string name="changelog_v1_5_0_1">Added new Donation Screen with more options</string>
+    <string name="changelog_v1_5_0_2">Added Wallet Addresses for various Cryptocurrencies</string>
+    <string name="changelog_v1_5_0_3">Added OLED Black Mode for AMOLED screens</string>
+    <string name="changelog_v1_5_0_4">Added WebView Settings (Private View &amp; External Browser)</string>
+
     <string name="changelog_v1_4_4_title">v1.4.4</string>
     <string name="changelog_v1_4_4_1">Fixed the Monochrome Icon (Hopefully)</string>
 

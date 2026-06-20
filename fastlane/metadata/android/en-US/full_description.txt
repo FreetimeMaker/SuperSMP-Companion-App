@@ -24,12 +24,14 @@ INTERACTIVE SERVER MAP
 
 MODERN USER INTERFACE
 - Built with Jetpack Compose for smooth animations
-- Material Design 3 with dark/light themes
+- Material Design 3 with Dynamic Color support (Android 12+)
+- OLED Black Mode for AMOLED screens
 - Intuitive navigation optimized for mobile
 - Responsive design for all screen sizes
 
 TECHNICAL EXCELLENCE
 - Kotlin-first development for performance
+- Privacy-focused WebView with tracker blocking
 - Modern architecture with MVVM pattern
 - Regular updates with new features
 - Optimized for battery life and performance

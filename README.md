@@ -63,16 +63,18 @@ The SuperSMP Companion App is a free, open-source Android application designed t
 
 ### 🎨 **Modern UI**
 - Built with Jetpack Compose for smooth animations
-- Material Design 3 interface
+- Material Design 3 interface with Dynamic Color support
+- **OLED Black Mode** for AMOLED screens
 - Dark/Light theme support
 - Optimized for all screen sizes
 
 ### 🔧 **Technical Features**
 - **Kotlin-first** development approach
 - **Jetpack Compose** for modern UI
+- **Privacy-focused** WebView with tracker blocking
 - **Kotlin DSL** for build configuration
 - Minimum Android 7.0 (API 24) support
-- Targeting Android 15 (API 36)
+- Targeting Android 15 (API 37)
 
 ## 📥 Download & Installation
 
