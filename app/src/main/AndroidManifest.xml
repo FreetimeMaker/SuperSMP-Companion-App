@@ -59,6 +59,9 @@
             android:name=".ui.screens.DonatorActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".ui.screens.WalletAddressActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.screens.ChangeLogActivity"
             android:screenOrientation="portrait"/>
         <activity

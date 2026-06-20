@@ -1,8 +1,9 @@
 package com.freetime.ssmpc
 
-import android.content.ActivityNotFoundException
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.util.AttributeSet
 import android.webkit.CookieManager
 import android.webkit.WebResourceRequest
@@ -13,24 +14,40 @@ import android.webkit.WebViewClient
 class PrivacyWebView(context: Context, attrs: AttributeSet? = null) :
     WebView(context, attrs) {
 
+    var disablePrivateView: Boolean = false
+        set(value) {
+            field = value
+            setupPrivacySettings()
+        }
+
+    var openLinksInExternalBrowser: Boolean = false
+
     init {
         setupPrivacySettings()
         clearAllData()
-        webViewClient = PrivacyClient()
+        webViewClient = PrivacyClient(context, this)
     }
 
+    @SuppressLint("NewApi", "SetJavaScriptEnabled")
     private fun setupPrivacySettings() {
         settings.apply {
             javaScriptEnabled = false
-            domStorageEnabled = false
+            domStorageEnabled = disablePrivateView
             allowFileAccess = false
             allowContentAccess = false
             userAgentString = "Mozilla/5.0"
         }
 
-        CookieManager.getInstance().apply {
-            setAcceptCookie(false)
-            setAcceptThirdPartyCookies(this@PrivacyWebView, false)
+        if (!disablePrivateView) {
+            CookieManager.getInstance().apply {
+                setAcceptCookie(false)
+                setAcceptThirdPartyCookies(this@PrivacyWebView, false)
+            }
+        } else {
+            CookieManager.getInstance().apply {
+                setAcceptCookie(true)
+                setAcceptThirdPartyCookies(this@PrivacyWebView, true)
+            }
         }
     }
 
@@ -38,13 +55,15 @@ class PrivacyWebView(context: Context, attrs: AttributeSet? = null) :
         clearCache(true)
         clearHistory()
 
-        CookieManager.getInstance().apply {
-            removeAllCookies(null)
-            flush()
+        if (!disablePrivateView) {
+            CookieManager.getInstance().apply {
+                removeAllCookies(null)
+                flush()
+            }
         }
     }
 
-    private class PrivacyClient : WebViewClient() {
+    private inner class PrivacyClient(private val context: Context, private val webView: WebView) : WebViewClient() {
 
         private val blockedHosts = listOf(
             "google-analytics.com",
@@ -60,25 +79,29 @@ class PrivacyWebView(context: Context, attrs: AttributeSet? = null) :
             view: WebView?,
             request: WebResourceRequest?
         ): Boolean {
-            val url = request?.url ?: return false
-            val scheme = url.scheme?.lowercase()
-
-            // Keep regular web pages inside the in-app view.
-            if (scheme == "http" || scheme == "https") {
-                return false
+            val url = request?.url?.toString() ?: return false
+            
+            // Open in external browser if setting is enabled
+            if (openLinksInExternalBrowser) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                context.startActivity(intent)
+                return true
+            }
+            
+            val scheme = request.url.scheme?.lowercase()
+            if (scheme != "http" && scheme != "https") {
+                return try {
+                    context.startActivity(Intent(Intent.ACTION_VIEW, request.url))
+                    true
+                } catch (e: Exception) {
+                    false
+                }
             }
 
-            // Other schemes (mailto, tel, geo, ...) cannot be shown in the WebView,
-            // so hand them to the system instead of failing on a blank page.
-            val context = view?.context ?: return false
-            return try {
-                context.startActivity(Intent(Intent.ACTION_VIEW, url))
-                true
-            } catch (e: ActivityNotFoundException) {
-                false
-            }
+            return false
         }
 
+        @SuppressLint("NewApi")
         override fun shouldInterceptRequest(
             view: WebView?,
             request: WebResourceRequest?
@@ -87,16 +110,19 @@ class PrivacyWebView(context: Context, attrs: AttributeSet? = null) :
             val url = request?.url ?: return super.shouldInterceptRequest(view, request)
             val host = url.host ?: return super.shouldInterceptRequest(view, request)
 
-            // 1. Tracker blockieren
-            if (blockedHosts.any { host.contains(it) }) {
+            // Block trackers only if private view is enabled
+            if (!disablePrivateView && blockedHosts.any { host.contains(it) }) {
                 return WebResourceResponse("text/plain", "utf-8", null)
             }
 
-            // 2. Set-Cookie Header entfernen
-            val response = super.shouldInterceptRequest(view, request)
-            response?.responseHeaders?.remove("Set-Cookie")
+            // Set-Cookie Header entfernen (nur bei Private View)
+            if (!disablePrivateView) {
+                val response = super.shouldInterceptRequest(view, request)
+                response?.responseHeaders?.remove("Set-Cookie")
+                return response
+            }
 
-            return response
+            return super.shouldInterceptRequest(view, request)
         }
     }
 }

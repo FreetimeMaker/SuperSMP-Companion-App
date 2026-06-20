@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -23,11 +26,10 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.freetime.ssmpc.R
 import com.freetime.ssmpc.PrivacyWebView
-import com.freetime.ssmpc.ui.screens.DonateScreen
 import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
-import com.freetime.ssmpc.R
 
 class DonateActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,19 +37,16 @@ class DonateActivity : ComponentActivity() {
         enableEdgeToEdge()
         hideSystemBars()
 
-        val sharedPrefs = getSharedPreferences("ssmpc_prefs", MODE_PRIVATE)
-        
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs",
-                MODE_PRIVATE
-            ) }
+            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
             val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
             val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
             val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
+            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
 
             val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            
+            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
                 DonateScreen(onBack = { finish() })
             }
         }
@@ -79,16 +78,15 @@ class DonateWebViewActivity : ComponentActivity() {
         val title = intent.getStringExtra("title") ?: getString(R.string.donate_title)
 
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs",
-                MODE_PRIVATE
-            ) }
+            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
             val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
             val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
             val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
+            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
 
             val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            
+            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
                 WebViewScreen(url = url, title = title, onBack = { finish() })
             }
         }
@@ -116,19 +114,16 @@ class DonatorActivity : ComponentActivity() {
         enableEdgeToEdge()
         hideSystemBars()
 
-        val sharedPrefs = getSharedPreferences("ssmpc_prefs", MODE_PRIVATE)
-        
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs",
-                MODE_PRIVATE
-            ) }
+            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
             val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
             val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
             val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
+            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
 
             val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
 
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
                 DonatorScreen(onBack = { finish() })
             }
         }
@@ -157,6 +152,11 @@ fun WebViewScreen(
     title: String,
     onBack: () -> Unit
 ) {
+    val context = LocalContext.current
+    val sharedPreferences = remember { context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
+    val disablePrivateView = sharedPreferences.getBoolean("disable_private_view", false)
+    val openExternalBrowser = sharedPreferences.getBoolean("open_external_browser", false)
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -172,8 +172,9 @@ fun WebViewScreen(
         AndroidView(
             factory = { ctx ->
                 PrivacyWebView(ctx).apply {
+                    this.disablePrivateView = disablePrivateView
+                    this.openLinksInExternalBrowser = openExternalBrowser
                     settings.javaScriptEnabled = true
-                    settings.domStorageEnabled = true
                     loadUrl(url)
                 }
             },
@@ -238,6 +239,6 @@ fun DonatorScreen(
 }
 
 fun openDiscordInvite(context: Context) {
-    val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/zPFvwK9pNh"))
+    val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.com/invite/supersmp"))
     context.startActivity(webIntent)
 }

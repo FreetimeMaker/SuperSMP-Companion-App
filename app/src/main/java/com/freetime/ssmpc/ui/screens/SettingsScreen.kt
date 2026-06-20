@@ -39,10 +39,11 @@ class SettingsActivity : ComponentActivity() {
             val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
             val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
             val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
+            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
 
             val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
 
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     SettingsScreen(
                         modifier = Modifier.padding(innerPadding),
@@ -89,6 +90,18 @@ fun SettingsScreen(
 
     var dynamicColor by remember {
         mutableStateOf(sharedPreferences.getBoolean("dynamic_color", true))
+    }
+
+    var oledBlack by remember {
+        mutableStateOf(sharedPreferences.getBoolean("oled_black", false))
+    }
+
+    var disablePrivateView by remember {
+        mutableStateOf(sharedPreferences.getBoolean("disable_private_view", false))
+    }
+
+    var openExternalBrowser by remember {
+        mutableStateOf(sharedPreferences.getBoolean("open_external_browser", false))
     }
 
     Column(
@@ -162,6 +175,51 @@ fun SettingsScreen(
                     onCheckedChange = {
                         darkModeEnabled = it
                         sharedPreferences.edit().putBoolean("dark_mode_enabled", it).apply()
+                    }
+                )
+
+                HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
+
+                SettingsToggle(
+                    title = stringResource(R.string.oled_black_title),
+                    subtitle = stringResource(R.string.oled_black_subtitle),
+                    checked = oledBlack,
+                    onCheckedChange = {
+                        oledBlack = it
+                        sharedPreferences.edit().putBoolean("oled_black", it).apply()
+                    }
+                )
+            }
+        }
+
+        Text(text = stringResource(R.string.webview_settings_title), style = MaterialTheme.typography.headlineSmall)
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                SettingsToggle(
+                    title = stringResource(R.string.disable_private_view),
+                    subtitle = stringResource(R.string.disable_private_view_subtitle),
+                    checked = disablePrivateView,
+                    onCheckedChange = {
+                        disablePrivateView = it
+                        sharedPreferences.edit().putBoolean("disable_private_view", it).apply()
+                    }
+                )
+
+                HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
+
+                SettingsToggle(
+                    title = stringResource(R.string.open_external_browser),
+                    subtitle = stringResource(R.string.open_external_browser_subtitle),
+                    checked = openExternalBrowser,
+                    onCheckedChange = {
+                        openExternalBrowser = it
+                        sharedPreferences.edit().putBoolean("open_external_browser", it).apply()
                     }
                 )
             }

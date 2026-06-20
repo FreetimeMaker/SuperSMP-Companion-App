@@ -45,6 +45,22 @@
     <string name="crypto_label">Cryptocurrencies</string>
     <string name="cash_label">Cash &amp; Others</string>
     <string name="supporters_title">Supporters</string>
+    <string name="show_wallet_addresses">Show Wallet Addresses</string>
+    <string name="wallet_addresses_title">Wallet Addresses</string>
+    <string name="copy_address">Copy Address</string>
+    <string name="address_copied">Address copied to clipboard</string>
+    <string name="about_developer_title">About the Developer</string>
+    <string name="about_developer_text">Hi! I\'m Freetime Maker, the creator of the SuperSMP Companion App. I started this project to provide a better experience for the SuperSMP community. This app is developed in my spare time with passion for open-source software. Your support allows me to keep improving it and exploring new features for the community!</string>
+    <string name="donation_mission_title">Why support SuperSMP Companion?</string>
+    <string name="donation_mission_text">SuperSMP Companion is 100% free, open-source, and has no ads or trackers. Your donations help cover infrastructure costs and support the ongoing development of this and other community-focused apps. Every contribution, no matter how small, keeps this project alive. Thank you! ❤️</string>
+    <string name="oled_black_title">OLED Black Mode</string>
+    <string name="oled_black_subtitle">Pure black background for AMOLED screens</string>
+    <!-- WebView Settings -->
+    <string name="webview_settings_title">WebView Settings</string>
+    <string name="disable_private_view">Disable Private View</string>
+    <string name="disable_private_view_subtitle">Allow cookies and tracking</string>
+    <string name="open_external_browser">Open in External Browser</string>
+    <string name="open_external_browser_subtitle">Open links in external browser instead of app</string>
     <string name="back_nav_desc">Back</string>
     <string name="go_back">Go Back</string>
     <string name="links_section_title">Welcome to the Useful Links Section!</string>
