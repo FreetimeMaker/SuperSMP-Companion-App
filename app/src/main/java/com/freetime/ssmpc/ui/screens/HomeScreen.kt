@@ -14,15 +14,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.freetime.ssmpc.R
 import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
+import com.freetime.ssmpc.ui.viewmodels.ServerStatusViewModel
+import java.util.concurrent.TimeUnit
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,8 +76,23 @@ class HomeActivity : ComponentActivity() {
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    onBack: (() -> Unit)? = null
+    onBack: (() -> Unit)? = null,
+    statusViewModel: ServerStatusViewModel = viewModel()
 ) {
+    val status by statusViewModel.status.collectAsState()
+    val isLoading by statusViewModel.isLoading.collectAsState()
+    val context = LocalContext.current
+    val sharedPreferences = remember { context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
+    
+    val lastVoteTime = sharedPreferences.getLong("last_vote_time", 0L)
+    val currentTime = System.currentTimeMillis()
+    val timePassed = currentTime - lastVoteTime
+    val isVoteAvailable = timePassed >= TimeUnit.HOURS.toMillis(24)
+
+    LaunchedEffect(Unit) {
+        statusViewModel.refreshStatus("supersmp.fun")
+    }
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -84,6 +106,61 @@ fun HomeScreen(
             fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
+
+        // Server Status Card
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = if (status?.online == true) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer
+            )
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(
+                    text = if (status?.online == true) "Server Online" else if (isLoading) "Loading..." else "Server Offline",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                if (status?.online == true) {
+                    Text(text = "Players: ${status?.players?.online}/${status?.players?.max}")
+                    Text(text = "Version: ${status?.version}")
+                }
+                Button(onClick = { statusViewModel.refreshStatus("supersmp.fun") }, enabled = !isLoading) {
+                    Text("Refresh Status")
+                }
+            }
+        }
+
+        // Vote Reminder Card
+        Card(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "Daily Vote Reminder", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Spacer(modifier = Modifier.height(8.dp))
+                if (isVoteAvailable) {
+                    Text("You can vote now for rewards!")
+                } else {
+                    val hoursLeft = 24 - TimeUnit.MILLISECONDS.toHours(timePassed)
+                    Text("Next vote available in approx. $hoursLeft hours.")
+                }
+                Button(
+                    onClick = { 
+                        sharedPreferences.edit().putLong("last_vote_time", System.currentTimeMillis()).apply()
+                    },
+                    modifier = Modifier.padding(top = 8.dp)
+                ) {
+                    Text("I just voted!")
+                }
+            }
+        }
+
+        // News Section
+        Card(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(text = "Latest News", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Spacer(modifier = Modifier.height(8.dp))
+                Text("• Version 1.5.0 is out with many new features!")
+                Text("• Join the Discord for more updates.")
+            }
+        }
 
         Card(
             modifier = Modifier.fillMaxWidth()

@@ -21,6 +21,9 @@ import com.freetime.ssmpc.ui.screens.LinksScreen
 import com.freetime.ssmpc.ui.screens.ShopScreen
 import com.freetime.ssmpc.ui.screens.MapScreen
 import com.freetime.ssmpc.ui.screens.SettingsScreen
+import com.freetime.ssmpc.ui.screens.CoordinatesScreen
+import com.freetime.ssmpc.ui.screens.PriceCalculatorScreen
+import com.freetime.ssmpc.ui.screens.WikiScreen
 
 @Composable
 fun SuperSMPNavigation(
@@ -37,6 +40,15 @@ fun SuperSMPNavigation(
         }
         composable("servercmd") {
             ServerCommandScreen()
+        }
+        composable("coords") {
+            CoordinatesScreen()
+        }
+        composable("wiki") {
+            WikiScreen()
+        }
+        composable("calculator") {
+            PriceCalculatorScreen()
         }
         composable("links") {
             LinksScreen()
