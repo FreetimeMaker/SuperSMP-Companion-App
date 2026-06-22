@@ -22,7 +22,6 @@ import com.freetime.ssmpc.ui.screens.ShopScreen
 import com.freetime.ssmpc.ui.screens.MapScreen
 import com.freetime.ssmpc.ui.screens.SettingsScreen
 import com.freetime.ssmpc.ui.screens.CoordinatesScreen
-import com.freetime.ssmpc.ui.screens.PriceCalculatorScreen
 import com.freetime.ssmpc.ui.screens.WikiScreen
 
 @Composable
