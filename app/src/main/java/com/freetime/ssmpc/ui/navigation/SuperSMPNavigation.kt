@@ -47,9 +47,6 @@ fun SuperSMPNavigation(
         composable("wiki") {
             WikiScreen()
         }
-        composable("calculator") {
-            PriceCalculatorScreen()
-        }
         composable("links") {
             LinksScreen()
         }
