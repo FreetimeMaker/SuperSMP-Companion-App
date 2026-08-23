@@ -1,19 +1,37 @@
 package com.freetime.ssmpc.ui.screens
 
 import android.content.Intent
+import android.widget.Toast
+import androidx.activity.ComponentActivity
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.CardGiftcard
+import androidx.compose.material.icons.filled.CurrencyBitcoin
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Public
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import com.freetime.sdk.PaymentRequest
+import com.freetime.sdk.PaymentResult
+import com.freetime.sdk.PromotionView
 import com.freetime.ssmpc.R
+import com.freetime.ssmpc.SuperSMPApplication
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,180 +56,120 @@ fun DonateScreen(onBack: () -> Unit) {
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = stringResource(R.string.support_development),
-                        style = MaterialTheme.typography.titleLarge,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer
-                    )
-                    Spacer(Modifier.height(8.dp))
-                    Text(
-                        text = stringResource(R.string.select_option_msg),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer
-                    )
-                }
-            }
-
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.5f)
-                )
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = stringResource(R.string.about_developer_title),
-                        style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = stringResource(R.string.about_developer_text),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
-                )
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = stringResource(R.string.donation_mission_title),
-                        style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = stringResource(R.string.donation_mission_text),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-
+            // Header Section
             Text(
-                text = stringResource(R.string.cash_label),
+                text = stringResource(R.string.support_development),
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
+            )
+            
+            Text(
+                text = stringResource(R.string.donation_mission_text),
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 8.dp)
+            )
+
+            Spacer(Modifier.height(8.dp))
+
+            // Main Support Option: GitHub Sponsors
+            SupportCard(
+                title = "GitHub Sponsors",
+                description = "Support the project monthly or one-time via GitHub.",
+                icon = Icons.Default.Favorite,
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                onClick = {
+                    val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://github.com/sponsors/FreetimeMaker"))
+                    context.startActivity(intent)
+                }
+            )
+
+            // Modern Crypto Option via FreetimeSDK
+            SupportCard(
+                title = "Crypto Support",
+                description = "Donate Bitcoin, Ethereum, Solana and 30+ other coins securely.",
+                icon = Icons.Default.CurrencyBitcoin,
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                onClick = {
+                    val activity = context as? ComponentActivity
+                    activity?.let {
+                        val request = PaymentRequest(
+                            amount = 5.0,
+                            currency = "USD",
+                            description = "SuperSMP Support"
+                        )
+                        SuperSMPApplication.freetimePay.showPaymentSheet(it, request) { result ->
+                            when (result) {
+                                is PaymentResult.Success -> {
+                                    Toast.makeText(context, "Thank you so much for your support!", Toast.LENGTH_LONG).show()
+                                }
+                                is PaymentResult.Error -> {
+                                    Toast.makeText(context, "Payment Error: ${result.message}", Toast.LENGTH_LONG).show()
+                                }
+                                is PaymentResult.Cancelled -> {}
+                            }
+                        }
+                    }
+                }
+            )
+
+            // Other Web Links Section
+            Text(
+                text = "Other Options",
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.align(Alignment.Start).padding(top = 8.dp)
             )
 
-            DonateButton(text = stringResource(R.string.DonViaGHSponsors)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://github.com/sponsors/FreetimeMaker"))
-                context.startActivity(intent)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                SmallSupportCard(
+                    modifier = Modifier.weight(1f),
+                    title = "NOWPayments",
+                    icon = Icons.Default.Public,
+                    onClick = {
+                        val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://nowpayments.io/donation/SuperSMP"))
+                        context.startActivity(intent)
+                    }
+                )
+                SmallSupportCard(
+                    modifier = Modifier.weight(1f),
+                    title = "OxaPay",
+                    icon = Icons.Default.Public,
+                    onClick = {
+                        val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://pay.oxapay.com/13038067"))
+                        context.startActivity(intent)
+                    }
+                )
             }
 
+            // Manual Addresses
+            OutlinedButton(
+                onClick = { context.startActivity(Intent(context, WalletAddressActivity::class.java)) },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Icon(Icons.Default.CardGiftcard, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.show_wallet_addresses))
+            }
+
+            HorizontalDivider(Modifier.padding(vertical = 16.dp))
+
+            // Promotions / Featured Projects (GeoWeather Style)
             Text(
-                text = stringResource(R.string.crypto_label),
+                text = "Featured Projects",
                 style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.align(Alignment.Start).padding(top = 8.dp)
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.align(Alignment.Start)
             )
-
-            DonateButton(text = stringResource(R.string.show_wallet_addresses)) {
-                context.startActivity(Intent(context, WalletAddressActivity::class.java))
-            }
-
-            DonateButton(text = "Donate via NOWPayments") {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://nowpayments.io/donation/SuperSMP"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaOxaPay)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://pay.oxapay.com/13038067"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaBTC)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/60misly"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaETH)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/86fremd"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaUSDT)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/19tacit"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaUSDC)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/15snog"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaSHIB)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/18spile"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaDOGE)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/30allie"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonateViaTRON)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/15gown"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaLTC)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/77pudgy"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaBNB)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/02hanch"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaPEPE)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/73enow"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaSOL)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/54fled"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaDAI)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/27thio"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaTON)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/22frisk"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaPOL)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/23patas"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaOptimism)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/77salvy"))
-                context.startActivity(intent)
-            }
-
-            DonateButton(text = stringResource(R.string.DonViaARB)) {
-                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://ncwallet.net/pay/80arui"))
-                context.startActivity(intent)
-            }
+            
+            FreetimePromotion()
 
             Spacer(Modifier.height(16.dp))
 
@@ -223,6 +181,86 @@ fun DonateScreen(onBack: () -> Unit) {
             }
         }
     }
+}
+
+@Composable
+fun SupportCard(
+    title: String,
+    description: String,
+    icon: ImageVector,
+    containerColor: androidx.compose.ui.graphics.Color,
+    onClick: () -> Unit
+) {
+    ElevatedCard(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.elevatedCardColors(containerColor = containerColor)
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(20.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                modifier = Modifier.size(40.dp),
+                tint = MaterialTheme.colorScheme.onPrimaryContainer
+            )
+            Spacer(Modifier.width(20.dp))
+            Column {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun SmallSupportCard(
+    modifier: Modifier = Modifier,
+    title: String,
+    icon: ImageVector,
+    onClick: () -> Unit
+) {
+    OutlinedCard(
+        onClick = onClick,
+        modifier = modifier
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Icon(icon, contentDescription = null)
+            Spacer(Modifier.height(8.dp))
+            Text(text = title, style = MaterialTheme.typography.labelLarge)
+        }
+    }
+}
+
+@Composable
+fun FreetimePromotion() {
+    AndroidView(
+        factory = { context ->
+            PromotionView(context).apply {
+                loadPromotion(SuperSMPApplication.freetimePay.config)
+            }
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    )
 }
 
 @Composable

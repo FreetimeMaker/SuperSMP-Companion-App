@@ -26,7 +26,6 @@ fun BottomNavigationBar(navController: NavController) {
         val items = listOf(
             BottomNavItem("home", stringResource(R.string.nav_home), Icons.Default.Home),
             BottomNavItem("coords", stringResource(R.string.nav_coords), Icons.Default.PinDrop),
-            BottomNavItem("wiki", stringResource(R.string.nav_wiki), Icons.Default.MenuBook),
             BottomNavItem("servercmd", stringResource(R.string.nav_cmds), Icons.Default.Terminal),
             BottomNavItem("links", stringResource(R.string.nav_links), Icons.Default.Link),
             BottomNavItem("shop", stringResource(R.string.nav_shop), Icons.Default.ShoppingCart),

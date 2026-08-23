@@ -1,0 +1,3 @@
+[submodule "SDK/FreetimeSDK"]
+	path = SDK/FreetimeSDK
+	url = https://github.com/FreetimeMaker/FreetimeSDK

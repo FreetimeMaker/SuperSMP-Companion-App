@@ -97,6 +97,10 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v1.6.0" to listOf(
+            "Added FreetimeSDK for Donations",
+            "Added something where you can save your Coordinates"
+        ),
         "v1.5.0" to listOf(
             stringResource(R.string.changelog_v1_5_0_1),
             stringResource(R.string.changelog_v1_5_0_2),

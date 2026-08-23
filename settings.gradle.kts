@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "SuperSMP Companion App"
 include(":app")
+include(":freetimesdk")
+project(":freetimesdk").projectDir = file("SDK/FreetimeSDK/SDK")

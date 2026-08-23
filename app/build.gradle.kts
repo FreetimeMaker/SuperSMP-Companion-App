@@ -11,10 +11,10 @@ android {
 
     defaultConfig {
         applicationId = "com.freetime.ssmpc"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 37
-        versionCode = 19
-        versionName = "1.5.0"
+        versionCode = 20
+        versionName = "1.6.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -73,6 +73,8 @@ dependencies {
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
     implementation(libs.androidx.work.runtime.ktx)
+
+    implementation(project(":freetimesdk"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
