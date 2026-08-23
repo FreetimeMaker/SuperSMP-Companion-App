@@ -19,7 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SuperSMP Companion App"
-include(":app")
+rootProject.name = "FreetimeSDK"
 include(":SDK")
-project(":SDK").projectDir = file("SDK/SDK")
