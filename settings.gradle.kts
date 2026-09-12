@@ -21,5 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "SuperSMP Companion App"
 include(":app")
-include(":SDK")
-project(":SDK").projectDir = file("SDK/SDK")

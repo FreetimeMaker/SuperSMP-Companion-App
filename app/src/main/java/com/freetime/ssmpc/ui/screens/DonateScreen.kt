@@ -27,9 +27,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import com.freetime.sdk.PaymentRequest
-import com.freetime.sdk.PaymentResult
-import com.freetime.sdk.PromotionView
 import com.freetime.ssmpc.R
 import com.freetime.ssmpc.SuperSMPApplication
 
@@ -89,35 +86,6 @@ fun DonateScreen(onBack: () -> Unit) {
                 }
             )
 
-            // Modern Crypto Option via FreetimeSDK
-            SupportCard(
-                title = "Crypto Support",
-                description = "Donate Bitcoin, Ethereum, Solana and 30+ other coins securely.",
-                icon = Icons.Default.CurrencyBitcoin,
-                containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                onClick = {
-                    val activity = context as? ComponentActivity
-                    activity?.let {
-                        val request = PaymentRequest(
-                            amount = 5.0,
-                            currency = "USD",
-                            description = "SuperSMP Support"
-                        )
-                        SuperSMPApplication.freetimePay.showPaymentSheet(it, request) { result ->
-                            when (result) {
-                                is PaymentResult.Success -> {
-                                    Toast.makeText(context, "Thank you so much for your support!", Toast.LENGTH_LONG).show()
-                                }
-                                is PaymentResult.Error -> {
-                                    Toast.makeText(context, "Payment Error: ${result.message}", Toast.LENGTH_LONG).show()
-                                }
-                                is PaymentResult.Cancelled -> {}
-                            }
-                        }
-                    }
-                }
-            )
-
             // Other Web Links Section
             Text(
                 text = "Other Options",
@@ -157,27 +125,6 @@ fun DonateScreen(onBack: () -> Unit) {
                 Icon(Icons.Default.CardGiftcard, contentDescription = null)
                 Spacer(Modifier.width(8.dp))
                 Text(stringResource(R.string.show_wallet_addresses))
-            }
-
-            HorizontalDivider(Modifier.padding(vertical = 16.dp))
-
-            // Promotions / Featured Projects (GeoWeather Style)
-            Text(
-                text = "Featured Projects",
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.align(Alignment.Start)
-            )
-            
-            FreetimePromotion()
-
-            Spacer(Modifier.height(16.dp))
-
-            FilledTonalButton(
-                onClick = { context.startActivity(Intent(context, DonatorActivity::class.java)) },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(R.string.ViewSup))
             }
         }
     }
@@ -246,29 +193,5 @@ fun SmallSupportCard(
             Spacer(Modifier.height(8.dp))
             Text(text = title, style = MaterialTheme.typography.labelLarge)
         }
-    }
-}
-
-@Composable
-fun FreetimePromotion() {
-    AndroidView(
-        factory = { context ->
-            PromotionView(context).apply {
-                loadPromotion(SuperSMPApplication.freetimePay.config)
-            }
-        },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp)
-    )
-}
-
-@Composable
-fun DonateButton(text: String, onClick: () -> Unit) {
-    OutlinedButton(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Text(text)
     }
 }

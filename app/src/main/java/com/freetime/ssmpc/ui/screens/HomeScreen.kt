@@ -152,16 +152,6 @@ fun HomeScreen(
             }
         }
 
-        // News Section
-        Card(modifier = Modifier.fillMaxWidth()) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = "Latest News", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text("• Version 1.5.0 is out with many new features!")
-                Text("• Join the Discord for more updates.")
-            }
-        }
-
         Card(
             modifier = Modifier.fillMaxWidth()
         ) {
