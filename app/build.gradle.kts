@@ -13,8 +13,8 @@ android {
         applicationId = "com.freetime.ssmpc"
         minSdk = 26
         targetSdk = 37
-        versionCode = 20
-        versionName = "1.6.0"
+        versionCode = 21
+        versionName = "1.6.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
