@@ -85,6 +85,7 @@ You can download the latest version of SuperSMP Companion App from the following
 
 - **GitHub Releases**: [Direct Download](https://github.com/FreetimeMaker/SuperSMP-Companion-App/releases/latest)
 - **F-Droid**: [com.freetime.ssmpc](https://f-droid.org/packages/com.freetime.ssmpc)
+- **OpenAPK**: [OpenAPK](https://www.openapk.net/supersmp-companion/com.freetime.ssmpc/)
 - **GitHub Store**: [Open in GitHub Store](https://github-store.org/app?repo=FreetimeMaker/SuperSMP-Companion-App)
 
 <div align="center">
@@ -92,6 +93,8 @@ You can download the latest version of SuperSMP Companion App from the following
 [<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="82">](https://github.com/FreetimeMaker/SuperSMP-Companion-App/releases/latest")
 
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/com.freetime.ssmpc)
+
+[<img src="media-resources/openapk-badge.png" alt="Get it on OpenAPK" height="80">](https://www.openapk.net/supersmp-companion/com.freetime.ssmpc/)
 
 [<img src="media-resources/badge_github_store.png" alt="Get it on GitHub Store" height="70">](https://github-store.org/app?repo=FreetimeMaker/SuperSMP-Companion-App)
 </div>

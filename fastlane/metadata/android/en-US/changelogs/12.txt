@@ -1,3 +1,0 @@
-- Added Darkmode
-- Added Dynamic Clor
-- Added more Theme Settings
