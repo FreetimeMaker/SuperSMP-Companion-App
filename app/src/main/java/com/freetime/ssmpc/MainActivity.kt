@@ -15,7 +15,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.freetime.ssmpc.ui.glass.SuperSMPLiquidGlassRoot
 import com.freetime.ssmpc.ui.navigation.BottomNavigationBar
 import com.freetime.ssmpc.ui.navigation.SuperSMPNavigation
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
@@ -40,8 +39,7 @@ class MainActivity : ComponentActivity() {
             val darkTheme = currentHour < 7 || currentHour >= 19
 
             SuperSMPTheme(darkTheme = darkTheme) {
-                SuperSMPLiquidGlassRoot {
-                    Surface(
+                Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
                     ) {
