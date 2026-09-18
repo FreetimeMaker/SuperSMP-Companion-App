@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
@@ -20,6 +21,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.R
+import com.freetime.ssmpc.ui.glass.superSMPGlass
 import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
@@ -124,9 +126,7 @@ fun ServerCommandScreen(
         )
 
         // Basic Commands
-        Card(
-            modifier = Modifier.fillMaxWidth()
-        ) {
+        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -143,9 +143,7 @@ fun ServerCommandScreen(
         }
 
         // Economy Commands
-        Card(
-            modifier = Modifier.fillMaxWidth()
-        ) {
+        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -162,9 +160,7 @@ fun ServerCommandScreen(
         }
 
         // Land Claim Commands
-        Card(
-            modifier = Modifier.fillMaxWidth()
-        ) {
+        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -183,7 +179,7 @@ fun ServerCommandScreen(
         if (onBack != null) {
             Button(
                 onClick = onBack,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))
             ) {
                 Text(stringResource(R.string.go_back))
             }
