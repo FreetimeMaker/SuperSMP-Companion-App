@@ -8,6 +8,7 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import com.freetime.ssmpc.ui.glass.SuperSMPLiquidGlassRoot
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -41,6 +42,6 @@ fun SuperSMPTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = GeoTypography,
-        content = content
+        content = { SuperSMPLiquidGlassRoot(content) }
     )
 }
