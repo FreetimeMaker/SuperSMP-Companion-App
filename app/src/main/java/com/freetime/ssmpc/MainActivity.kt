@@ -9,10 +9,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.freetime.ssmpc.ui.navigation.BottomNavigationBar
@@ -35,24 +35,22 @@ class MainActivity : ComponentActivity() {
                 }
             }
 
-            // Same fallback schedule used by GeoWeather when no sunrise/sunset data is available.
             val darkTheme = currentHour < 7 || currentHour >= 19
 
             SuperSMPTheme(darkTheme = darkTheme) {
                 Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.background
-                    ) {
-                        val navController = rememberNavController()
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    val navController = rememberNavController()
 
-                        Scaffold(
-                            bottomBar = { BottomNavigationBar(navController) }
-                        ) { paddingValues ->
-                            SuperSMPNavigation(
-                                navController = navController,
-                                modifier = Modifier.padding(paddingValues)
-                            )
-                        }
+                    Scaffold(
+                        bottomBar = { BottomNavigationBar(navController) }
+                    ) { paddingValues ->
+                        SuperSMPNavigation(
+                            navController = navController,
+                            modifier = Modifier.padding(paddingValues)
+                        )
                     }
                 }
             }
