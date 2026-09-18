@@ -1,6 +1,8 @@
 package com.freetime.ssmpc.ui.screens
 
+import com.freetime.ssmpc.ui.glass.superSMPGlass
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -48,7 +50,7 @@ fun CoordinatesScreen(viewModel: CoordinatesViewModel = viewModel()) {
 
 @Composable
 fun CoordinateItem(coordinate: CoordinateEntity, onDelete: () -> Unit) {
-    Card(modifier = Modifier.fillMaxWidth()) {
+    Card(modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))) {
         Row(modifier = Modifier.padding(16.dp), horizontalArrangement = Arrangement.SpaceBetween) {
             Column {
                 Text(text = coordinate.name, style = MaterialTheme.typography.titleMedium)
