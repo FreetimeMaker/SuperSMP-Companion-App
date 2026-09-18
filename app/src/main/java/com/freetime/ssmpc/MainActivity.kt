@@ -8,44 +8,53 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.freetime.ssmpc.ui.glass.SuperSMPLiquidGlassRoot
 import com.freetime.ssmpc.ui.navigation.BottomNavigationBar
 import com.freetime.ssmpc.ui.navigation.SuperSMPNavigation
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
-
-import android.content.Context
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.runtime.remember
-import com.freetime.ssmpc.collectAsState
+import kotlinx.coroutines.delay
+import java.time.LocalTime
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
+            var currentHour by remember { mutableIntStateOf(LocalTime.now().hour) }
 
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
+            LaunchedEffect(Unit) {
+                while (true) {
+                    currentHour = LocalTime.now().hour
+                    delay(60_000)
+                }
+            }
 
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    val navController = rememberNavController()
-                    
-                    Scaffold(
-                        bottomBar = { BottomNavigationBar(navController) }
-                    ) { paddingValues ->
-                        SuperSMPNavigation(
-                            navController = navController,
-                            modifier = Modifier.padding(paddingValues)
-                        )
+            // Same fallback schedule used by GeoWeather when no sunrise/sunset data is available.
+            val darkTheme = currentHour < 7 || currentHour >= 19
+
+            SuperSMPTheme(darkTheme = darkTheme) {
+                SuperSMPLiquidGlassRoot {
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+                        val navController = rememberNavController()
+
+                        Scaffold(
+                            bottomBar = { BottomNavigationBar(navController) }
+                        ) { paddingValues ->
+                            SuperSMPNavigation(
+                                navController = navController,
+                                modifier = Modifier.padding(paddingValues)
+                            )
+                        }
                     }
                 }
             }
