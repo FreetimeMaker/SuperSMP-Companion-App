@@ -154,7 +154,10 @@ fun HomeScreen(
             }
         }
 
-        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
+        Card(
+            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
+            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -171,7 +174,10 @@ fun HomeScreen(
             }
         }
 
-        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
+        Card(
+            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
+            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -188,7 +194,10 @@ fun HomeScreen(
             }
         }
 
-        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
+        Card(
+            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
+            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
