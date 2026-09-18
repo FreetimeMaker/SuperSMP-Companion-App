@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
@@ -20,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.freetime.ssmpc.R
+import com.freetime.ssmpc.ui.glass.superSMPGlass
 import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 import com.freetime.ssmpc.ui.viewmodels.ServerStatusViewModel
@@ -109,7 +111,7 @@ fun HomeScreen(
 
         // Server Status Card
         Card(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
             colors = CardDefaults.cardColors(
                 containerColor = if (status?.online == true) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer
             )
@@ -131,7 +133,7 @@ fun HomeScreen(
         }
 
         // Vote Reminder Card
-        Card(modifier = Modifier.fillMaxWidth()) {
+        Card(modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(text = "Daily Vote Reminder", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(8.dp))
@@ -152,9 +154,7 @@ fun HomeScreen(
             }
         }
 
-        Card(
-            modifier = Modifier.fillMaxWidth()
-        ) {
+        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -171,9 +171,7 @@ fun HomeScreen(
             }
         }
 
-        Card(
-            modifier = Modifier.fillMaxWidth()
-        ) {
+        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -190,9 +188,7 @@ fun HomeScreen(
             }
         }
 
-        Card(
-            modifier = Modifier.fillMaxWidth()
-        ) {
+        Card(\n            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),\n            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)\n        ) {
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -211,7 +207,7 @@ fun HomeScreen(
         if (onBack != null) {
             Button(
                 onClick = onBack,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))
             ) {
                 Text(stringResource(R.string.go_back))
             }
