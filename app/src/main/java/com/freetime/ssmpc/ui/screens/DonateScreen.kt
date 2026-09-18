@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.freetime.ssmpc.R
+import com.freetime.ssmpc.ui.glass.superSMPGlass
 import com.freetime.ssmpc.SuperSMPApplication
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -94,7 +96,7 @@ fun DonateScreen(onBack: () -> Unit) {
             )
 
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 SmallSupportCard(
@@ -120,7 +122,7 @@ fun DonateScreen(onBack: () -> Unit) {
             // Manual Addresses
             OutlinedButton(
                 onClick = { context.startActivity(Intent(context, WalletAddressActivity::class.java)) },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))
             ) {
                 Icon(Icons.Default.CardGiftcard, contentDescription = null)
                 Spacer(Modifier.width(8.dp))
@@ -140,8 +142,8 @@ fun SupportCard(
 ) {
     ElevatedCard(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.elevatedCardColors(containerColor = containerColor)
+        modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
+        colors = CardDefaults.elevatedCardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
     ) {
         Row(
             modifier = Modifier
