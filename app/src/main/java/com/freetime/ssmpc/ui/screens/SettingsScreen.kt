@@ -73,10 +73,6 @@ fun SettingsScreen(
         context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE)
     }
 
-    var themeMode by remember {
-        mutableStateOf(sharedPreferences.getString("theme_mode", "automatic") ?: "automatic")
-    }
-
     var disablePrivateView by remember {
         mutableStateOf(sharedPreferences.getBoolean("disable_private_view", false))
     }
@@ -115,31 +111,6 @@ fun SettingsScreen(
                 )
             }) {
                 Text(stringResource(R.string.open_change_log))
-            }
-        }
-
-        Text(text = stringResource(R.string.theme_settings_title), style = MaterialTheme.typography.headlineSmall)
-        Card(
-            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
-        ) {
-            Column(
-                modifier = Modifier.padding(16.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                Text(stringResource(R.string.theme_title), style = MaterialTheme.typography.titleMedium)
-                SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-                    listOf("automatic" to stringResource(R.string.theme_automatic), "light" to stringResource(R.string.theme_light), "dark" to stringResource(R.string.theme_dark)).forEachIndexed { index, (value, label) ->
-                        SegmentedButton(
-                            selected = themeMode == value,
-                            onClick = {
-                                themeMode = value
-                                sharedPreferences.edit().putString("theme_mode", value).apply()
-                            },
-                            shape = SegmentedButtonDefaults.itemShape(index, 3)
-                        ) { Text(label) }
-                    }
-                }
             }
         }
 
