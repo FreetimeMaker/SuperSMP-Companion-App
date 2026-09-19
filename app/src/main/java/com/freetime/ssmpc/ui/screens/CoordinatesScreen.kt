@@ -1,6 +1,7 @@
 package com.freetime.ssmpc.ui.screens
 
 import com.freetime.ssmpc.ui.glass.superSMPGlass
+import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.lazy.LazyColumn
@@ -87,7 +88,7 @@ fun AddCoordinateDialog(onDismiss: () -> Unit, onAdd: (String, Double, Double, D
             }
         },
         confirmButton = {
-            Button(onClick = {
+            SuperSMPGlassButton(onClick = {
                 onAdd(name, x.toDoubleOrNull() ?: 0.0, y.toDoubleOrNull() ?: 0.0, z.toDoubleOrNull() ?: 0.0, dim, desc)
             }) {
                 Text("Add")
