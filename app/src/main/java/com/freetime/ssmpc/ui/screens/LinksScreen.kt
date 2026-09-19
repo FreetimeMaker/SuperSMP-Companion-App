@@ -7,7 +7,6 @@ import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -30,7 +29,6 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.PrivacyWebView
 import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
-import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class LinksActivity : ComponentActivity() {
@@ -40,14 +38,7 @@ class LinksActivity : ComponentActivity() {
         hideSystemBars()
 
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     LinksScreen(
                         modifier = Modifier.padding(innerPadding),
@@ -176,14 +167,7 @@ class Vote1Activity : ComponentActivity() {
         hideSystemUI()
         setContent {
 
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     WebViewScreen(
                         url = "https://servers-minecraft.net/server-supersmp.25578",
@@ -218,14 +202,7 @@ class Vote2Activity : ComponentActivity() {
         hideSystemUI()
         setContent {
 
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     WebViewScreen(
                         url = "https://topminecraftservers.org/vote/34919",
@@ -263,14 +240,7 @@ class Vote3Activity : ComponentActivity() {
         hideSystemUI()
         setContent {
 
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     WebViewScreen(
                         url = "https://minecraft-mp.com/server/338350/vote/",
@@ -306,14 +276,7 @@ class Vote4Activity : ComponentActivity() {
         hideSystemUI()
         setContent {
 
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     WebViewScreen(
                         url = "https://minecraft-mp.com/server/338350/vote/",
@@ -349,14 +312,7 @@ class Vote5Activity : ComponentActivity() {
         hideSystemUI()
         setContent {
 
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     WebViewScreen(
                         url = "https://minecraftbestservers.com/server-supersmp.4269/vote",
