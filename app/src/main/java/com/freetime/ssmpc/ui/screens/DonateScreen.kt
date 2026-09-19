@@ -1,6 +1,8 @@
 package com.freetime.ssmpc.ui.screens
 
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -83,12 +85,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 SuperSMPGlassButton(
                     onClick = {
-                        context.startActivity(
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                android.net.Uri.parse("https://github.com/sponsors/FreetimeMaker")
-                            )
-                        )
+                        openDonationLink(context, "https://github.com/sponsors/FreetimeMaker", context.getString(R.string.DonViaGHSponsors))
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -109,12 +106,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 SuperSMPGlassButton(
                     onClick = {
-                        context.startActivity(
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                android.net.Uri.parse("https://nowpayments.io/donation/SuperSMP")
-                            )
-                        )
+                        openDonationLink(context, "https://nowpayments.io/donation/SuperSMP", context.getString(R.string.nowpayments))
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -125,12 +117,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 SuperSMPGlassButton(
                     onClick = {
-                        context.startActivity(
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                android.net.Uri.parse("https://pay.oxapay.com/13038067")
-                            )
-                        )
+                        openDonationLink(context, "https://pay.oxapay.com/13038067", context.getString(R.string.DonViaOxaPay))
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -177,5 +164,22 @@ private fun DonationInfoCard(
                 color = if (primary) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+    }
+}
+
+
+private fun openDonationLink(context: Context, url: String, title: String) {
+    val preferences = context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE)
+    val openExternalBrowser = preferences.getBoolean("open_external_browser", false)
+
+    if (openExternalBrowser) {
+        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+    } else {
+        context.startActivity(
+            Intent(context, DonateWebViewActivity::class.java).apply {
+                putExtra("url", url)
+                putExtra("title", title)
+            }
+        )
     }
 }
