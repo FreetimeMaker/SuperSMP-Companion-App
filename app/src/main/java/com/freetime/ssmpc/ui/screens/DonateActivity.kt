@@ -28,6 +28,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
+import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
 import com.freetime.ssmpc.PrivacyWebView
 import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
@@ -160,8 +161,8 @@ fun WebViewScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(title) },
+            SuperSMPGlassTopBar(
+                title = title,
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
