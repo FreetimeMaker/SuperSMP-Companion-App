@@ -89,10 +89,8 @@ fun MapScreen(
                         mediaPlaybackRequiresUserGesture = false
                         userAgentString = WebSettings.getDefaultUserAgent(ctx)
                     }
-                    android.webkit.CookieManager.getInstance().apply {
-                        setAcceptCookie(true)
-                        setAcceptThirdPartyCookies(this@apply, true)
-                    }
+                    android.webkit.CookieManager.getInstance().setAcceptCookie(true)
+                    android.webkit.CookieManager.getInstance().setAcceptThirdPartyCookies(this, true)
                     loadUrl("https://map.supersmp.fun/")
                 }
             },
