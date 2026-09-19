@@ -74,30 +74,34 @@ fun AddCoordinateDialog(onDismiss: () -> Unit, onAdd: (String, Double, Double, D
     var dim by remember { mutableStateOf("Overworld") }
     var desc by remember { mutableStateOf("") }
 
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text("Add Coordinate") },
-        text = {
-            Column {
-                TextField(value = name, onValueChange = { name = it }, label = { Text("Name") })
-                TextField(value = x, onValueChange = { x = it }, label = { Text("X") })
-                TextField(value = y, onValueChange = { y = it }, label = { Text("Y") })
-                TextField(value = z, onValueChange = { z = it }, label = { Text("Z") })
-                TextField(value = dim, onValueChange = { dim = it }, label = { Text("Dimension") })
-                TextField(value = desc, onValueChange = { desc = it }, label = { Text("Description") })
-            }
-        },
-        confirmButton = {
-            SuperSMPGlassButton(onClick = {
-                onAdd(name, x.toDoubleOrNull() ?: 0.0, y.toDoubleOrNull() ?: 0.0, z.toDoubleOrNull() ?: 0.0, dim, desc)
-            }) {
-                Text("Add")
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancel")
+    Dialog(onDismissRequest = onDismiss) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .superSMPGlass(RoundedCornerShape(28.dp))
+                .padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Text("Add Coordinate", style = MaterialTheme.typography.titleLarge)
+            TextField(value = name, onValueChange = { name = it }, label = { Text("Name") })
+            TextField(value = x, onValueChange = { x = it }, label = { Text("X") })
+            TextField(value = y, onValueChange = { y = it }, label = { Text("Y") })
+            TextField(value = z, onValueChange = { z = it }, label = { Text("Z") })
+            TextField(value = dim, onValueChange = { dim = it }, label = { Text("Dimension") })
+            TextField(value = desc, onValueChange = { desc = it }, label = { Text("Description") })
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                TextButton(onClick = onDismiss) { Text("Cancel") }
+                SuperSMPGlassButton(onClick = {
+                    onAdd(
+                        name,
+                        x.toDoubleOrNull() ?: 0.0,
+                        y.toDoubleOrNull() ?: 0.0,
+                        z.toDoubleOrNull() ?: 0.0,
+                        dim,
+                        desc
+                    )
+                }) { Text("Add") }
             }
         }
-    )
+    }
 }
