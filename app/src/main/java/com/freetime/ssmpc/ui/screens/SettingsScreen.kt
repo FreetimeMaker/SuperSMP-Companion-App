@@ -27,7 +27,6 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.superSMPGlass
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
-import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class SettingsActivity : ComponentActivity() {
@@ -37,15 +36,7 @@ class SettingsActivity : ComponentActivity() {
         hideSystemBars()
 
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
+            SuperSMPTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     SettingsScreen(
                         modifier = Modifier.padding(innerPadding),
