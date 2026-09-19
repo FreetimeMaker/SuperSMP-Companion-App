@@ -57,8 +57,8 @@ fun BottomNavigationBar(navController: NavController) {
         }
 
         NavigationBarItem(
-            icon = { Icon(Icons.Default.MoreHoriz, contentDescription = "More") },
-            label = { Text("More") },
+            icon = { Icon(Icons.Default.MoreHoriz, contentDescription = stringResource(R.string.nav_more)) },
+            label = { Text(stringResource(R.string.nav_more)) },
             selected = currentRoute in setOf("links", "shop", "map", "settings"),
             colors = NavigationBarItemDefaults.colors(indicatorColor = Color.Transparent),
             onClick = { moreExpanded = true }
