@@ -109,16 +109,16 @@ fun HomeScreen(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
-                    text = if (status?.online == true) "Server Online" else if (isLoading) "Loading..." else "Server Offline",
+                    text = if (status?.online == true) stringResource(R.string.server_online) else if (isLoading) stringResource(R.string.loading) else stringResource(R.string.server_offline),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
                 if (status?.online == true) {
-                    Text(text = "Players: ${status?.players?.online}/${status?.players?.max}")
-                    Text(text = "Version: ${status?.version}")
+                    Text(text = stringResource(R.string.players_count, status?.players?.online ?: 0, status?.players?.max ?: 0))
+                    Text(text = stringResource(R.string.server_version_value, status?.version ?: ""))
                 }
                 SuperSMPGlassButton(onClick = { statusViewModel.refreshStatus("supersmp.fun") }, enabled = !isLoading) {
-                    Text("Refresh Status")
+                    Text(stringResource(R.string.refresh_status))
                 }
             }
         }
@@ -126,13 +126,13 @@ fun HomeScreen(
         // Vote Reminder Card
         Card(modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = "Daily Vote Reminder", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Text(text = stringResource(R.string.daily_vote_reminder), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(8.dp))
                 if (isVoteAvailable) {
-                    Text("You can vote now for rewards!")
+                    Text(stringResource(R.string.vote_available))
                 } else {
                     val hoursLeft = 24 - TimeUnit.MILLISECONDS.toHours(timePassed)
-                    Text("Next vote available in approx. $hoursLeft hours.")
+                    Text(stringResource(R.string.next_vote_hours, hoursLeft))
                 }
                 SuperSMPGlassButton(
                     onClick = { 
@@ -140,7 +140,7 @@ fun HomeScreen(
                     },
                     modifier = Modifier.padding(top = 8.dp)
                 ) {
-                    Text("I just voted!")
+                    Text(stringResource(R.string.vote_confirm))
                 }
             }
         }
