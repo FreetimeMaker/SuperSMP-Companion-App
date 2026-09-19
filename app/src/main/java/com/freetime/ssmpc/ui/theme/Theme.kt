@@ -7,8 +7,15 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import com.freetime.ssmpc.ui.glass.SuperSMPLiquidGlassRoot
+import kotlinx.coroutines.delay
+import java.time.LocalTime
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -23,17 +30,31 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
+fun rememberSuperSMPAutomaticDarkTheme(): Boolean {
+    var currentHour by remember { mutableIntStateOf(LocalTime.now().hour) }
+    LaunchedEffect(Unit) {
+        while (true) {
+            currentHour = LocalTime.now().hour
+            delay(60_000)
+        }
+    }
+    return currentHour < 7 || currentHour >= 19
+}
+
+@Composable
 fun SuperSMPTheme(
-    darkTheme: Boolean = false,
+    darkTheme: Boolean? = null,
     dynamicColor: Boolean = true,
     oledBlack: Boolean = false,
     content: @Composable () -> Unit
 ) {
-    // Match GeoWeather: Material You is automatically enabled on Android 12+.
+    val automaticDark = rememberSuperSMPAutomaticDarkTheme()
+    val useDarkTheme = darkTheme ?: automaticDark
+
     val colorScheme = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         val context = LocalContext.current
-        if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-    } else if (darkTheme) {
+        if (useDarkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+    } else if (useDarkTheme) {
         DarkColorScheme
     } else {
         LightColorScheme
