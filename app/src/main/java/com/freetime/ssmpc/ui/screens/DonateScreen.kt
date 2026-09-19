@@ -80,8 +80,8 @@ fun DonateScreen(onBack: () -> Unit) {
 
             // Main Support Option: GitHub Sponsors
             SupportCard(
-                title = "GitHub Sponsors",
-                description = "Support the project monthly or one-time via GitHub.",
+                title = stringResource(R.string.github_sponsors),
+                description = stringResource(R.string.github_sponsors_description),
                 icon = Icons.Default.Favorite,
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
                 onClick = {
@@ -92,7 +92,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             // Other Web Links Section
             Text(
-                text = "Other Options",
+                text = stringResource(R.string.other_options),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.align(Alignment.Start).padding(top = 8.dp)
             )
@@ -103,7 +103,7 @@ fun DonateScreen(onBack: () -> Unit) {
             ) {
                 SmallSupportCard(
                     modifier = Modifier.weight(1f),
-                    title = "NOWPayments",
+                    title = stringResource(R.string.nowpayments),
                     icon = Icons.Default.Public,
                     onClick = {
                         val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://nowpayments.io/donation/SuperSMP"))
@@ -112,7 +112,7 @@ fun DonateScreen(onBack: () -> Unit) {
                 )
                 SmallSupportCard(
                     modifier = Modifier.weight(1f),
-                    title = "OxaPay",
+                    title = stringResource(R.string.oxapay),
                     icon = Icons.Default.Public,
                     onClick = {
                         val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://pay.oxapay.com/13038067"))
