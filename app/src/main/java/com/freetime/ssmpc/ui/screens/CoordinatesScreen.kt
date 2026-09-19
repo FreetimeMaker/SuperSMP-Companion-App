@@ -12,6 +12,8 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.freetime.ssmpc.R
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -27,7 +29,7 @@ fun CoordinatesScreen(viewModel: CoordinatesViewModel = viewModel()) {
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = { showAddDialog = true }) {
-                Icon(Icons.Default.Add, contentDescription = "Add Coordinate")
+                Icon(Icons.Default.Add, contentDescription = stringResource(R.string.add_coordinate))
             }
         }
     ) { padding ->
@@ -56,11 +58,11 @@ fun CoordinateItem(coordinate: CoordinateEntity, onDelete: () -> Unit) {
         Row(modifier = Modifier.padding(16.dp), horizontalArrangement = Arrangement.SpaceBetween) {
             Column {
                 Text(text = coordinate.name, style = MaterialTheme.typography.titleMedium)
-                Text(text = "X: ${coordinate.x} Y: ${coordinate.y} Z: ${coordinate.z}", style = MaterialTheme.typography.bodyMedium)
+                Text(text = stringResource(R.string.coordinate_format, coordinate.x.toString(), coordinate.y.toString(), coordinate.z.toString()), style = MaterialTheme.typography.bodyMedium)
                 Text(text = coordinate.dimension, style = MaterialTheme.typography.bodySmall)
             }
             IconButton(onClick = onDelete) {
-                Icon(Icons.Default.Delete, contentDescription = "Delete")
+                Icon(Icons.Default.Delete, contentDescription = stringResource(R.string.delete_coordinate))
             }
         }
     }
@@ -83,15 +85,15 @@ fun AddCoordinateDialog(onDismiss: () -> Unit, onAdd: (String, Double, Double, D
                 .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            Text("Add Coordinate", style = MaterialTheme.typography.titleLarge)
-            TextField(value = name, onValueChange = { name = it }, label = { Text("Name") })
-            TextField(value = x, onValueChange = { x = it }, label = { Text("X") })
-            TextField(value = y, onValueChange = { y = it }, label = { Text("Y") })
-            TextField(value = z, onValueChange = { z = it }, label = { Text("Z") })
-            TextField(value = dim, onValueChange = { dim = it }, label = { Text("Dimension") })
-            TextField(value = desc, onValueChange = { desc = it }, label = { Text("Description") })
+            Text(stringResource(R.string.add_coordinate), style = MaterialTheme.typography.titleLarge)
+            TextField(value = name, onValueChange = { name = it }, label = { Text(stringResource(R.string.coordinate_name)) })
+            TextField(value = x, onValueChange = { x = it }, label = { Text(stringResource(R.string.coordinate_x)) })
+            TextField(value = y, onValueChange = { y = it }, label = { Text(stringResource(R.string.coordinate_y)) })
+            TextField(value = z, onValueChange = { z = it }, label = { Text(stringResource(R.string.coordinate_z)) })
+            TextField(value = dim, onValueChange = { dim = it }, label = { Text(stringResource(R.string.coordinate_dimension)) })
+            TextField(value = desc, onValueChange = { desc = it }, label = { Text(stringResource(R.string.coordinate_description)) })
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                TextButton(onClick = onDismiss) { Text("Cancel") }
+                TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
                 SuperSMPGlassButton(onClick = {
                     onAdd(
                         name,
@@ -101,7 +103,7 @@ fun AddCoordinateDialog(onDismiss: () -> Unit, onAdd: (String, Double, Double, D
                         dim,
                         desc
                     )
-                }) { Text("Add") }
+                }) { Text(stringResource(R.string.add)) }
             }
         }
     }
