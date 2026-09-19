@@ -31,16 +31,7 @@ class ChangeLogActivity : ComponentActivity() {
         enableEdgeToEdge()
         hideSystemBars()
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs",
-                MODE_PRIVATE
-            ) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme {
                 ChangeLogScreen(onBack = { finish() })
             }
         }
@@ -138,8 +129,8 @@ fun ChangeLogScreen(onBack: () -> Unit) {
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.whats_new_title)) },
+            SuperSMPGlassTopBar(
+                title = stringResource(R.string.whats_new_title),
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
