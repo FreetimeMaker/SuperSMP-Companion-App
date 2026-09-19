@@ -29,6 +29,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.PrivacyWebView
 import com.freetime.ssmpc.R
+import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
@@ -96,7 +97,7 @@ fun LinksScreen(
             color = MaterialTheme.colorScheme.onBackground
         )
         
-        Button(
+        SuperSMPGlassButton(
             onClick = { 
                 openSuperSMPDiscord(context)
             },
@@ -105,7 +106,7 @@ fun LinksScreen(
             Text(stringResource(R.string.links_discord))
         }
         
-        Button(
+        SuperSMPGlassButton(
             onClick = {
                 context.startActivity(Intent(context, Vote1Activity::class.java))
             },
@@ -114,7 +115,7 @@ fun LinksScreen(
             Text(stringResource(R.string.links_vote_1))
         }
         
-        Button(
+        SuperSMPGlassButton(
             onClick = {
                 context.startActivity(Intent(context, Vote2Activity::class.java))
             },
@@ -123,7 +124,7 @@ fun LinksScreen(
             Text(stringResource(R.string.links_vote_2))
         }
         
-        Button(
+        SuperSMPGlassButton(
             onClick = {
                 context.startActivity(Intent(context, Vote3Activity::class.java))
             },
@@ -132,7 +133,7 @@ fun LinksScreen(
             Text(stringResource(R.string.links_vote_3))
         }
         
-        Button(
+        SuperSMPGlassButton(
             onClick = {
                 context.startActivity(Intent(context, Vote4Activity::class.java))
             },
@@ -141,7 +142,7 @@ fun LinksScreen(
             Text(stringResource(R.string.links_vote_4))
         }
         
-        Button(
+        SuperSMPGlassButton(
             onClick = {
                 context.startActivity(Intent(context, Vote5Activity::class.java))
             },
@@ -151,7 +152,7 @@ fun LinksScreen(
         }
 
         if (onBack != null) {
-            Button(
+            SuperSMPGlassButton(
                 onClick = onBack,
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -403,7 +404,7 @@ fun WebViewScreen(
             modifier = Modifier.fillMaxSize()
         )
 
-        Button(
+        SuperSMPGlassButton(
             onClick = onBack,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
