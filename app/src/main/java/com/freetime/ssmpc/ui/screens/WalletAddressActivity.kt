@@ -124,8 +124,8 @@ fun WalletAddressScreen(onBack: () -> Unit) {
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.wallet_addresses_title)) },
+            SuperSMPGlassTopBar(
+                title = stringResource(R.string.wallet_addresses_title),
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
