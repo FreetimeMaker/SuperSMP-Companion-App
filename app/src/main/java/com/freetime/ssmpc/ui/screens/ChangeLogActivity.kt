@@ -91,37 +91,37 @@ fun ReleaseCard(
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
         "v2.0.0" to listOf(
-            "Added Liquid Glass throughout the app",
-            "Redesigned cards, buttons, dialogs, top bars, and navigation",
-            "Added interactive Glass effects and animations",
-            "Added a new floating bottom navigation bar",
-            "Improved Material You integration",
-            "Simplified the main navigation",
-            "Added a More menu for Links, Shop, Map, and Settings",
-            "Improved navigation and back controls across the app",
-            "Added Automatic, Light, and Dark theme modes",
-            "Automatic mode switches between light and dark based on the time of day",
-            "Unified theme handling across all screens and activities",
-            "Improved the Map screen and WebView rendering",
-            "Fixed the map turning white or black",
-            "Added DOM storage and other required WebView features",
-            "Improved zoom and viewport behavior",
-            "Redesigned the Coordinates dialog",
-            "Improved Home, Settings, Commands, Coordinates, Donation, Wallet, and Changelog screens",
-            "Improved WebView controls and fullscreen screens",
-            "Added better support for edge-to-edge layouts",
-            "Fixed several UI issues",
-            "Fixed various Kotlin and layout issues",
-            "Improved compatibility with older Android versions",
-            "General code cleanup and consistency improvements"
+            stringResource(R.string.changelog_v2_0_0_1),
+            stringResource(R.string.changelog_v2_0_0_2),
+            stringResource(R.string.changelog_v2_0_0_3),
+            stringResource(R.string.changelog_v2_0_0_4),
+            stringResource(R.string.changelog_v2_0_0_5),
+            stringResource(R.string.changelog_v2_0_0_6),
+            stringResource(R.string.changelog_v2_0_0_7),
+            stringResource(R.string.changelog_v2_0_0_8),
+            stringResource(R.string.changelog_v2_0_0_9),
+            stringResource(R.string.changelog_v2_0_0_10),
+            stringResource(R.string.changelog_v2_0_0_11),
+            stringResource(R.string.changelog_v2_0_0_12),
+            stringResource(R.string.changelog_v2_0_0_13),
+            stringResource(R.string.changelog_v2_0_0_14),
+            stringResource(R.string.changelog_v2_0_0_15),
+            stringResource(R.string.changelog_v2_0_0_16),
+            stringResource(R.string.changelog_v2_0_0_17),
+            stringResource(R.string.changelog_v2_0_0_18),
+            stringResource(R.string.changelog_v2_0_0_19),
+            stringResource(R.string.changelog_v2_0_0_20),
+            stringResource(R.string.changelog_v2_0_0_21),
+            stringResource(R.string.changelog_v2_0_0_22),
+            stringResource(R.string.changelog_v2_0_0_23)
         ),
         "v1.6.1" to listOf(
-            "Deleted News Section",
-            "Removed FreetimeSDK"
+            stringResource(R.string.changelog_v1_6_1_1),
+            stringResource(R.string.changelog_v1_6_1_2)
         ),
         "v1.6.0" to listOf(
-            "Added FreetimeSDK for Donations",
-            "Added something where you can save your Coordinates"
+            stringResource(R.string.changelog_v1_6_0_1),
+            stringResource(R.string.changelog_v1_6_0_2)
         ),
         "v1.5.0" to listOf(
             stringResource(R.string.changelog_v1_5_0_1),
