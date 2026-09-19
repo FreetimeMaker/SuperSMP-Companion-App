@@ -2,6 +2,8 @@ package com.freetime.ssmpc.ui.navigation
 
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -43,9 +45,12 @@ fun BottomNavigationBar(navController: NavController) {
 
     Row(
         modifier = Modifier
-            .padding(horizontal = 12.dp, vertical = 10.dp)
-            .superSMPGlass(RoundedCornerShape(34.dp), interactive = false)
+            .fillMaxWidth()
+            .navigationBarsPadding()
+            .padding(start = 16.dp, end = 16.dp, bottom = 16.dp, top = 8.dp)
+            .superSMPGlass(RoundedCornerShape(50), interactive = false)
             .horizontalScroll(rememberScrollState())
+            .padding(horizontal = 6.dp, vertical = 2.dp)
     ) {
         items.forEach { item ->
             NavigationBarItem(
