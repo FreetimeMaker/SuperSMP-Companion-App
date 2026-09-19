@@ -1,24 +1,24 @@
 package com.freetime.ssmpc.ui.navigation
 
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.MoreHoriz
+import androidx.compose.material.icons.filled.Link
+import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.PinDrop
 import androidx.compose.material.icons.filled.Terminal
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -31,22 +31,23 @@ import com.freetime.ssmpc.ui.glass.superSMPGlass
 @Composable
 fun BottomNavigationBar(navController: NavController) {
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
-    var moreExpanded by remember { mutableStateOf(false) }
-
-    val primaryItems = listOf(
+    val items = listOf(
         BottomNavItem("home", stringResource(R.string.nav_home), Icons.Default.Home),
         BottomNavItem("coords", stringResource(R.string.nav_coords), Icons.Default.PinDrop),
-        BottomNavItem("servercmd", stringResource(R.string.nav_cmds), Icons.Default.Terminal)
+        BottomNavItem("servercmd", stringResource(R.string.nav_cmds), Icons.Default.Terminal),
+        BottomNavItem("links", stringResource(R.string.nav_links), Icons.Default.Link),
+        BottomNavItem("shop", stringResource(R.string.nav_shop), Icons.Default.ShoppingCart),
+        BottomNavItem("map", stringResource(R.string.nav_map), Icons.Default.Map),
+        BottomNavItem("settings", stringResource(R.string.nav_settings), Icons.Default.Settings)
     )
 
-    NavigationBar(
+    Row(
         modifier = Modifier
-            .padding(horizontal = 28.dp, vertical = 10.dp)
-            .superSMPGlass(RoundedCornerShape(34.dp), interactive = false),
-        containerColor = Color.Transparent,
-        tonalElevation = 0.dp
+            .padding(horizontal = 12.dp, vertical = 10.dp)
+            .superSMPGlass(RoundedCornerShape(34.dp), interactive = false)
+            .horizontalScroll(rememberScrollState())
     ) {
-        primaryItems.forEach { item ->
+        items.forEach { item ->
             NavigationBarItem(
                 icon = { Icon(item.icon, contentDescription = item.title) },
                 label = { Text(item.title) },
@@ -54,30 +55,6 @@ fun BottomNavigationBar(navController: NavController) {
                 colors = NavigationBarItemDefaults.colors(indicatorColor = Color.Transparent),
                 onClick = { navigate(navController, item.route) }
             )
-        }
-
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.MoreHoriz, contentDescription = stringResource(R.string.nav_more)) },
-            label = { Text(stringResource(R.string.nav_more)) },
-            selected = currentRoute in setOf("links", "shop", "map", "settings"),
-            colors = NavigationBarItemDefaults.colors(indicatorColor = Color.Transparent),
-            onClick = { moreExpanded = true }
-        )
-        DropdownMenu(expanded = moreExpanded, onDismissRequest = { moreExpanded = false }) {
-            listOf(
-                "links" to stringResource(R.string.nav_links),
-                "shop" to stringResource(R.string.nav_shop),
-                "map" to stringResource(R.string.nav_map),
-                "settings" to stringResource(R.string.nav_settings)
-            ).forEach { (route, label) ->
-                DropdownMenuItem(
-                    text = { Text(label) },
-                    onClick = {
-                        moreExpanded = false
-                        navigate(navController, route)
-                    }
-                )
-            }
         }
     }
 }
