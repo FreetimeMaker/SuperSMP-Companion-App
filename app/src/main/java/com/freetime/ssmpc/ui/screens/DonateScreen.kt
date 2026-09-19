@@ -126,6 +126,166 @@ fun DonateScreen(onBack: () -> Unit) {
             }
 
             item {
+                val label = stringResource(R.string.DonViaBTC)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/60misly", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaETH)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/86fremd", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaUSDT)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/19tacit", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaUSDC)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/15snog", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaSHIB)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/18spile", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaDOGE)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/30allie", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonateViaTRON)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/15gown", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaLTC)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/77pudgy", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaBNB)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/02hanch", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaPEPE)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/73enow", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaSOL)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/54fled", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaDAI)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/27thio", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaTON)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/22frisk", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaPOL)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/23patas", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaOptimism)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/77salvy", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
+                val label = stringResource(R.string.DonViaARB)
+                SuperSMPGlassButton(
+                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/80arui", label) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(label)
+                }
+            }
+
+            item {
                 SuperSMPGlassButton(
                     onClick = {
                         context.startActivity(Intent(context, WalletAddressActivity::class.java))
