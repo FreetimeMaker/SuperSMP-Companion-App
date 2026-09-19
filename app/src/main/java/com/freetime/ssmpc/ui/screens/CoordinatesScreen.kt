@@ -74,8 +74,9 @@ fun AddCoordinateDialog(onDismiss: () -> Unit, onAdd: (String, Double, Double, D
     var x by remember { mutableStateOf("") }
     var y by remember { mutableStateOf("") }
     var z by remember { mutableStateOf("") }
-    var dim by remember { mutableStateOf("Overworld") }
+    var dim by remember { mutableStateOf("") }
     var desc by remember { mutableStateOf("") }
+    if (dim.isEmpty()) dim = stringResource(R.string.coordinate_default_dimension)
 
     Dialog(onDismissRequest = onDismiss) {
         Column(
