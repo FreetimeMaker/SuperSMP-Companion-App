@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
@@ -83,20 +82,8 @@ fun SettingsScreen(
         context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE)
     }
 
-    var darkModeEnabled by remember {
-        mutableStateOf(sharedPreferences.getBoolean("dark_mode_enabled", false))
-    }
-
-    var useSystemTheme by remember {
-        mutableStateOf(sharedPreferences.getBoolean("use_system_theme", true))
-    }
-
-    var dynamicColor by remember {
-        mutableStateOf(sharedPreferences.getBoolean("dynamic_color", true))
-    }
-
-    var oledBlack by remember {
-        mutableStateOf(sharedPreferences.getBoolean("oled_black", false))
+    var themeMode by remember {
+        mutableStateOf(sharedPreferences.getString("theme_mode", "automatic") ?: "automatic")
     }
 
     var disablePrivateView by remember {
@@ -149,49 +136,19 @@ fun SettingsScreen(
                 modifier = Modifier.padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                SettingsToggle(
-                    title = stringResource(R.string.dynamic_color_title),
-                    subtitle = stringResource(R.string.dynamic_color_subtitle),
-                    checked = dynamicColor,
-                    onCheckedChange = {
-                        dynamicColor = it
-                        sharedPreferences.edit().putBoolean("dynamic_color", it).apply()
+                Text("Theme", style = MaterialTheme.typography.titleMedium)
+                SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+                    listOf("automatic" to "Automatic", "light" to "Light", "dark" to "Dark").forEachIndexed { index, (value, label) ->
+                        SegmentedButton(
+                            selected = themeMode == value,
+                            onClick = {
+                                themeMode = value
+                                sharedPreferences.edit().putString("theme_mode", value).apply()
+                            },
+                            shape = SegmentedButtonDefaults.itemShape(index, 3)
+                        ) { Text(label) }
                     }
-                )
-
-                HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
-
-                SettingsToggle(
-                    title = stringResource(R.string.follow_system_theme),
-                    checked = useSystemTheme,
-                    onCheckedChange = {
-                        useSystemTheme = it
-                        sharedPreferences.edit().putBoolean("use_system_theme", it).apply()
-                    }
-                )
-
-                SettingsToggle(
-                    title = stringResource(R.string.force_dark_mode),
-                    subtitle = stringResource(R.string.override_system_setting),
-                    checked = darkModeEnabled,
-                    enabled = !useSystemTheme,
-                    onCheckedChange = {
-                        darkModeEnabled = it
-                        sharedPreferences.edit().putBoolean("dark_mode_enabled", it).apply()
-                    }
-                )
-
-                HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
-
-                SettingsToggle(
-                    title = stringResource(R.string.oled_black_title),
-                    subtitle = stringResource(R.string.oled_black_subtitle),
-                    checked = oledBlack,
-                    onCheckedChange = {
-                        oledBlack = it
-                        sharedPreferences.edit().putBoolean("oled_black", it).apply()
-                    }
-                )
+                }
             }
         }
 
