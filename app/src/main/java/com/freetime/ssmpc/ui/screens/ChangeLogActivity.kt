@@ -23,6 +23,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 import com.freetime.ssmpc.R
+import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
+import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
 import com.freetime.ssmpc.ui.glass.superSMPGlass
 
 class ChangeLogActivity : ComponentActivity() {
