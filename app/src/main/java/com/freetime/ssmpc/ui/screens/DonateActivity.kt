@@ -10,7 +10,6 @@ import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -30,7 +29,6 @@ import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
 import com.freetime.ssmpc.PrivacyWebView
-import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class DonateActivity : ComponentActivity() {
@@ -40,15 +38,7 @@ class DonateActivity : ComponentActivity() {
         hideSystemBars()
 
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-            
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
+            SuperSMPTheme {
                 DonateScreen(onBack = { finish() })
             }
         }
@@ -80,15 +70,7 @@ class DonateWebViewActivity : ComponentActivity() {
         val title = intent.getStringExtra("title") ?: getString(R.string.donate_title)
 
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-            
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
+            SuperSMPTheme {
                 WebViewScreen(url = url, title = title, onBack = { finish() })
             }
         }
@@ -117,15 +99,7 @@ class DonatorActivity : ComponentActivity() {
         hideSystemBars()
 
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-            val oledBlack = sharedPreferences.collectAsState(key = "oled_black", defaultValue = false)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value, oledBlack = oledBlack.value) {
+            SuperSMPTheme {
                 DonatorScreen(onBack = { finish() })
             }
         }
@@ -193,8 +167,8 @@ fun DonatorScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.supporters_title)) },
+            SuperSMPGlassTopBar(
+                title = stringResource(R.string.supporters_title),
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
