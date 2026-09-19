@@ -127,9 +127,9 @@ fun SettingsScreen(
                 modifier = Modifier.padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Text("Theme", style = MaterialTheme.typography.titleMedium)
+                Text(stringResource(R.string.theme_title), style = MaterialTheme.typography.titleMedium)
                 SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-                    listOf("automatic" to "Automatic", "light" to "Light", "dark" to "Dark").forEachIndexed { index, (value, label) ->
+                    listOf("automatic" to stringResource(R.string.theme_automatic), "light" to stringResource(R.string.theme_light), "dark" to stringResource(R.string.theme_dark)).forEachIndexed { index, (value, label) ->
                         SegmentedButton(
                             selected = themeMode == value,
                             onClick = {
