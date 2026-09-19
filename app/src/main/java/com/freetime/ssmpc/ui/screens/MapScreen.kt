@@ -6,6 +6,8 @@ import android.graphics.Color
 import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.webkit.WebChromeClient
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -21,7 +23,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.freetime.ssmpc.PrivacyWebView
 import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
@@ -68,10 +69,12 @@ fun MapScreen(
     Box(modifier = modifier.fillMaxSize()) {
         AndroidView(
             factory = { ctx ->
-                PrivacyWebView(ctx).apply {
-                    setBackgroundColor(Color.TRANSPARENT)
+                WebView(ctx).apply {
+                    setBackgroundColor(Color.BLACK)
                     setLayerType(View.LAYER_TYPE_HARDWARE, null)
                     overScrollMode = WebView.OVER_SCROLL_NEVER
+                    webViewClient = WebViewClient()
+                    webChromeClient = WebChromeClient()
                     settings.apply {
                         javaScriptEnabled = true
                         domStorageEnabled = true
@@ -79,11 +82,18 @@ fun MapScreen(
                         cacheMode = WebSettings.LOAD_DEFAULT
                         loadsImagesAutomatically = true
                         useWideViewPort = true
-                        loadWithOverviewMode = true
+                        loadWithOverviewMode = false
                         builtInZoomControls = true
                         displayZoomControls = false
+                        javaScriptCanOpenWindowsAutomatically = true
+                        mediaPlaybackRequiresUserGesture = false
+                        userAgentString = WebSettings.getDefaultUserAgent(ctx)
                     }
-                    loadUrl("https://map.supersmp.fun")
+                    android.webkit.CookieManager.getInstance().apply {
+                        setAcceptCookie(true)
+                        setAcceptThirdPartyCookies(this@apply, true)
+                    }
+                    loadUrl("https://map.supersmp.fun/")
                 }
             },
             modifier = Modifier.fillMaxSize()
