@@ -41,8 +41,8 @@ fun DonateScreen(onBack: () -> Unit) {
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.donate_title)) },
+            SuperSMPGlassTopBar(
+                title = stringResource(R.string.donate_title),
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
@@ -185,7 +185,8 @@ fun SmallSupportCard(
 ) {
     OutlinedCard(
         onClick = onClick,
-        modifier = modifier
+        modifier = modifier.superSMPGlass(RoundedCornerShape(24.dp)),
+        colors = CardDefaults.outlinedCardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
     ) {
         Column(
             modifier = Modifier
