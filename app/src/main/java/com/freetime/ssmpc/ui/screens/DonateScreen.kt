@@ -1,38 +1,23 @@
 package com.freetime.ssmpc.ui.screens
 
 import android.content.Intent
-import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.CardGiftcard
-import androidx.compose.material.icons.filled.CurrencyBitcoin
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Public
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.superSMPGlass
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
-import com.freetime.ssmpc.SuperSMPApplication
+import com.freetime.ssmpc.ui.glass.superSMPGlass
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,163 +25,157 @@ fun DonateScreen(onBack: () -> Unit) {
     val context = LocalContext.current
 
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
             SuperSMPGlassTopBar(
                 title = stringResource(R.string.donate_title),
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.back_nav_desc)
+                        )
                     }
                 }
             )
         }
     ) { innerPadding ->
-        Column(
+        LazyColumn(
             modifier = Modifier
-                .padding(innerPadding)
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
+                .padding(innerPadding)
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Header Section
-            Text(
-                text = stringResource(R.string.support_development),
-                style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center
-            )
-            
-            Text(
-                text = stringResource(R.string.donation_mission_text),
-                style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = 8.dp)
-            )
+            item {
+                DonationInfoCard(
+                    title = stringResource(R.string.support_development),
+                    text = stringResource(R.string.select_option_msg),
+                    primary = true
+                )
+            }
 
-            Spacer(Modifier.height(8.dp))
+            item {
+                DonationInfoCard(
+                    title = stringResource(R.string.about_developer_title),
+                    text = stringResource(R.string.about_developer_text)
+                )
+            }
 
-            // Main Support Option: GitHub Sponsors
-            SupportCard(
-                title = stringResource(R.string.github_sponsors),
-                description = stringResource(R.string.github_sponsors_description),
-                icon = Icons.Default.Favorite,
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                onClick = {
-                    val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://github.com/sponsors/FreetimeMaker"))
-                    context.startActivity(intent)
+            item {
+                DonationInfoCard(
+                    title = stringResource(R.string.donation_mission_title),
+                    text = stringResource(R.string.donation_mission_text)
+                )
+            }
+
+            item {
+                Text(
+                    text = stringResource(R.string.cash_label),
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp)
+                )
+            }
+
+            item {
+                SuperSMPGlassButton(
+                    onClick = {
+                        context.startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                android.net.Uri.parse("https://github.com/sponsors/FreetimeMaker")
+                            )
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.DonViaGHSponsors))
                 }
-            )
+            }
 
-            // Other Web Links Section
+            item {
+                Text(
+                    text = stringResource(R.string.crypto_label),
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp)
+                )
+            }
+
+            item {
+                SuperSMPGlassButton(
+                    onClick = {
+                        context.startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                android.net.Uri.parse("https://nowpayments.io/donation/SuperSMP")
+                            )
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.nowpayments))
+                }
+            }
+
+            item {
+                SuperSMPGlassButton(
+                    onClick = {
+                        context.startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                android.net.Uri.parse("https://pay.oxapay.com/13038067")
+                            )
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.DonViaOxaPay))
+                }
+            }
+
+            item {
+                SuperSMPGlassButton(
+                    onClick = {
+                        context.startActivity(Intent(context, WalletAddressActivity::class.java))
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.show_wallet_addresses))
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun DonationInfoCard(
+    title: String,
+    text: String,
+    primary: Boolean = false
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .superSMPGlass(RoundedCornerShape(24.dp), interactive = false),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = stringResource(R.string.other_options),
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.align(Alignment.Start).padding(top = 8.dp)
+                text = title,
+                style = if (primary) MaterialTheme.typography.titleLarge else MaterialTheme.typography.titleMedium,
+                color = if (primary) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.primary
             )
-
-            Row(
-                modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                SmallSupportCard(
-                    modifier = Modifier.weight(1f),
-                    title = stringResource(R.string.nowpayments),
-                    icon = Icons.Default.Public,
-                    onClick = {
-                        val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://nowpayments.io/donation/SuperSMP"))
-                        context.startActivity(intent)
-                    }
-                )
-                SmallSupportCard(
-                    modifier = Modifier.weight(1f),
-                    title = stringResource(R.string.oxapay),
-                    icon = Icons.Default.Public,
-                    onClick = {
-                        val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://pay.oxapay.com/13038067"))
-                        context.startActivity(intent)
-                    }
-                )
-            }
-
-            // Manual Addresses
-            OutlinedButton(
-                onClick = { context.startActivity(Intent(context, WalletAddressActivity::class.java)) },
-                modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))
-            ) {
-                Icon(Icons.Default.CardGiftcard, contentDescription = null)
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.show_wallet_addresses))
-            }
-        }
-    }
-}
-
-@Composable
-fun SupportCard(
-    title: String,
-    description: String,
-    icon: ImageVector,
-    containerColor: androidx.compose.ui.graphics.Color,
-    onClick: () -> Unit
-) {
-    ElevatedCard(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-        colors = CardDefaults.elevatedCardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
-    ) {
-        Row(
-            modifier = Modifier
-                .padding(20.dp)
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                modifier = Modifier.size(40.dp),
-                tint = MaterialTheme.colorScheme.onPrimaryContainer
+            Spacer(Modifier.height(if (primary) 8.dp else 4.dp))
+            Text(
+                text = text,
+                style = if (primary) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.bodySmall,
+                color = if (primary) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant
             )
-            Spacer(Modifier.width(20.dp))
-            Column {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = description,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun SmallSupportCard(
-    modifier: Modifier = Modifier,
-    title: String,
-    icon: ImageVector,
-    onClick: () -> Unit
-) {
-    OutlinedCard(
-        onClick = onClick,
-        modifier = modifier.superSMPGlass(RoundedCornerShape(24.dp)),
-        colors = CardDefaults.outlinedCardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Icon(icon, contentDescription = null)
-            Spacer(Modifier.height(8.dp))
-            Text(text = title, style = MaterialTheme.typography.labelLarge)
         }
     }
 }
