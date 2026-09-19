@@ -2,6 +2,10 @@ package com.freetime.ssmpc.ui.screens
 
 import android.content.Context
 import android.os.Bundle
+import android.graphics.Color
+import android.view.View
+import android.webkit.WebSettings
+import android.webkit.WebView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -65,7 +69,20 @@ fun MapScreen(
         AndroidView(
             factory = { ctx ->
                 PrivacyWebView(ctx).apply {
-                    settings.javaScriptEnabled = true
+                    setBackgroundColor(Color.TRANSPARENT)
+                    setLayerType(View.LAYER_TYPE_HARDWARE, null)
+                    overScrollMode = WebView.OVER_SCROLL_NEVER
+                    settings.apply {
+                        javaScriptEnabled = true
+                        domStorageEnabled = true
+                        databaseEnabled = true
+                        cacheMode = WebSettings.LOAD_DEFAULT
+                        loadsImagesAutomatically = true
+                        useWideViewPort = true
+                        loadWithOverviewMode = true
+                        builtInZoomControls = true
+                        displayZoomControls = false
+                    }
                     loadUrl("https://map.supersmp.fun")
                 }
             },
