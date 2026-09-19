@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.superSMPGlass
+import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 import com.freetime.ssmpc.ui.viewmodels.ServerStatusViewModel
@@ -126,7 +127,7 @@ fun HomeScreen(
                     Text(text = "Players: ${status?.players?.online}/${status?.players?.max}")
                     Text(text = "Version: ${status?.version}")
                 }
-                Button(onClick = { statusViewModel.refreshStatus("supersmp.fun") }, enabled = !isLoading) {
+                SuperSMPGlassButton(onClick = { statusViewModel.refreshStatus("supersmp.fun") }, enabled = !isLoading) {
                     Text("Refresh Status")
                 }
             }
@@ -143,7 +144,7 @@ fun HomeScreen(
                     val hoursLeft = 24 - TimeUnit.MILLISECONDS.toHours(timePassed)
                     Text("Next vote available in approx. $hoursLeft hours.")
                 }
-                Button(
+                SuperSMPGlassButton(
                     onClick = { 
                         sharedPreferences.edit().putLong("last_vote_time", System.currentTimeMillis()).apply()
                     },
@@ -214,7 +215,7 @@ fun HomeScreen(
         }
 
         if (onBack != null) {
-            Button(
+            SuperSMPGlassButton(
                 onClick = onBack,
                 modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))
             ) {
