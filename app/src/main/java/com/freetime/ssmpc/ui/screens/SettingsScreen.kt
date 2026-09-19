@@ -92,24 +92,20 @@ fun SettingsScreen(
             modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            FilledTonalButton(onClick = {
-                context.startActivity(
-                    Intent(
-                        context,
-                        DonateActivity::class.java
-                    )
-                )
-            }) {
+            SuperSMPGlassButton(
+                onClick = {
+                    context.startActivity(Intent(context, DonateActivity::class.java))
+                },
+                modifier = Modifier.weight(1f)
+            ) {
                 Text(stringResource(R.string.open_donation_screen))
             }
-            FilledTonalButton(onClick = {
-                context.startActivity(
-                    Intent(
-                        context,
-                        ChangeLogActivity::class.java
-                    )
-                )
-            }) {
+            SuperSMPGlassButton(
+                onClick = {
+                    context.startActivity(Intent(context, ChangeLogActivity::class.java))
+                },
+                modifier = Modifier.weight(1f)
+            ) {
                 Text(stringResource(R.string.open_change_log))
             }
         }
