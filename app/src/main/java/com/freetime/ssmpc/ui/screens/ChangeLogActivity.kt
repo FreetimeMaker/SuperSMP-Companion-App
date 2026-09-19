@@ -90,6 +90,12 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v2.0.1" to listOf(
+            "Made the Texts inside the Glass Buttons more readable",
+            "Migrated everything to Glass Buttons",
+            "Updated Donation Screen",
+            "Fixed the Map (hopefully now)"
+        ),
         "v2.0.0" to listOf(
             stringResource(R.string.changelog_v2_0_0_1),
             stringResource(R.string.changelog_v2_0_0_2),
