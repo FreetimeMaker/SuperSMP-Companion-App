@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
@@ -23,7 +22,6 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.superSMPGlass
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
-import com.freetime.ssmpc.collectAsState
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class ServerCommandActivity : ComponentActivity() {
@@ -33,14 +31,7 @@ class ServerCommandActivity : ComponentActivity() {
         hideSystemBars()
 
         setContent {
-            val sharedPreferences = remember { getSharedPreferences("ssmpc_prefs", MODE_PRIVATE) }
-            val useSystemTheme = sharedPreferences.collectAsState(key = "use_system_theme", defaultValue = true)
-            val darkModeEnabled = sharedPreferences.collectAsState(key = "dark_mode_enabled", defaultValue = false)
-            val dynamicColor = sharedPreferences.collectAsState(key = "dynamic_color", defaultValue = true)
-
-            val darkTheme = if (useSystemTheme.value) isSystemInDarkTheme() else darkModeEnabled.value
-
-            SuperSMPTheme(darkTheme = darkTheme, dynamicColor = dynamicColor.value) {
+            SuperSMPTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     ServerCommandScreen(
                         modifier = Modifier.padding(innerPadding),
