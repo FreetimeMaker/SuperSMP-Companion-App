@@ -28,7 +28,17 @@ fun CoordinatesScreen(viewModel: CoordinatesViewModel = viewModel()) {
 
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(onClick = { showAddDialog = true }) {
+            FloatingActionButton(
+                onClick = { showAddDialog = true },
+                modifier = Modifier.superSMPGlass(RoundedCornerShape(22.dp)),
+                containerColor = androidx.compose.ui.graphics.Color.Transparent,
+                elevation = FloatingActionButtonDefaults.elevation(
+                    defaultElevation = 0.dp,
+                    pressedElevation = 0.dp,
+                    focusedElevation = 0.dp,
+                    hoveredElevation = 0.dp
+                )
+            ) {
                 Icon(Icons.Default.Add, contentDescription = stringResource(R.string.add_coordinate))
             }
         }
