@@ -13,7 +13,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
-import android.content.Context
 import com.freetime.ssmpc.ui.glass.SuperSMPLiquidGlassRoot
 import kotlinx.coroutines.delay
 import java.time.LocalTime
@@ -51,12 +50,7 @@ fun SuperSMPTheme(
 ) {
     val automaticDark = rememberSuperSMPAutomaticDarkTheme()
     val context = LocalContext.current
-    val themeMode = remember { context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE).getString("theme_mode", "automatic") ?: "automatic" }
-    val useDarkTheme = darkTheme ?: when (themeMode) {
-        "light" -> false
-        "dark" -> true
-        else -> automaticDark
-    }
+    val useDarkTheme = darkTheme ?: automaticDark
 
     val colorScheme = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         if (useDarkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
