@@ -1,17 +1,15 @@
 package com.freetime.ssmpc.ui.glass
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import me.free_time.design.FreetimeGlassButton
+import me.free_time.design.FreetimeGlassCard
+import me.free_time.design.freetimeGlassCapsule
 
 @Composable
 fun SuperSMPGlassCard(
@@ -19,13 +17,16 @@ fun SuperSMPGlassCard(
     onClick: (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
-    val shape = RoundedCornerShape(24.dp)
-    val glassModifier = modifier.superSMPGlass(shape)
-    Card(
-        modifier = if (onClick != null) glassModifier.clickable(onClick = onClick) else glassModifier,
-        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
-        shape = shape
-    ) { content() }
+    if (onClick == null) {
+        FreetimeGlassCard(modifier = modifier, content = content)
+    } else {
+        androidx.compose.foundation.layout.Box(
+            modifier = modifier
+                .freetimeGlassCapsule()
+                .androidx.compose.foundation.clickable(onClick = onClick)
+                .padding(16.dp)
+        ) { content() }
+    }
 }
 
 @Composable
@@ -35,23 +36,16 @@ fun SuperSMPGlassButton(
     enabled: Boolean = true,
     content: @Composable RowScope.() -> Unit
 ) {
-    val shape = RoundedCornerShape(20.dp)
-    androidx.compose.material3.Button(
-        onClick = onClick,
-        enabled = enabled,
-        modifier = modifier.superSMPGlass(shape),
-        colors = androidx.compose.material3.ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-            contentColor = MaterialTheme.colorScheme.onSurface,
-            disabledContainerColor = Color.Transparent,
-            disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
-        ),
-        border = androidx.compose.foundation.BorderStroke(
-            1.dp,
-            MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.8f)
-        ),
-        content = content
-    )
+    if (enabled) {
+        androidx.compose.foundation.layout.Box {
+            FreetimeGlassButton(
+                text = "",
+                onClick = onClick,
+                modifier = modifier
+            )
+            Row(modifier = modifier.padding(horizontal = 20.dp, vertical = 12.dp), content = content)
+        }
+    }
 }
 
 @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
@@ -64,12 +58,12 @@ fun SuperSMPGlassTopBar(
     androidx.compose.material3.TopAppBar(
         modifier = modifier
             .padding(horizontal = 12.dp, vertical = 8.dp)
-            .superSMPGlass(RoundedCornerShape(28.dp), interactive = false),
+            .freetimeGlassCapsule(interactive = false),
         title = { Text(title) },
         navigationIcon = { navigationIcon?.invoke() },
         colors = androidx.compose.material3.TopAppBarDefaults.topAppBarColors(
-            containerColor = Color.Transparent,
-            scrolledContainerColor = Color.Transparent
+            containerColor = androidx.compose.ui.graphics.Color.Transparent,
+            scrolledContainerColor = androidx.compose.ui.graphics.Color.Transparent
         )
     )
 }
