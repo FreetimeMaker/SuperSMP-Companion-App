@@ -22,11 +22,14 @@ import com.freetime.ssmpc.ui.glass.superSMPGlass
 import me.free_time.browser.BrowserMode
 import me.free_time.browser.BrowserOptions
 import me.free_time.browser.FreetimeBrowser
+import me.free_time.donations.DonationTarget
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DonateScreen(onBack: () -> Unit) {
     val context = LocalContext.current
+
+    fun openTarget(target: DonationTarget.Link) = openDonationLink(context, target.url, target.label)
 
     Scaffold(
         containerColor = Color.Transparent,
@@ -87,7 +90,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 SuperSMPGlassButton(
                     onClick = {
-                        openDonationLink(context, "https://github.com/sponsors/FreetimeMaker", context.getString(R.string.DonViaGHSponsors))
+                        openTarget(DonationTarget.Link(context.getString(R.string.DonViaGHSponsors), "https://github.com/sponsors/FreetimeMaker"))
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -108,7 +111,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 SuperSMPGlassButton(
                     onClick = {
-                        openDonationLink(context, "https://nowpayments.io/donation/SuperSMP", context.getString(R.string.nowpayments))
+                        openTarget(DonationTarget.Link(context.getString(R.string.nowpayments), "https://nowpayments.io/donation/SuperSMP"))
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -119,7 +122,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 SuperSMPGlassButton(
                     onClick = {
-                        openDonationLink(context, "https://pay.oxapay.com/13038067", context.getString(R.string.DonViaOxaPay))
+                        openTarget(DonationTarget.Link(context.getString(R.string.DonViaOxaPay), "https://pay.oxapay.com/13038067"))
                     },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -130,7 +133,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaBTC)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/60misly", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/60misly")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -140,7 +143,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaETH)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/86fremd", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/86fremd")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -150,7 +153,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaUSDT)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/19tacit", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/19tacit")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -160,7 +163,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaUSDC)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/15snog", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/15snog")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -170,7 +173,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaSHIB)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/18spile", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/18spile")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -180,7 +183,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaDOGE)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/30allie", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/30allie")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -190,7 +193,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonateViaTRON)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/15gown", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/15gown")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -200,7 +203,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaLTC)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/77pudgy", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/77pudgy")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -210,7 +213,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaBNB)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/02hanch", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/02hanch")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -220,7 +223,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaPEPE)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/73enow", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/73enow")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -230,7 +233,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaSOL)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/54fled", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/54fled")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -240,7 +243,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaDAI)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/27thio", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/27thio")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -250,7 +253,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaTON)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/22frisk", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/22frisk")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -260,7 +263,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaPOL)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/23patas", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/23patas")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -270,7 +273,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaOptimism)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/77salvy", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/77salvy")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -280,7 +283,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaARB)
                 SuperSMPGlassButton(
-                    onClick = { openDonationLink(context, "https://ncwallet.net/pay/80arui", label) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/80arui")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
