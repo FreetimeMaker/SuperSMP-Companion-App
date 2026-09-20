@@ -17,8 +17,14 @@ espressoCore = "3.7.0"
 ktor = "3.5.2"
 room = "2.8.5"
 work = "2.11.2"
+freetime = "1.5.0"
 
 [libraries]
+freetime-core = { module = "com.github.FreetimeMaker.Freetime-Core:Core", version.ref = "freetime" }
+freetime-design = { module = "com.github.FreetimeMaker.Freetime-Core:Design", version.ref = "freetime" }
+freetime-browser = { module = "com.github.FreetimeMaker.Freetime-Core:Browser", version.ref = "freetime" }
+freetime-donations = { module = "com.github.FreetimeMaker.Freetime-Core:Donations", version.ref = "freetime" }
+
 androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work" }
 ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
