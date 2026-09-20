@@ -2,7 +2,6 @@ package com.freetime.ssmpc.ui.screens
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,6 +19,9 @@ import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
 import com.freetime.ssmpc.ui.glass.superSMPGlass
+import me.free_time.browser.BrowserMode
+import me.free_time.browser.BrowserOptions
+import me.free_time.browser.FreetimeBrowser
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -332,14 +334,21 @@ private fun openDonationLink(context: Context, url: String, title: String) {
     val preferences = context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE)
     val openExternalBrowser = preferences.getBoolean("open_external_browser", false)
 
-    if (openExternalBrowser) {
-        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-    } else {
-        context.startActivity(
-            Intent(context, DonateWebViewActivity::class.java).apply {
-                putExtra("url", url)
-                putExtra("title", title)
-            }
-        )
-    }
+    FreetimeBrowser.open(
+        context = context,
+        url = url,
+        options = BrowserOptions(
+            mode = if (openExternalBrowser) BrowserMode.EXTERNAL else BrowserMode.IN_APP,
+            allowExternalFallback = true
+        ),
+        openInApp = if (openExternalBrowser) null else { requestedUrl ->
+            context.startActivity(
+                Intent(context, DonateWebViewActivity::class.java).apply {
+                    putExtra("url", requestedUrl)
+                    putExtra("title", title)
+                }
+            )
+            true
+        }
+    )
 }
