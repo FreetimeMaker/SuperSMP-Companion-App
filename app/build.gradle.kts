@@ -55,7 +55,10 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.material.icons.extended)
-    implementation("io.github.fletchmckee.liquid:liquid:1.1.1")
+    implementation("com.github.FreetimeMaker.Freetime-Core:Core:v1.3.0")
+    implementation("com.github.FreetimeMaker.Freetime-Core:Design:v1.3.0")
+    implementation("com.github.FreetimeMaker.Freetime-Core:Browser:v1.3.0")
+    implementation("com.github.FreetimeMaker.Freetime-Core:Donations:v1.3.0")
 
     implementation(libs.appcompat)
     implementation(libs.activity)
