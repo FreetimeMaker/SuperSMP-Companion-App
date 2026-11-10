@@ -19,10 +19,10 @@ import com.freetime.ssmpc.R
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
 import com.freetime.ssmpc.ui.glass.superSMPGlass
-import me.free_time.browser.BrowserMode
-import me.free_time.browser.BrowserOptions
-import me.free_time.browser.FreetimeBrowser
-import me.free_time.donations.DonationTarget
+import com.freetime.browser.BrowserMode
+import com.freetime.browser.BrowserOptions
+import com.freetime.browser.FreetimeBrowser
+import com.freetime.donations.DonationTarget
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

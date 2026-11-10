@@ -11,6 +11,7 @@
 </div>
 
 # Translations
+
 <div align="center">
 
 [![Translation Status](https://translate.codeberg.org/widget/supersmp-companion/supersmp-companion/287x66-grey.png)](https://translate.codeberg.org/engage/supersmp-companion/)
@@ -26,7 +27,7 @@
 [![F-Droid latest release](https://img.shields.io/f-droid/v/com.freetime.ssmpc?color=%23ea9010&style=for-the-badge)](https://f-droid.org/packages/com.freetime.ssmpc)
 [![GitHub license](https://img.shields.io/github/license/FreetimeMaker/SuperSMP-Companion-App?style=for-the-badge)](https://github.com/FreetimeMaker/SuperSMP-Companion-App/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/FreetimeMaker/SuperSMP-Companion-App/total?style=for-the-badge)](https://github.com/FreetimeMaker/SuperSMP-Companion-App/releases)
-![Downloads (all time)](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fkitswas%2Ffdroid-metrics-dashboard%2Fraw%2Frefs%2Fheads%2Fmain%2Fprocessed%2Ftotal%2Fcom.freetime.ssmpc.json&query=%24.total_downloads&logo=fdroid&label=Downloads%20(all%20time))
+![Downloads (all time)](<https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fkitswas%2Ffdroid-metrics-dashboard%2Fraw%2Frefs%2Fheads%2Fmain%2Fprocessed%2Ftotal%2Fcom.freetime.ssmpc.json&query=%24.total_downloads&logo=fdroid&label=Downloads%20(all%20time)>)
 [![Luma Store downloads](https://ndlaevedujqxhygbyxfh.supabase.co/functions/v1/download-badge?package_name=com.freetime.ssmpc)](https://luma.free-time.me/discover/com.freetime.ssmpc)
 [![GitHub stars](https://img.shields.io/github/stars/FreetimeMaker/SuperSMP-Companion-App?color=%2359a14f&style=for-the-badge)](https://github.com/FreetimeMaker/SuperSMP-Companion-App/stargazers)
 [![Android Build, Sign and Release](https://github.com/FreetimeMaker/SuperSMP-Companion-App/actions/workflows/build_and_co.yml/badge.svg)](https://github.com/FreetimeMaker/SuperSMP-Companion-App/actions/workflows/build_and_co.yml)
@@ -34,7 +35,7 @@
 <img alt="Kotlin" src="https://ziadoua.github.io/m3-Markdown-Badges/badges/Kotlin/kotlin1.svg" />
 <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/Android/android1.svg" />
 <a href="https://github.com/FreetimeMaker/SuperSMP-Companion-App/issues">
-  <img src="https://m3-markdown-badges.vercel.app/issues/1/2/FreetimeMaker/SuperSMP-Companion-App" alt="Issues"/>
+<img src="https://m3-markdown-badges.vercel.app/issues/1/2/FreetimeMaker/SuperSMP-Companion-App" alt="Issues"/>
 </a>
 </div>
 
@@ -49,21 +50,25 @@ The SuperSMP Companion App is a free, open-source Android application designed t
 ## ✨ Features
 
 ### 🗳️ **In-App Voting**
+
 - Vote for the server directly from your phone
 - Quick access to voting platforms
 - Track your voting history
 
 ### 🛒 **Integrated Shop**
+
 - Browse the official SuperSMP shop
 - View items and pricing
 - Make purchases on-the-go
 
 ### 🗺️ **Interactive Map**
+
 - Access the official SuperSMP map
 - Real-time server overview
 - Navigate spawn and key locations
 
 ### 🎨 **Modern UI**
+
 - Built with Jetpack Compose for smooth animations
 - Material Design 3 interface with Dynamic Color support
 - **OLED Black Mode** for AMOLED screens
@@ -71,6 +76,7 @@ The SuperSMP Companion App is a free, open-source Android application designed t
 - Optimized for all screen sizes
 
 ### 🔧 **Technical Features**
+
 - **Kotlin-first** development approach
 - **Jetpack Compose** for modern UI
 - **Privacy-focused** WebView with tracker blocking
@@ -99,11 +105,6 @@ You can download the latest version of SuperSMP Companion App from the following
 
 [<img src="media-resources/badge_github_store.png" alt="Get it on GitHub Store" height="70">](https://github-store.org/app?repo=FreetimeMaker/SuperSMP-Companion-App)
 </div>
-
-## 🚀 Upcoming Features
-
-Planned:
-- [ ] **Screenshot & Video Gallery** - Showcase app functionality
 
 ## 📄 License
 

@@ -18,11 +18,12 @@ espressoCore = "3.7.0"
 ktor = "3.6.1"
 room = "2.8.5"
 work = "2.12.0"
-freetime = "1.5.0"
+freetime = "3.0.0"
 compose-bom = "2026.09.00"
 core-ktx = "1.19.1"
 
 [libraries]
+freetime-warn = { module = "com.github.FreetimeMaker.Freetime-Core:FreetimeWarn", version.ref = "freetime" }
 freetime-core = { module = "com.github.FreetimeMaker.Freetime-Core:Core", version.ref = "freetime" }
 freetime-design = { module = "com.github.FreetimeMaker.Freetime-Core:Design", version.ref = "freetime" }
 freetime-browser = { module = "com.github.FreetimeMaker.Freetime-Core:Browser", version.ref = "freetime" }

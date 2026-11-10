@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         compose = true
+                buildConfig = true
     }
 }
 
@@ -45,6 +46,11 @@ kotlin {
 }
 
 dependencies {
+    implementation(libs.freetime.core)
+    implementation(libs.freetime.design)
+    implementation(libs.freetime.browser)
+    implementation(libs.freetime.donations)
+    implementation(libs.freetime.warn)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
