@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
-    id("org.jetbrains.kotlin.plugin.serialization")
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -55,10 +55,6 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.material.icons.extended)
-    implementation("com.github.FreetimeMaker.Freetime-Core:Core:v1.4.0")
-    implementation("com.github.FreetimeMaker.Freetime-Core:Design:v1.4.0")
-    implementation("com.github.FreetimeMaker.Freetime-Core:Browser:v1.4.0")
-    implementation("com.github.FreetimeMaker.Freetime-Core:Donations:v1.4.0")
 
     implementation(libs.appcompat)
     implementation(libs.activity)
