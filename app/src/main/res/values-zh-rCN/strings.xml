@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="theme_settings_title">主题设置</string>
+    <string name="force_dark_mode">强制深色模式</string>
+    <string name="follow_system_theme">跟随系统主题</string>
+    <string name="override_system_setting">覆盖系统设置</string>
+    <string name="dynamic_color_title">动态色彩 (Material You)</string>
+    <string name="dynamic_color_subtitle">基于壁纸的颜色 (Android 12+)</string>
+    <string name="JoiOffDisSer">加入官方Discord服务器</string>
+    <string name="DonViaOxaPay">通过OxaPay捐款</string>
+    <string name="DonViaBTC">通过比特币捐款</string>
+    <string name="DonPers">还没有人捐款。</string>
+    <string name="DonTXT2">如果您想帮助维护这款应用以及许多其他应用，请进行捐款，并在我的Discord服务器上提交一张帖子，注明您的姓名以及您所使用的捐款平台。这样，我就会把您的名字列在这里。</string>
+    <string name="DonViaLTC">通过Litecoin捐款</string>
+    <string name="DonViaETH">通过Ethereum捐款</string>
+    <string name="DonViaUSDT">通过USDT捐款</string>
+    <string name="DonViaUSDC">通过USDC捐款</string>
+    <string name="DonateViaTRON">通过TRON捐款</string>
+    <string name="DonViaSHIB">通过SHIB捐款</string>
+    <string name="DonViaDOGE">通过DOGE捐款</string>
 </resources>
