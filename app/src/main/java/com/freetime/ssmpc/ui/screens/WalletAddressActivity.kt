@@ -8,7 +8,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -27,9 +26,6 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.superSMPGlass
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class WalletAddressActivity : ComponentActivity() {
@@ -65,7 +61,6 @@ class WalletAddressActivity : ComponentActivity() {
 @Composable
 fun WalletAddressScreen(onBack: () -> Unit) {
     val context = LocalContext.current
-    
     val walletAddresses = listOf(
         "BTC (BTC only)" to "1DsCAVrzvGokrzXpe6YR33QuTo5EppiKRE",
         "ETH (ETH only)" to "0x3d3eee5b542975839d2dccbf2f97139debc711bc",
@@ -124,8 +119,8 @@ fun WalletAddressScreen(onBack: () -> Unit) {
 
     Scaffold(
         topBar = {
-            SuperSMPGlassTopBar(
-                title = stringResource(R.string.wallet_addresses_title),
+            TopAppBar(
+                title = { Text(stringResource(R.string.wallet_addresses_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
@@ -153,8 +148,8 @@ fun WalletAddressScreen(onBack: () -> Unit) {
 fun WalletAddressCard(name: String, address: String) {
     val context = LocalContext.current
     Card(
-        modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-        colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
@@ -169,7 +164,7 @@ fun WalletAddressCard(name: String, address: String) {
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(Modifier.height(12.dp))
-            SuperSMPGlassButton(
+            Button(
                 onClick = {
                     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                     val clip = android.content.ClipData.newPlainText("wallet_address", address)

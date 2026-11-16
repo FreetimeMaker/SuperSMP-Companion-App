@@ -4,21 +4,16 @@ import android.content.Context
 import android.content.Intent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
-import com.freetime.ssmpc.ui.glass.superSMPGlass
 import com.freetime.browser.BrowserMode
 import com.freetime.browser.BrowserOptions
 import com.freetime.browser.FreetimeBrowser
@@ -32,10 +27,10 @@ fun DonateScreen(onBack: () -> Unit) {
     fun openTarget(target: DonationTarget.Link) = openDonationLink(context, target.url, target.label)
 
     Scaffold(
-        containerColor = Color.Transparent,
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            SuperSMPGlassTopBar(
-                title = stringResource(R.string.donate_title),
+            TopAppBar(
+                title = { Text(stringResource(R.string.donate_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
@@ -88,7 +83,7 @@ fun DonateScreen(onBack: () -> Unit) {
             }
 
             item {
-                SuperSMPGlassButton(
+                Button(
                     onClick = {
                         openTarget(DonationTarget.Link(context.getString(R.string.DonViaGHSponsors), "https://github.com/sponsors/FreetimeMaker"))
                     },
@@ -109,7 +104,7 @@ fun DonateScreen(onBack: () -> Unit) {
             }
 
             item {
-                SuperSMPGlassButton(
+                Button(
                     onClick = {
                         openTarget(DonationTarget.Link(context.getString(R.string.nowpayments), "https://nowpayments.io/donation/SuperSMP"))
                     },
@@ -120,7 +115,7 @@ fun DonateScreen(onBack: () -> Unit) {
             }
 
             item {
-                SuperSMPGlassButton(
+                Button(
                     onClick = {
                         openTarget(DonationTarget.Link(context.getString(R.string.DonViaOxaPay), "https://pay.oxapay.com/13038067"))
                     },
@@ -132,7 +127,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaBTC)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/60misly")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -142,7 +137,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaETH)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/86fremd")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -152,7 +147,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaUSDT)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/19tacit")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -162,7 +157,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaUSDC)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/15snog")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -172,7 +167,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaSHIB)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/18spile")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -182,7 +177,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaDOGE)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/30allie")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -192,7 +187,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonateViaTRON)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/15gown")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -202,7 +197,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaLTC)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/77pudgy")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -212,7 +207,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaBNB)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/02hanch")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -222,7 +217,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaPEPE)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/73enow")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -232,7 +227,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaSOL)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/54fled")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -242,7 +237,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaDAI)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/27thio")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -252,7 +247,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaTON)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/22frisk")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -262,7 +257,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaPOL)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/23patas")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -272,7 +267,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaOptimism)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/77salvy")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -282,7 +277,7 @@ fun DonateScreen(onBack: () -> Unit) {
 
             item {
                 val label = stringResource(R.string.DonViaARB)
-                SuperSMPGlassButton(
+                Button(
                     onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/80arui")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -291,7 +286,7 @@ fun DonateScreen(onBack: () -> Unit) {
             }
 
             item {
-                SuperSMPGlassButton(
+                Button(
                     onClick = {
                         context.startActivity(Intent(context, WalletAddressActivity::class.java))
                     },
@@ -312,9 +307,10 @@ private fun DonationInfoCard(
 ) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .superSMPGlass(RoundedCornerShape(24.dp), interactive = false),
-        colors = CardDefaults.cardColors(containerColor = Color.Transparent)
+            .fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = if (primary) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceContainerHighest
+        )
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(

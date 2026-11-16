@@ -6,7 +6,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
@@ -20,8 +19,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.superSMPGlass
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 import com.freetime.ssmpc.ui.viewmodels.ServerStatusViewModel
 import java.util.concurrent.TimeUnit
@@ -76,7 +73,6 @@ fun HomeScreen(
     val isLoading by statusViewModel.isLoading.collectAsState()
     val context = LocalContext.current
     val sharedPreferences = remember { context.getSharedPreferences("ssmpc_prefs", Context.MODE_PRIVATE) }
-    
     val lastVoteTime = sharedPreferences.getLong("last_vote_time", 0L)
     val currentTime = System.currentTimeMillis()
     val timePassed = currentTime - lastVoteTime
@@ -102,7 +98,7 @@ fun HomeScreen(
 
         // Server Status Card
         Card(
-            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
+            modifier = Modifier.fillMaxWidth(),
             colors = CardDefaults.cardColors(
                 containerColor = if (status?.online == true) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer
             )
@@ -117,14 +113,14 @@ fun HomeScreen(
                     Text(text = stringResource(R.string.players_count, status?.players?.online ?: 0, status?.players?.max ?: 0))
                     Text(text = stringResource(R.string.server_version_value, status?.version ?: ""))
                 }
-                SuperSMPGlassButton(onClick = { statusViewModel.refreshStatus("supersmp.fun") }, enabled = !isLoading) {
+                Button(onClick = { statusViewModel.refreshStatus("supersmp.fun") }, enabled = !isLoading) {
                     Text(stringResource(R.string.refresh_status))
                 }
             }
         }
 
         // Vote Reminder Card
-        Card(modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))) {
+        Card(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(text = stringResource(R.string.daily_vote_reminder), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(8.dp))
@@ -134,7 +130,7 @@ fun HomeScreen(
                     val hoursLeft = 24 - TimeUnit.MILLISECONDS.toHours(timePassed)
                     Text(stringResource(R.string.next_vote_hours, hoursLeft))
                 }
-                SuperSMPGlassButton(
+                Button(
                     onClick = { 
                         sharedPreferences.edit().putLong("last_vote_time", System.currentTimeMillis()).apply()
                     },
@@ -146,8 +142,8 @@ fun HomeScreen(
         }
 
         Card(
-            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest)
         ) {
             Column(
                 modifier = Modifier.padding(16.dp)
@@ -166,8 +162,8 @@ fun HomeScreen(
         }
 
         Card(
-            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest)
         ) {
             Column(
                 modifier = Modifier.padding(16.dp)
@@ -186,8 +182,8 @@ fun HomeScreen(
         }
 
         Card(
-            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest)
         ) {
             Column(
                 modifier = Modifier.padding(16.dp)
@@ -205,9 +201,9 @@ fun HomeScreen(
         }
 
         if (onBack != null) {
-            SuperSMPGlassButton(
+            Button(
                 onClick = onBack,
-                modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text(stringResource(R.string.go_back))
             }

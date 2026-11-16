@@ -1,48 +1,27 @@
 package com.freetime.ssmpc.ui.theme
 
-import android.os.Build
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.MaterialExpressiveTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
-import com.freetime.ssmpc.ui.glass.SuperSMPLiquidGlassRoot
-import kotlinx.coroutines.delay
-import java.time.LocalTime
+import com.freetime.design.AppTheme
+import com.freetime.design.ThemeMode
+import com.freetime.design.rememberDarkTheme
+import com.freetime.design.FloatingBottomNavigationGlassRoot
 
-private val DarkColorScheme = darkColorScheme(
+private val DarkColorScheme = androidx.compose.material3.darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80
 )
 
-private val LightColorScheme = lightColorScheme(
+private val LightColorScheme = androidx.compose.material3.lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
     tertiary = Pink40
 )
 
 @Composable
-fun rememberSuperSMPAutomaticDarkTheme(): Boolean {
-    var currentHour by remember { mutableIntStateOf(LocalTime.now().hour) }
-    LaunchedEffect(Unit) {
-        while (true) {
-            currentHour = LocalTime.now().hour
-            delay(60_000)
-        }
-    }
-    return currentHour < 7 || currentHour >= 19
-}
+fun rememberSuperSMPAutomaticDarkTheme(): Boolean = rememberDarkTheme(ThemeMode.AUTO_TIME)
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun SuperSMPTheme(
     darkTheme: Boolean? = null,
@@ -50,21 +29,29 @@ fun SuperSMPTheme(
     oledBlack: Boolean = false,
     content: @Composable () -> Unit
 ) {
-    val automaticDark = rememberSuperSMPAutomaticDarkTheme()
-    val context = LocalContext.current
-    val useDarkTheme = darkTheme ?: automaticDark
-
-    val colorScheme = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-        if (useDarkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-    } else if (useDarkTheme) {
-        DarkColorScheme
-    } else {
-        LightColorScheme
+    val useDarkTheme = darkTheme ?: rememberSuperSMPAutomaticDarkTheme()
+    val themeMode = when {
+        useDarkTheme && oledBlack -> ThemeMode.OLED
+        useDarkTheme -> ThemeMode.DARK
+        else -> ThemeMode.LIGHT
     }
 
-    MaterialExpressiveTheme(
-        colorScheme = colorScheme,
-        typography = GeoTypography,
-        content = { SuperSMPLiquidGlassRoot(content) }
-    )
+    AppTheme(themeMode = themeMode, dynamicColor = dynamicColor) {
+        // AppTheme owns dynamic colors, expressive motion and navigation glass locals.
+        val colors = if (!dynamicColor || android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.S) {
+            val fallback = if (useDarkTheme) DarkColorScheme else LightColorScheme
+            if (themeMode == ThemeMode.OLED) {
+                fallback.copy(
+                    background = androidx.compose.ui.graphics.Color.Black,
+                    surface = androidx.compose.ui.graphics.Color.Black
+                )
+            } else fallback
+        } else MaterialTheme.colorScheme
+
+        MaterialTheme(colorScheme = colors, typography = GeoTypography) {
+            FloatingBottomNavigationGlassRoot {
+                content()
+            }
+        }
+    }
 }

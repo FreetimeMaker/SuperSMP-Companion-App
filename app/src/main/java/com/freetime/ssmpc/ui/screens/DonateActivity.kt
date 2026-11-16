@@ -26,8 +26,6 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
 import com.freetime.ssmpc.PrivacyWebView
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
@@ -65,7 +63,6 @@ class DonateWebViewActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         hideSystemBars()
-        
         val url = intent.getStringExtra("url") ?: "https://ncwallet.net/pay/60misly"
         val title = intent.getStringExtra("title") ?: getString(R.string.donate_title)
 
@@ -135,8 +132,8 @@ fun WebViewScreen(
 
     Scaffold(
         topBar = {
-            SuperSMPGlassTopBar(
-                title = title,
+            TopAppBar(
+                title = { Text(title) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
@@ -167,8 +164,8 @@ fun DonatorScreen(
 ) {
     Scaffold(
         topBar = {
-            SuperSMPGlassTopBar(
-                title = stringResource(R.string.supporters_title),
+            TopAppBar(
+                title = { Text(stringResource(R.string.supporters_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))
@@ -204,7 +201,7 @@ fun DonatorScreen(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
-            SuperSMPGlassButton(
+            Button(
                 onClick = { openDiscordInvite(context) },
                 modifier = Modifier.fillMaxWidth()
             ) {

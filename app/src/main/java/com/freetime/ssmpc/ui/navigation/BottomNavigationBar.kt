@@ -1,12 +1,6 @@
 package com.freetime.ssmpc.ui.navigation
 
-import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Link
@@ -16,19 +10,16 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.PinDrop
 import androidx.compose.material.icons.filled.Terminal
 import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemDefaults
-import androidx.compose.material3.Text
+
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
+
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.superSMPGlass
+import com.freetime.design.FloatingBottomNavigationBar
+import com.freetime.design.FloatingBottomNavigationItem
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -43,25 +34,25 @@ fun BottomNavigationBar(navController: NavController) {
         BottomNavItem("settings", stringResource(R.string.nav_settings), Icons.Default.Settings)
     )
 
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .navigationBarsPadding()
-            .padding(start = 16.dp, end = 16.dp, bottom = 16.dp, top = 8.dp)
-            .superSMPGlass(RoundedCornerShape(50), interactive = false)
-            .horizontalScroll(rememberScrollState())
-            .padding(horizontal = 6.dp, vertical = 2.dp)
-    ) {
-        items.forEach { item ->
-            NavigationBarItem(
-                icon = { Icon(item.icon, contentDescription = item.title) },
-                label = { Text(item.title) },
-                selected = currentRoute == item.route,
-                colors = NavigationBarItemDefaults.colors(indicatorColor = Color.Transparent),
-                onClick = { navigate(navController, item.route) }
+    val tabs = items.dropLast(1)
+    val settings = items.last()
+    // The library's separate action is required; use the existing Settings destination.
+    FloatingBottomNavigationBar(
+        items = tabs.map { item ->
+            FloatingBottomNavigationItem(
+                label = item.title,
+                icon = { Icon(item.icon, contentDescription = item.title) }
             )
-        }
-    }
+        },
+        selectedItemIndex = tabs.indexOfFirst { it.route == currentRoute },
+        onItemSelected = { index -> navigate(navController, tabs[index].route) },
+        searchItem = FloatingBottomNavigationItem(
+            label = settings.title,
+            icon = { Icon(settings.icon, contentDescription = settings.title) }
+        ),
+        onSearchSelected = { navigate(navController, settings.route) },
+        searchSelected = currentRoute == settings.route
+    )
 }
 
 private fun navigate(navController: NavController, route: String) {

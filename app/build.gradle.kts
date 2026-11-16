@@ -46,6 +46,7 @@ kotlin {
 }
 
 dependencies {
+    implementation(libs.freetime.notifications)
     implementation(libs.freetime.core)
     implementation(libs.freetime.design)
     implementation(libs.freetime.browser)

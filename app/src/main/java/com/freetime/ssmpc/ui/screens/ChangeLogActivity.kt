@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -21,9 +20,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassTopBar
-import com.freetime.ssmpc.ui.glass.superSMPGlass
 
 class ChangeLogActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,8 +56,8 @@ fun ReleaseCard(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-        colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+        modifier = modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest)
     ) {
         Column(
             modifier = Modifier
@@ -160,8 +156,8 @@ fun ChangeLogScreen(onBack: () -> Unit) {
 
     Scaffold(
         topBar = {
-            SuperSMPGlassTopBar(
-                title = stringResource(R.string.whats_new_title),
+            TopAppBar(
+                title = { Text(stringResource(R.string.whats_new_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_nav_desc))

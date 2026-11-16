@@ -19,7 +19,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.PrivacyWebView
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class ShopActivity : ComponentActivity() {
@@ -73,7 +72,7 @@ fun ShopScreen(
         )
 
         if (onBack != null) {
-            SuperSMPGlassButton(
+            Button(
                 onClick = onBack,
                 modifier = Modifier
                     .align(Alignment.BottomCenter)

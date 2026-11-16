@@ -23,6 +23,7 @@ compose-bom = "2026.09.00"
 core-ktx = "1.19.1"
 
 [libraries]
+freetime-notifications = { module = "com.freetime:Notifications", version.ref = "freetime" }
 freetime-warn = { module = "com.freetime:FreetimeWarn", version.ref = "freetime" }
 freetime-core = { module = "com.freetime:Core", version.ref = "freetime" }
 freetime-design = { module = "com.freetime:Design", version.ref = "freetime" }

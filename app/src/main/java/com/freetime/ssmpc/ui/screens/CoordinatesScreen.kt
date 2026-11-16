@@ -1,7 +1,5 @@
 package com.freetime.ssmpc.ui.screens
 
-import com.freetime.ssmpc.ui.glass.superSMPGlass
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.lazy.LazyColumn
@@ -30,8 +28,7 @@ fun CoordinatesScreen(viewModel: CoordinatesViewModel = viewModel()) {
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { showAddDialog = true },
-                modifier = Modifier.superSMPGlass(RoundedCornerShape(22.dp)),
-                containerColor = androidx.compose.ui.graphics.Color.Transparent,
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
                 elevation = FloatingActionButtonDefaults.elevation(
                     defaultElevation = 0.dp,
                     pressedElevation = 0.dp,
@@ -64,7 +61,7 @@ fun CoordinatesScreen(viewModel: CoordinatesViewModel = viewModel()) {
 
 @Composable
 fun CoordinateItem(coordinate: CoordinateEntity, onDelete: () -> Unit) {
-    Card(modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp))) {
+    Card(modifier = Modifier.fillMaxWidth()) {
         Row(modifier = Modifier.padding(16.dp), horizontalArrangement = Arrangement.SpaceBetween) {
             Column {
                 Text(text = coordinate.name, style = MaterialTheme.typography.titleMedium)
@@ -89,32 +86,37 @@ fun AddCoordinateDialog(onDismiss: () -> Unit, onAdd: (String, Double, Double, D
     if (dim.isEmpty()) dim = stringResource(R.string.coordinate_default_dimension)
 
     Dialog(onDismissRequest = onDismiss) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .superSMPGlass(RoundedCornerShape(28.dp))
-                .padding(20.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+        Surface(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(28.dp),
+            color = MaterialTheme.colorScheme.surfaceContainerHigh
         ) {
-            Text(stringResource(R.string.add_coordinate), style = MaterialTheme.typography.titleLarge)
-            TextField(value = name, onValueChange = { name = it }, label = { Text(stringResource(R.string.coordinate_name)) })
-            TextField(value = x, onValueChange = { x = it }, label = { Text(stringResource(R.string.coordinate_x)) })
-            TextField(value = y, onValueChange = { y = it }, label = { Text(stringResource(R.string.coordinate_y)) })
-            TextField(value = z, onValueChange = { z = it }, label = { Text(stringResource(R.string.coordinate_z)) })
-            TextField(value = dim, onValueChange = { dim = it }, label = { Text(stringResource(R.string.coordinate_dimension)) })
-            TextField(value = desc, onValueChange = { desc = it }, label = { Text(stringResource(R.string.coordinate_description)) })
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
-                SuperSMPGlassButton(onClick = {
-                    onAdd(
-                        name,
-                        x.toDoubleOrNull() ?: 0.0,
-                        y.toDoubleOrNull() ?: 0.0,
-                        z.toDoubleOrNull() ?: 0.0,
-                        dim,
-                        desc
-                    )
-                }) { Text(stringResource(R.string.add)) }
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Text(stringResource(R.string.add_coordinate), style = MaterialTheme.typography.titleLarge)
+                TextField(value = name, onValueChange = { name = it }, label = { Text(stringResource(R.string.coordinate_name)) })
+                TextField(value = x, onValueChange = { x = it }, label = { Text(stringResource(R.string.coordinate_x)) })
+                TextField(value = y, onValueChange = { y = it }, label = { Text(stringResource(R.string.coordinate_y)) })
+                TextField(value = z, onValueChange = { z = it }, label = { Text(stringResource(R.string.coordinate_z)) })
+                TextField(value = dim, onValueChange = { dim = it }, label = { Text(stringResource(R.string.coordinate_dimension)) })
+                TextField(value = desc, onValueChange = { desc = it }, label = { Text(stringResource(R.string.coordinate_description)) })
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
+                    Button(onClick = {
+                        onAdd(
+                            name,
+                            x.toDoubleOrNull() ?: 0.0,
+                            y.toDoubleOrNull() ?: 0.0,
+                            z.toDoubleOrNull() ?: 0.0,
+                            dim,
+                            desc
+                        )
+                    }) { Text(stringResource(R.string.add)) }
+                }
             }
         }
     }

@@ -9,7 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import com.freetime.core.FreetimeCore
 import com.freetime.warn.FreetimeWarn
 import com.freetime.warn.rememberFreetimeWarnState
 import androidx.navigation.compose.rememberNavController
@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
             SuperSMPTheme {
                 val warning = rememberFreetimeWarnState(
                     context = this@MainActivity,
-                    appName = stringResource(R.string.app_name),
+                    appName = FreetimeCore.appName(this@MainActivity),
                     versionCode = BuildConfig.VERSION_CODE.toLong()
                 )
                 FreetimeWarn(state = warning)

@@ -1,16 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <resources>
+    <string name="notification_channel_updates">App updates</string>
+    <string
+        name="notification_channel_updates_description"
+    >New SuperSMP Companion versions on GitHub and F-Droid</string>
+    <string name="notification_channel_changelogs">Release notes</string>
+    <string
+        name="notification_channel_changelogs_description"
+    >Release notes for new SuperSMP Companion versions on GitHub</string>
+    <string name="notification_permission_title">App notifications</string>
+    <string
+        name="notification_permission_explanation"
+    >Allow notifications for app updates and release notes. Public GitHub and F-Droid metadata is checked periodically, about every six hours.</string>
+    <string name="notification_permission_enable">Enable notifications</string>
+    <string
+        name="notification_permission_settings"
+    >Open notification settings</string>
     <string name="app_name">SuperSMP Companion</string>
     <string name="theme_settings_title">Theme Settings</string>
     <string name="follow_system_theme">Follow System Theme</string>
     <string name="force_dark_mode">Force Dark Mode</string>
     <string name="override_system_setting">Override system setting</string>
     <string name="dynamic_color_title">Dynamic Colors (Material You)</string>
-    <string name="dynamic_color_subtitle">Colors based on your wallpaper (Android 12+)</string>
+    <string
+        name="dynamic_color_subtitle"
+    >Colors based on your wallpaper (Android 12+)</string>
     <string name="JoiOffDisSer">Join the Official Discord Server</string>
     <string name="DonPers">No one made a Donation yet.</string>
-    <string name="DonTXT2">If you want to help maintain this and many other Apps simply make a Donation and make a Ticket in my Discord Server with Your Name and the Donation Provider you used and I will then list you here.</string>
-    <string name="DonTXT1">Here are supporters that help maintain this and many other Apps.</string>
+    <string
+        name="DonTXT2"
+    >If you want to help maintain this and many other Apps simply make a Donation and make a Ticket in my Discord Server with Your Name and the Donation Provider you used and I will then list you here.</string>
+    <string
+        name="DonTXT1"
+    >Here are supporters that help maintain this and many other Apps.</string>
     <string name="DonViaOxaPay">Donate via OxaPay</string>
     <string name="DonViaBTC">Donate via Bitcoin</string>
     <string name="DonViaETH">Donate via Ethereum</string>
@@ -41,7 +63,9 @@
     <string name="open_donation_screen">Open Donation Screen</string>
     <string name="donate_title">Donate</string>
     <string name="support_development">Support development</string>
-    <string name="select_option_msg">Choose one of the following options to support the project.</string>
+    <string
+        name="select_option_msg"
+    >Choose one of the following options to support the project.</string>
     <string name="crypto_label">Cryptocurrencies</string>
     <string name="cash_label">Cash &amp; Others</string>
     <string name="supporters_title">Supporters</string>
@@ -50,21 +74,37 @@
     <string name="copy_address">Copy Address</string>
     <string name="address_copied">Address copied to clipboard</string>
     <string name="about_developer_title">About the Developer</string>
-    <string name="about_developer_text">Hi! I\'m Freetime Maker, the creator of the SuperSMP Companion App. I started this project to provide a better experience for the SuperSMP community. This app is developed in my spare time with passion for open-source software. Your support allows me to keep improving it and exploring new features for the community!</string>
-    <string name="donation_mission_title">Why support SuperSMP Companion?</string>
-    <string name="donation_mission_text">SuperSMP Companion is 100% free, open-source, and has no ads or trackers. Your donations help cover infrastructure costs and support the ongoing development of this and other community-focused apps. Every contribution, no matter how small, keeps this project alive. Thank you! ❤️</string>
+    <string
+        name="about_developer_text"
+    >Hi! I\'m Freetime Maker, the creator of the SuperSMP Companion App. I started this project to provide a better experience for the SuperSMP community. This app is developed in my spare time with passion for open-source software. Your support allows me to keep improving it and exploring new features for the community!</string>
+    <string
+        name="donation_mission_title"
+    >Why support SuperSMP Companion?</string>
+    <string
+        name="donation_mission_text"
+    >SuperSMP Companion is 100% free, open-source, and has no ads or trackers. Your donations help cover infrastructure costs and support the ongoing development of this and other community-focused apps. Every contribution, no matter how small, keeps this project alive. Thank you! ❤️</string>
     <string name="oled_black_title">OLED Black Mode</string>
-    <string name="oled_black_subtitle">Pure black background for AMOLED screens</string>
+    <string
+        name="oled_black_subtitle"
+    >Pure black background for AMOLED screens</string>
     <!-- WebView Settings -->
     <string name="webview_settings_title">WebView Settings</string>
     <string name="disable_private_view">Disable Private View</string>
-    <string name="disable_private_view_subtitle">Allow cookies and tracking</string>
+    <string
+        name="disable_private_view_subtitle"
+    >Allow cookies and tracking</string>
     <string name="open_external_browser">Open in External Browser</string>
-    <string name="open_external_browser_subtitle">Open links in external browser instead of app</string>
+    <string
+        name="open_external_browser_subtitle"
+    >Open links in external browser instead of app</string>
     <string name="back_nav_desc">Back</string>
     <string name="go_back">Go Back</string>
-    <string name="links_section_title">Welcome to the Useful Links Section!</string>
-    <string name="links_discord">Join the Official SuperSMP Discord Server</string>
+    <string
+        name="links_section_title"
+    >Welcome to the Useful Links Section!</string>
+    <string
+        name="links_discord"
+    >Join the Official SuperSMP Discord Server</string>
     <string name="links_vote_1">Click here to vote on the 1st Website</string>
     <string name="links_vote_2">Click here to vote on the 2nd Website</string>
     <string name="links_vote_3">Click here to vote on the 3rd Website</string>
@@ -73,7 +113,9 @@
     <string name="links_back_to_links_page">Go Back to the Links Page</string>
     <string name="home_title">SuperSMP Companion</string>
     <string name="home_welcome_title">Welcome to SuperSMP!</string>
-    <string name="home_description">Your unofficial companion app for the SuperSMP Minecraft server. Vote for rewards, browse the shop, view the map, and more!</string>
+    <string
+        name="home_description"
+    >Your unofficial companion app for the SuperSMP Minecraft server. Vote for rewards, browse the shop, view the map, and more!</string>
     <string name="home_server_info_title">Server Information</string>
     <string name="home_ip">IP: supersmp.fun</string>
     <string name="home_port">Port: 19132 (Bedrock)</string>
@@ -89,23 +131,49 @@
     <string name="server_land_claim_commands_title">Land Claim Commands</string>
     <!-- Basic server commands -->
     <string name="server_basic_cmd_1">/spawn - Teleport to spawn</string>
-    <string name="server_basic_cmd_2">/rtp - Telport to a random location</string>
-    <string name="server_basic_cmd_3">/home - Teleport to your home if you have one</string>
+    <string
+        name="server_basic_cmd_2"
+    >/rtp - Telport to a random location</string>
+    <string
+        name="server_basic_cmd_3"
+    >/home - Teleport to your home if you have one</string>
     <string name="server_basic_cmd_4">/sethome - Set your home location</string>
-    <string name="server_basic_cmd_5">/warp &lt;name&gt; - Teleport to warp</string>
-    <string name="server_basic_cmd_6">/pwarp &lt;name&gt; - Teleport to a players warp</string>
+    <string
+        name="server_basic_cmd_5"
+    >/warp &lt;name&gt; - Teleport to warp</string>
+    <string
+        name="server_basic_cmd_6"
+    >/pwarp &lt;name&gt; - Teleport to a players warp</string>
     <string name="server_basic_cmd_7">/pvp - Activate/Deactivate PVP</string>
-    <string name="server_basic_cmd_8">/tpask &lt;player&gt; - Send teleport request</string>
-    <string name="server_basic_cmd_9">/tpaccept - Accept teleport request</string>
+    <string
+        name="server_basic_cmd_8"
+    >/tpask &lt;player&gt; - Send teleport request</string>
+    <string
+        name="server_basic_cmd_9"
+    >/tpaccept - Accept teleport request</string>
     <string name="server_basic_cmd_10">/tpadeny - Deny teleport request</string>
-    <string name="server_basic_cmd_11">/msg &lt;player&gt; &lt;message&gt; - Talk to a Player Privately</string>
-    <string name="server_basic_cmd_12">/warp center - Go to Welcome Center</string>
-    <string name="server_basic_cmd_13">/kiss &lt;player&gt; - Kiss a player</string>
-    <string name="server_basic_cmd_14">/warp arena - Teleport to Arena for fighting against other Players</string>
-    <string name="server_basic_cmd_15">/fly - Activate/Deactivate flying</string>
-    <string name="server_basic_cmd_16">/trash - Dispose of useless items</string>
+    <string
+        name="server_basic_cmd_11"
+    >/msg &lt;player&gt; &lt;message&gt; - Talk to a Player Privately</string>
+    <string
+        name="server_basic_cmd_12"
+    >/warp center - Go to Welcome Center</string>
+    <string
+        name="server_basic_cmd_13"
+    >/kiss &lt;player&gt; - Kiss a player</string>
+    <string
+        name="server_basic_cmd_14"
+    >/warp arena - Teleport to Arena for fighting against other Players</string>
+    <string
+        name="server_basic_cmd_15"
+    >/fly - Activate/Deactivate flying</string>
+    <string
+        name="server_basic_cmd_16"
+    >/trash - Dispose of useless items</string>
     <string name="server_basic_cmd_17">/wb - Welcome a Player back</string>
-    <string name="server_basic_cmd_18">/warp crates - Open crates when you get keys</string>
+    <string
+        name="server_basic_cmd_18"
+    >/warp crates - Open crates when you get keys</string>
     <!-- Navigation labels -->
     <string name="nav_home">Home</string>
     <string name="nav_cmds">Cmds</string>
@@ -117,13 +185,23 @@
     <string name="nav_wiki">Wiki</string>
 
     <string name="changelog_v1_5_0_title">v1.5.0</string>
-    <string name="changelog_v1_5_0_1">Added new Donation Screen with more options</string>
-    <string name="changelog_v1_5_0_2">Added Wallet Addresses for various Cryptocurrencies</string>
-    <string name="changelog_v1_5_0_3">Added OLED Black Mode for AMOLED screens</string>
-    <string name="changelog_v1_5_0_4">Added WebView Settings (Private View &amp; External Browser)</string>
+    <string
+        name="changelog_v1_5_0_1"
+    >Added new Donation Screen with more options</string>
+    <string
+        name="changelog_v1_5_0_2"
+    >Added Wallet Addresses for various Cryptocurrencies</string>
+    <string
+        name="changelog_v1_5_0_3"
+    >Added OLED Black Mode for AMOLED screens</string>
+    <string
+        name="changelog_v1_5_0_4"
+    >Added WebView Settings (Private View &amp; External Browser)</string>
 
     <string name="changelog_v1_4_4_title">v1.4.4</string>
-    <string name="changelog_v1_4_4_1">Fixed the Monochrome Icon (Hopefully)</string>
+    <string
+        name="changelog_v1_4_4_1"
+    >Fixed the Monochrome Icon (Hopefully)</string>
 
     <string name="changelog_v1_4_3_title">v1.4.3</string>
     <string name="changelog_v1_4_3_1">Fixed Hopefully the App Icon</string>
@@ -132,11 +210,15 @@
     <string name="changelog_v1_4_2_1">Fixed Icon pixeling</string>
 
     <string name="changelog_v1_4_1_title">v1.4.1</string>
-    <string name="changelog_v1_4_1_1">Fixed the Monochrome Icon not rendering</string>
+    <string
+        name="changelog_v1_4_1_1"
+    >Fixed the Monochrome Icon not rendering</string>
 
     <string name="changelog_v1_4_0_title">v1.4.0</string>
     <string name="changelog_v1_4_0_1">Added Monochrome Icon</string>
-    <string name="changelog_v1_4_0_2">Fixed Donations not Opening via WebView</string>
+    <string
+        name="changelog_v1_4_0_2"
+    >Fixed Donations not Opening via WebView</string>
 
     <string name="changelog_v1_3_0_title">v1.3.0</string>
     <string name="changelog_v1_3_0_1">Added ChangeLog</string>
@@ -144,18 +226,28 @@
     <string name="changelog_v1_3_0_3">Added more Commands</string>
     <!-- Economy server commands -->
     <string name="server_econ_cmd_1">/bal - Check your balance</string>
-    <string name="server_econ_cmd_2">/pay &lt;player&gt; &lt;amount&gt; - Pay someone</string>
+    <string
+        name="server_econ_cmd_2"
+    >/pay &lt;player&gt; &lt;amount&gt; - Pay someone</string>
     <string name="server_econ_cmd_3">/baltop - Top balances</string>
     <string name="server_econ_cmd_4">/shop - Buy or Sell Items</string>
-    <string name="server_econ_cmd_5">/sellg - Quickly sell items within a GUI</string>
+    <string
+        name="server_econ_cmd_5"
+    >/sellg - Quickly sell items within a GUI</string>
     <!-- Land claim commands -->
     <string name="server_land_cmd_1">/claim - Claim current chunk</string>
     <string name="server_land_cmd_2">/unclaim - Unclaim current chunk</string>
     <string name="server_land_cmd_3">/claims - List your claims</string>
-    <string name="server_land_cmd_4">/trust &lt;player&gt; - Trust player</string>
-    <string name="server_land_cmd_5">/untrust &lt;player&gt; - Untrust player</string>
+    <string
+        name="server_land_cmd_4"
+    >/trust &lt;player&gt; - Trust player</string>
+    <string
+        name="server_land_cmd_5"
+    >/untrust &lt;player&gt; - Untrust player</string>
     <string name="server_land_cmd_6">/trustlist - List trusted players</string>
-    <string name="server_land_cmd_7">/land ban &lt;player&gt; - Ban a Player from your land</string>
+    <string
+        name="server_land_cmd_7"
+    >/land ban &lt;player&gt; - Ban a Player from your land</string>
     <string name="server_land_cmd_8">/land delete - Delete your land</string>
     <!-- Extracted UI strings -->
     <string name="server_online">Server Online</string>
@@ -166,7 +258,9 @@
     <string name="refresh_status">Refresh Status</string>
     <string name="daily_vote_reminder">Daily Vote Reminder</string>
     <string name="vote_available">You can vote now for rewards!</string>
-    <string name="next_vote_hours">Next vote available in approx. %1$d hours.</string>
+    <string
+        name="next_vote_hours"
+    >Next vote available in approx. %1$d hours.</string>
     <string name="vote_confirm">I just voted!</string>
     <string name="add_coordinate">Add Coordinate</string>
     <string name="delete_coordinate">Delete</string>
@@ -185,38 +279,82 @@
     <string name="theme_dark">Dark</string>
     <string name="nav_more">More</string>
     <string name="github_sponsors">GitHub Sponsors</string>
-    <string name="github_sponsors_description">Support the project monthly or one-time via GitHub.</string>
+    <string
+        name="github_sponsors_description"
+    >Support the project monthly or one-time via GitHub.</string>
     <string name="other_options">Other Options</string>
     <string name="nowpayments">NOWPayments</string>
     <string name="oxapay">OxaPay</string>
 
     <!-- Changelog and defaults extracted from Kotlin -->
-    <string name="changelog_v2_0_0_1">Added Liquid Glass throughout the app</string>
-    <string name="changelog_v2_0_0_2">Redesigned cards, buttons, dialogs, top bars, and navigation</string>
-    <string name="changelog_v2_0_0_3">Added interactive Glass effects and animations</string>
-    <string name="changelog_v2_0_0_4">Added a new floating bottom navigation bar</string>
+    <string
+        name="changelog_v2_0_0_1"
+    >Added Liquid Glass throughout the app</string>
+    <string
+        name="changelog_v2_0_0_2"
+    >Redesigned cards, buttons, dialogs, top bars, and navigation</string>
+    <string
+        name="changelog_v2_0_0_3"
+    >Added interactive Glass effects and animations</string>
+    <string
+        name="changelog_v2_0_0_4"
+    >Added a new floating bottom navigation bar</string>
     <string name="changelog_v2_0_0_5">Improved Material You integration</string>
     <string name="changelog_v2_0_0_6">Simplified the main navigation</string>
-    <string name="changelog_v2_0_0_7">Added a More menu for Links, Shop, Map, and Settings</string>
-    <string name="changelog_v2_0_0_8">Improved navigation and back controls across the app</string>
-    <string name="changelog_v2_0_0_9">Added Automatic, Light, and Dark theme modes</string>
-    <string name="changelog_v2_0_0_10">Automatic mode switches between light and dark based on the time of day</string>
-    <string name="changelog_v2_0_0_11">Unified theme handling across all screens and activities</string>
-    <string name="changelog_v2_0_0_12">Improved the Map screen and WebView rendering</string>
-    <string name="changelog_v2_0_0_13">Fixed the map turning white or black</string>
-    <string name="changelog_v2_0_0_14">Added DOM storage and other required WebView features</string>
-    <string name="changelog_v2_0_0_15">Improved zoom and viewport behavior</string>
-    <string name="changelog_v2_0_0_16">Redesigned the Coordinates dialog</string>
-    <string name="changelog_v2_0_0_17">Improved Home, Settings, Commands, Coordinates, Donation, Wallet, and Changelog screens</string>
-    <string name="changelog_v2_0_0_18">Improved WebView controls and fullscreen screens</string>
-    <string name="changelog_v2_0_0_19">Added better support for edge-to-edge layouts</string>
+    <string
+        name="changelog_v2_0_0_7"
+    >Added a More menu for Links, Shop, Map, and Settings</string>
+    <string
+        name="changelog_v2_0_0_8"
+    >Improved navigation and back controls across the app</string>
+    <string
+        name="changelog_v2_0_0_9"
+    >Added Automatic, Light, and Dark theme modes</string>
+    <string
+        name="changelog_v2_0_0_10"
+    >Automatic mode switches between light and dark based on the time of day</string>
+    <string
+        name="changelog_v2_0_0_11"
+    >Unified theme handling across all screens and activities</string>
+    <string
+        name="changelog_v2_0_0_12"
+    >Improved the Map screen and WebView rendering</string>
+    <string
+        name="changelog_v2_0_0_13"
+    >Fixed the map turning white or black</string>
+    <string
+        name="changelog_v2_0_0_14"
+    >Added DOM storage and other required WebView features</string>
+    <string
+        name="changelog_v2_0_0_15"
+    >Improved zoom and viewport behavior</string>
+    <string
+        name="changelog_v2_0_0_16"
+    >Redesigned the Coordinates dialog</string>
+    <string
+        name="changelog_v2_0_0_17"
+    >Improved Home, Settings, Commands, Coordinates, Donation, Wallet, and Changelog screens</string>
+    <string
+        name="changelog_v2_0_0_18"
+    >Improved WebView controls and fullscreen screens</string>
+    <string
+        name="changelog_v2_0_0_19"
+    >Added better support for edge-to-edge layouts</string>
     <string name="changelog_v2_0_0_20">Fixed several UI issues</string>
-    <string name="changelog_v2_0_0_21">Fixed various Kotlin and layout issues</string>
-    <string name="changelog_v2_0_0_22">Improved compatibility with older Android versions</string>
-    <string name="changelog_v2_0_0_23">General code cleanup and consistency improvements</string>
+    <string
+        name="changelog_v2_0_0_21"
+    >Fixed various Kotlin and layout issues</string>
+    <string
+        name="changelog_v2_0_0_22"
+    >Improved compatibility with older Android versions</string>
+    <string
+        name="changelog_v2_0_0_23"
+    >General code cleanup and consistency improvements</string>
     <string name="changelog_v1_6_1_1">Deleted News Section</string>
     <string name="changelog_v1_6_1_2">Removed FreetimeSDK</string>
     <string name="changelog_v1_6_0_1">Added FreetimeSDK for Donations</string>
-    <string name="changelog_v1_6_0_2">Added something where you can save your Coordinates</string>
+    <string
+        name="changelog_v1_6_0_2"
+    >Added something where you can save your Coordinates</string>
     <string name="coordinate_default_dimension">Overworld</string>
 </resources>

@@ -7,7 +7,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
@@ -25,8 +24,6 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.superSMPGlass
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class SettingsActivity : ComponentActivity() {
@@ -89,10 +86,10 @@ fun SettingsScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            SuperSMPGlassButton(
+            Button(
                 onClick = {
                     context.startActivity(Intent(context, DonateActivity::class.java))
                 },
@@ -100,7 +97,7 @@ fun SettingsScreen(
             ) {
                 Text(stringResource(R.string.open_donation_screen))
             }
-            SuperSMPGlassButton(
+            Button(
                 onClick = {
                     context.startActivity(Intent(context, ChangeLogActivity::class.java))
                 },
@@ -110,10 +107,12 @@ fun SettingsScreen(
             }
         }
 
+        com.freetime.ssmpc.NotificationPermissionHelper(modifier = Modifier.fillMaxWidth())
+
         Text(text = stringResource(R.string.webview_settings_title), style = MaterialTheme.typography.headlineSmall)
         Card(
-            modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
-            colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent)
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHighest)
         ) {
             Column(
                 modifier = Modifier.padding(16.dp),
@@ -154,7 +153,7 @@ fun SettingsToggle(
     onCheckedChange: (Boolean) -> Unit
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth().superSMPGlass(RoundedCornerShape(24.dp)),
+        modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {

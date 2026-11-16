@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+>
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".SuperSMPApplication"
@@ -13,20 +17,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+    >
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true"
+        >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/file_paths"
+            />
         </provider>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+        >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,52 +42,68 @@
         </activity>
         <activity
             android:name=".ui.screens.LinksActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.Vote1Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.Vote2Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.Vote3Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.Vote4Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.Vote5Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.DonateActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.DonateWebViewActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.DonatorActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.WalletAddressActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.ChangeLogActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.SettingsActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.HomeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.MapActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.ShopActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
         <activity
             android:name=".ui.screens.ServerCommandActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+        />
     </application>
 
 </manifest>

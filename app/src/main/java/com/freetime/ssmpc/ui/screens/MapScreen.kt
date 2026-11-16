@@ -24,7 +24,6 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.freetime.ssmpc.R
-import com.freetime.ssmpc.ui.glass.SuperSMPGlassButton
 import com.freetime.ssmpc.ui.theme.SuperSMPTheme
 
 class MapActivity : ComponentActivity() {
@@ -98,7 +97,7 @@ fun MapScreen(
         )
 
         if (onBack != null) {
-            SuperSMPGlassButton(
+            Button(
                 onClick = onBack,
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
