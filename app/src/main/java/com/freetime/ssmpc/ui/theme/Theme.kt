@@ -1,7 +1,8 @@
 package com.freetime.ssmpc.ui.theme
 
 import android.os.Build
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -41,6 +42,7 @@ fun rememberSuperSMPAutomaticDarkTheme(): Boolean {
     return currentHour < 7 || currentHour >= 19
 }
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun SuperSMPTheme(
     darkTheme: Boolean? = null,
@@ -60,7 +62,7 @@ fun SuperSMPTheme(
         LightColorScheme
     }
 
-    MaterialTheme(
+    MaterialExpressiveTheme(
         colorScheme = colorScheme,
         typography = GeoTypography,
         content = { SuperSMPLiquidGlassRoot(content) }
