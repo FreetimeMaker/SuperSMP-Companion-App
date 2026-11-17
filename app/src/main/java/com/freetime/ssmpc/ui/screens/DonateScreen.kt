@@ -128,7 +128,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaBTC)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/60misly")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/60misly")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -138,7 +138,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaETH)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/86fremd")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/86fremd")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -148,7 +148,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaUSDT)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/19tacit")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/19tacit")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -158,7 +158,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaUSDC)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/15snog")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/15snog")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -168,7 +168,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaSHIB)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/18spile")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/18spile")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -178,7 +178,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaDOGE)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/30allie")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/30allie")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -188,7 +188,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonateViaTRON)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/15gown")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/15gown")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -198,7 +198,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaLTC)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/77pudgy")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/77pudgy")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -208,7 +208,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaBNB)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/02hanch")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/02hanch")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -218,7 +218,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaPEPE)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/73enow")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/73enow")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -228,7 +228,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaSOL)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/54fled")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/54fled")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -238,7 +238,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaDAI)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/27thio")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/27thio")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -248,7 +248,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaTON)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/22frisk")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/22frisk")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -258,7 +258,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaPOL)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/23patas")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/23patas")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -268,7 +268,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaOptimism)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/77salvy")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/77salvy")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)
@@ -278,7 +278,7 @@ fun DonateScreen(onBack: () -> Unit) {
             item {
                 val label = stringResource(R.string.DonViaARB)
                 Button(
-                    onClick = { openTarget(DonationTarget.Link(label, "https://ncwallet.net/pay/80arui")) },
+                    onClick = { openTarget(DonationTarget.Link(label, "https://nc-wallet.com/pay/80arui")) },
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(label)

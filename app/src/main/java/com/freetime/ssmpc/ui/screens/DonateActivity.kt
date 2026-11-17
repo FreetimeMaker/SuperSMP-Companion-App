@@ -63,7 +63,7 @@ class DonateWebViewActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         hideSystemBars()
-        val url = intent.getStringExtra("url") ?: "https://ncwallet.net/pay/60misly"
+        val url = intent.getStringExtra("url") ?: "https://nc-wallet.com/pay/60misly"
         val title = intent.getStringExtra("title") ?: getString(R.string.donate_title)
 
         setContent {
