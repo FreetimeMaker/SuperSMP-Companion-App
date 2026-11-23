@@ -1,6 +1,5 @@
 package com.freetime.ssmpc.ui.navigation
 
-
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Link
@@ -10,16 +9,14 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.PinDrop
 import androidx.compose.material.icons.filled.Terminal
 import androidx.compose.material3.Icon
-
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
-
 import androidx.compose.ui.res.stringResource
-
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.freetime.ssmpc.R
-import com.freetime.design.FloatingBottomNavigationBar
-import com.freetime.design.FloatingBottomNavigationItem
+
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -34,25 +31,15 @@ fun BottomNavigationBar(navController: NavController) {
         BottomNavItem("settings", stringResource(R.string.nav_settings), Icons.Default.Settings)
     )
 
-    val tabs = items.dropLast(1)
-    val settings = items.last()
-    // The library's separate action is required; use the existing Settings destination.
-    FloatingBottomNavigationBar(
-        items = tabs.map { item ->
-            FloatingBottomNavigationItem(
-                label = item.title,
-                icon = { Icon(item.icon, contentDescription = item.title) }
+    NavigationBar {
+        items.forEach { item ->
+            NavigationBarItem(
+                selected = item.route == currentRoute,
+                onClick = { navigate(navController, item.route) },
+                icon = { Icon(item.icon, contentDescription = item.title) },
             )
-        },
-        selectedItemIndex = tabs.indexOfFirst { it.route == currentRoute },
-        onItemSelected = { index -> navigate(navController, tabs[index].route) },
-        searchItem = FloatingBottomNavigationItem(
-            label = settings.title,
-            icon = { Icon(settings.icon, contentDescription = settings.title) }
-        ),
-        onSearchSelected = { navigate(navController, settings.route) },
-        searchSelected = currentRoute == settings.route
-    )
+        }
+    }
 }
 
 private fun navigate(navController: NavController, route: String) {
